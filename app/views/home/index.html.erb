@@ -1,0 +1,110 @@
+<body class="smoothscroll enable-animation">
+    <!-- wrapper -->
+    <div id="wrapper">
+      <!-- 
+				AVAILABLE HEADER CLASSES
+
+				Default nav height: 96px
+				.header-md 		= 70px nav height
+				.header-sm 		= 60px nav height
+
+				.b-0 		= remove bottom border (only with transparent use)
+				.transparent	= transparent header
+				.translucent	= translucent header
+				.sticky			= sticky header
+				.static			= static header
+				.dark			= dark header
+				.bottom			= header on bottom
+				
+				shadow-before-1 = shadow 1 header top
+				shadow-after-1 	= shadow 1 header bottom
+				shadow-before-2 = shadow 2 header top
+				shadow-after-2 	= shadow 2 header bottom
+				shadow-before-3 = shadow 3 header top
+				shadow-after-3 	= shadow 3 header bottom
+
+				.clearfix		= required for mobile menu, do not remove!
+
+				Example Usage:  class="clearfix sticky header-sm transparent b-0"
+			-->
+      <div id="header" class="navbar-toggleable-md sticky header-md clearfix">
+        <!-- TOP NAV -->
+        <header id="topNav">
+          <div class="container">
+            <!-- Mobile Menu Button -->
+            <button
+              class="btn btn-mobile"
+              data-toggle="collapse"
+              data-target=".nav-main-collapse"
+            >
+              <i class="fa fa-bars"></i>
+            </button>
+
+            <!-- Logo -->
+            <a class="logo float-left scrollTo" href="#top">
+              <%# <img src="demo_files/images/R2.png" alt="" /> %>
+              <%= image_tag("R2.png") %>  
+            </a>
+
+            <!-- 
+							Top Nav 
+							
+							AVAILABLE CLASSES:
+							submenu-dark = dark sub menu
+						-->
+            <div
+              class="navbar-collapse collapse float-right nav-main-collapse submenu-dark"
+            >
+              <nav class="nav-main">
+                <!-- 
+									.nav-onepage
+									Required for onepage navigation links
+									
+									Add .external for an external link!
+								-->
+                <ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+                  <li class="active">
+                    <!-- HOME -->
+                    <a id='home-nav' href="#home-navigation">
+                      HOME
+                    </a>
+                  </li>
+                  <li>
+                    <!-- SERVICES -->
+                    <a id='services-nav' href="#services-navigation">
+                      SERVICES
+                    </a>
+                  </li>
+                  <li>
+                    <!-- PORTFOLIO -->
+                    <a id='portfolio-nav' href="#portfolio-navigation">
+                      PORTFOLIO
+                    </a>
+                  </li>
+                  <li>
+                    <!-- NEWS -->
+                    <a id='news-nav' href="#news-navigation">
+                      NEWS
+                    </a>
+                  </li>
+                  <li>
+                    <!-- CLIENTS -->
+                    <a id='clients-nav' href="#clients-navigation">
+                      CLIENTS
+                    </a>
+                  </li>
+                  <li>
+                    <!-- CONTACT -->
+                    <a id='contact-nav' href="#contact-navigation">
+                      CONTACT
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </header>
+        <!-- /Top Nav -->
+      </div>
+
+</body>
