@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'bootstrap-sass', '~> 3.3.4'
+gem 'font-awesome-sass', '~> 4.3.0'
+gem 'jquery-ui-rails'
+gem 'bootstrap-social-rails'
+
 ruby '2.6.6'
 
 gem 'devise'
