@@ -8,6 +8,7 @@ gem 'bootstrap-social-rails'
 
 ruby '2.6.6'
 
+
 gem 'devise'
 
 gem 'bootstrap', '~> 4.0.0'
