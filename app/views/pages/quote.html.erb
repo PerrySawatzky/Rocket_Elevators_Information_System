@@ -1,0 +1,476 @@
+
+<h1>Pages#quote</h1>
+<p>Find me in app/views/pages/quote.html.erb</p>
+<%= link_to 'Home Page', root_path, class:"navbar-brand"%>
+
+	<body class="smoothscroll enable-animation">
+
+		
+
+		<!-- wrapper -->
+		<div id="wrapper">
+
+			<!-- 
+				AVAILABLE HEADER CLASSES
+
+				Default nav height: 96px
+				.header-md 		= 70px nav height
+				.header-sm 		= 60px nav height
+
+				.b-0 		= remove bottom border (only with transparent use)
+				.transparent	= transparent header
+				.translucent	= translucent header
+				.sticky			= sticky header
+				.static			= static header
+				.dark			= dark header
+				.bottom			= header on bottom
+				
+				shadow-before-1 = shadow 1 header top
+				shadow-after-1 	= shadow 1 header bottom
+				shadow-before-2 = shadow 2 header top
+				shadow-after-2 	= shadow 2 header bottom
+				shadow-before-3 = shadow 3 header top
+				shadow-after-3 	= shadow 3 header bottom
+
+				.clearfix		= required for mobile menu, do not remove!
+
+				Example Usage:  class="clearfix sticky header-sm transparent b-0"
+			-->
+			<div id="header" class="navbar-toggleable-md sticky header-md clearfix">
+
+				<!-- TOP NAV -->
+				<header id="topNav">
+					<div class="container">
+
+						<!-- Mobile Menu Button -->
+						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+							<i class="fa fa-bars"></i>
+						</button>
+
+						<!-- Logo -->
+						<a class="logo float-left scrollTo" href="#top">
+							<%= image_tag("R2.png")%>
+                            
+						</a>
+
+						<!-- 
+							Top Nav 
+							
+							AVAILABLE CLASSES:
+							submenu-dark = dark sub menu
+						-->
+						<div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
+							<nav class="nav-main">
+
+								<!-- 
+									.nav-onepage
+									Required for onepage navigation links
+									
+									Add .external for an external link!
+								-->
+								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
+									<li class="active">
+									  <!-- HOME -->
+									  <a id='home-nav' href="index.html">
+										HOME
+									  </a>
+									</li>
+									<li>
+									  <!-- SERVICES -->
+									  <a id='services-nav' href="index.html#services-navigation">
+										SERVICES
+									  </a>
+									</li>
+									<li>
+									  <!-- PORTFOLIO -->
+									  <a id='portfolio-nav' href="index.html#portfolio-navigation">
+										PORTFOLIO
+									  </a>
+									</li>
+									<li>
+									  <!-- NEWS -->
+									  <a id='news-nav' href="index.html#news-navigation">
+										NEWS
+									  </a>
+									</li>
+									<li>
+									  <!-- CLIENTS -->
+									  <a id='clients-nav' href="index.html#clients-navigation">
+										CLIENTS
+									  </a>
+									</li>
+									<li>
+									  <!-- CONTACT -->
+									  <a id='contacts-nav' href="index.html#contact-navigation">
+										CONTACT
+									  </a>
+									</li>
+								  </ul>
+
+							</nav>
+						</div>
+
+					</div>
+				</header>
+				<!-- /Top Nav -->
+
+			</div>
+
+
+
+			<!-- REVOLUTION SLIDER -->
+			<div class="slider fullwidthbanner-container roundedcorners">
+				<!--
+					Navigation Styles:
+					
+						data-navigationStyle="" theme default navigation
+						
+						data-navigationStyle="preview1"
+						data-navigationStyle="preview2"
+						data-navigationStyle="preview3"
+						data-navigationStyle="preview4"
+						
+					Bottom Shadows
+						data-shadow="1"
+						data-shadow="2"
+						data-shadow="3"
+						
+					Slider Height (do not use on fullscreen mode)
+						data-height="300"
+						data-height="350"
+						data-height="400"
+						data-height="450"
+						data-height="500"
+						data-height="550"
+						data-height="600"
+						data-height="650"
+						data-height="700"
+						data-height="750"
+						data-height="800"
+				-->
+                              
+                
+		   <section id="quote_form">
+			<%# <div class="container pt-30 pb-30">
+
+				<div class="row">
+
+					<div class="col-md-6">
+					<form action="" id="quoteForm_">
+						<div>
+							<select onchange="getBuildingType()" id="building-type">
+								<option value="" disabled selected>Select Building Type</option>
+								<option id="residential" value="residential1">Residential</option>
+								<option id="commercial" value="commercial1">Commercial</option>
+								<option id="corporate" value="corporate1">Corporate</option>
+								<option id="hybrid" value="hybrid1">Hybrid</option>
+							</select>
+						</div>
+
+						<div class="fs-grid">
+							<div id="residential1" class="building_type">
+								<div id=resultsInputsID_dropdown_residential >
+									<label class="fs-16">Product Line *</label>
+									<select onchange="getInstallationFees(),getElevatorTotalPrice(),getElevatorUnitPrice(),getFinalPrice()"  id="resultsInputsIDResidential" class="form-control">
+										<option value="" disabled selected>Select Product Line</option>
+										<option value="standard">Standard</option>
+										<option value="premium">Premium</option>
+										<option value="excelium">Excelium</option>
+										
+									</select>
+								</div>
+								<div id="number-of-apartments" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Apartments *</label>
+									<input oninput="getElevatorAmount(),getElevatorTotalPrice(),getInstallationFees(),getFinalPrice()" id="numberOfApartmentsResidential" type="text" class="form-control" value="">
+								</div>
+								<div id="number-of-floors" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Floors *</label>
+									<input oninput="getElevatorAmount(),getElevatorTotalPrice(),getInstallationFees(),getFinalPrice()" id="numberOfFloorsResidential" type="text" class="form-control" value="">
+								</div>
+								
+								<div id="number-of-basements" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Basements</label>
+									<input id="numberOfBasementsResidential" type="text" class="form-control" value="">
+								</div>
+							</div>
+							<div id="commercial1" class="building_type">
+								<div id=resultsInputsID_dropdown_commercial >
+									<label class="fs-16">Product Line *</label>
+									<select onchange="getCommercialElevatorUnitPrice(),getElevatorTotalPriceCom(),getInstallationFeesCom(),getFinalPriceCom()" id="resultsInputsIDCommercial" class="form-control">
+										<option value="" disabled selected>Select Product Line</option>
+										<option value="standard">Standard</option>
+										<option value="premium">Premium</option>
+										<option value="excelium">Excelium</option>
+									</select>
+								</div>
+								<div id="number-of-elevators" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Elevators *</label>
+									<input oninput="getElevatorTotalPriceCom(),getElevatorAmountCom2(),getInstallationFeesCom(),getFinalPriceCom()" id="numberOfElevatorsCommercial" type="text" class="form-control" value="">
+								</div>
+								<div id="number-of-floors" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Floors</label>
+									<input id="numberOfFloorsCommercial" type="text" class="form-control" value="">
+								</div>
+								
+								<div id="number-of-basements" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Basements</label>
+									<input id="numberOfBasementsCommercial" type="text" class="form-control" value="">
+								</div>
+								<div id="number-of-companies" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Companies</label>
+									<input id="numberOfCompaniesCommercial" type="text" class="form-control" value="">
+								</div>
+								<div id="number-of-parking-spots" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Parking Spots</label>
+									<input id="numberOfParkingSpotsCommercial" type="text" class="form-control" value="">
+								</div>
+							</div>
+							<div id="corporate1" class="building_type">
+								<div id=resultsInputsID_dropdown_corporate >
+									<label class="fs-16">Product Line *</label>
+									<select onchange="getCorporateElevatorUnitPrice(),getElevatorTotalPriceCorp(),getInstallationFeesCorp(),getFinalPriceCorp()" id="resultsInputsIDCorporate" class="form-control">
+										<option value="" disabled selected>Select Product Line</option>
+										<option value="standard">Standard</option>
+										<option value="premium">Premium</option>
+										<option value="excelium">Excelium</option>
+										
+									</select>
+								</div>
+								<div id="number-of-floors" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Floors *</label>
+									<input oninput="getElevatorAmountCorp(),getElevatorTotalPriceCorp(),getInstallationFeesCorp(),getFinalPriceCorp()" id="numberOfFloorsCorporate" type="text" class="form-control" value="">
+								</div>
+								<div id="number-of-basements" oninput="getElevatorAmountCorp(),getElevatorTotalPriceCorp(),getInstallationFeesCorp(),getFinalPriceCorp()" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Basements *</label>
+									<input id="numberOfBasementsCorporate" type="text" class="form-control" value="">
+								</div>
+								<div id="maximum-occupancy" class="col-sm-8 m-0">
+									<label class="fs-16">Maximum Occupancy per Floor *</label>
+									<input oninput="getElevatorAmountCorp(),getElevatorTotalPriceCorp(),getInstallationFeesCorp(),getFinalPriceCorp()" id="maximumOccupancyCorporate" type="text" class="form-control" value="">
+								</div>
+								<div id="number-of-parking-spots" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Parking Spots</label>
+									<input id="numberOfParkingSpotsCorporate" type="text" class="form-control" value="">
+								</div>
+								<div id="number-of-corporations" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Corporations</label>
+									<input id="numberOfCorporationsCorporate" type="text" class="form-control" value="">
+								</div>
+								
+							</div>
+							<div id="hybrid1" class="building_type">
+								<div id=resultsInputsID_dropdown_hybrid>
+									<label class="fs-16">Product Line *</label>
+									<select onchange="getFinalPriceHybrid(),getInstallationFeesHybrid(),getElevatorTotalPriceHybrid(),getElevatorAmountHybrid(),getHybridElevatorUnitPrice()" id="resultsInputsIDHybrid" class="form-control">
+										<option value="" disabled selected>Select Product Line</option>
+										<option value="standard">Standard</option>
+										<option value="premium">Premium</option>
+										<option value="excelium">Excelium</option>
+									</select>
+								</div>
+								<div id="number-of-floors" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Floors *</label>
+									<input oninput="getFinalPriceHybrid(),getInstallationFeesHybrid(),getElevatorTotalPriceHybrid(),getElevatorAmountHybrid()" id="numberOfFloorsHybrid" type="text" class="form-control" value="">
+								</div>
+								<div id="number-of-basements" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Basements *</label>
+									<input oninput="getFinalPriceHybrid(),getInstallationFeesHybrid(),getElevatorTotalPriceHybrid(),getElevatorAmountHybrid()" id="numberOfBasementsHybrid" type="text" class="form-control" value="">
+								</div>
+								<div id="maximum-occupancy" class="col-sm-8 m-0">
+									<label class="fs-16">Maximum Occupancy per Floor *</label>
+									<input oninput="getFinalPriceHybrid(),getInstallationFeesHybrid(),getElevatorTotalPriceHybrid(),getElevatorAmountHybrid()" id="maximumOccupancyHybrid" type="text" class="form-control" value="">
+								</div>
+								<div id="number-of-companies" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Companies</label>
+									<input id="numberOfCompaniesHybrid" type="text" class="form-control" value="">
+								</div>
+								<div id="number-of-parking-spots" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Parking Spots</label>
+									<input id="numberOfParkingSpotsHybrid" type="text" class="form-control" value="">
+								</div>
+								<div id="business-hours" class="col-sm-8 m-0">
+									<label class="fs-16">Business Hours</label>
+									<input id="businessHoursHybrid" type="text" class="form-control" value="">
+								</div>
+							</div>
+						</div>
+					</form>
+						
+
+					</div>
+
+					<div class="col-md-6 mb-30">
+
+
+						<table class="table fs-14 m-0">
+							<tbody>
+								<tr>
+									<div id="elevator-amount">
+									<td class="b-0 p-3">Elevator Amount</td>
+									<td class="b-0 p-3 text-right text-danger fw-800"><span id="result-ElevatorAmount">0</span></td>
+								</div>
+								</tr>
+								<tr>
+									<div id="elevator-unit-price">
+									<td class="b-0 p-3">Elevator Unit Price</td>
+									<td class="b-0 p-3 text-right text-danger fw-800">$<span id="result-ElevatorUnit">0.00</span></td>
+								</div>
+								</tr>
+								<tr>
+									<div id="elevator-total-price">
+									<td class="b-0 p-3">Elevator Total Price</td>
+									<td class="b-0 p-3 text-right text-danger fw-800">$<span id="result-ElevatorPrice">0.00</span></td>
+								</div>
+								</tr>
+								<tr>
+									<div id="installation-fees"> 
+									<td class="b-0 p-3">Installation Fees</td>
+									<td class="b-0 p-3 text-right text-danger fw-800">$<span id="result-ElevatorFees">0.00</span></td>
+								</div>
+								</tr>
+							</tbody>
+						</table>
+
+						<hr />
+
+						<table class="table fs-14 m-0">
+							<tbody>
+								<tr>
+									<div id="final-price">
+									<td class="b-0 p-3">Final Price</td>
+									<td class="b-0 p-3 text-right text-black fw-800">$<span id="result-FinalPrice">0.00</span></td>
+								</div>
+								</tr>
+								
+							</tbody>
+						</table>
+
+
+					</div>
+
+				</div>
+
+			</div>
+		</section>
+                
+                <!-- FOOTER -->
+			<footer id="footer">
+				<div class="container">
+
+
+					<div class="row">
+
+						<!-- col #1 -->
+						<div class="col-md-8">
+
+							<h3 class="letter-spacing-1">WHY US?</h3>
+
+							<!-- Small Description -->
+							<p>
+								We have the conviction that we create the most innovative and reliable products on the market. Contact us today for any questions you might have.
+							</p>
+							<h2>(418) 555-1234</h2>
+						</div>
+						<!-- /col #1 -->
+
+						<!-- col #2 -->
+						<div class="col-md-4">
+							<h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
+
+							<!-- Newsletter Form -->
+							<p>Subscribe to Our Newsletter to get Important News & Offers</p>
+
+							<form class="validate" action="php/newsletter.php" method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+									<input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">
+									<span class="input-group-btn">
+										<button class="btn btn-danger" type="submit">Subscribe</button>
+									</span>
+								</div>
+							</form>
+							<!-- /Newsletter Form -->
+
+
+						</div>
+						<!-- /col #2 -->
+
+					</div>
+
+
+				</div>
+
+				<div class="copyright">
+					<div class="container">
+						<ul class="float-right m-0 list-inline mobile-block">
+							<li><a href="#">Terms &amp; Conditions</a></li>
+							<li>&bull;</li>
+							<li><a href="#">Privacy</a></li>
+						</ul>
+						&copy; All Rights Reserved, Rocket Elevators LTD
+					</div>
+				</div>
+
+			</footer>
+			<!-- /FOOTER -->
+
+		</div> %>
+		<!-- /wrapper -->
+
+
+		<!-- SCROLL TO TOP -->
+		<a href="#" id="toTop"></a>
+
+
+		<!-- PRELOADER -->
+		<div id="preloader">
+			<div class="inner">
+				<span class="loader"></span>
+			</div>
+		</div><!-- /PRELOADER -->
+
+
+		<!-- JAVASCRIPT FILES -->
+		<%# <script>var plugin_path = 'assets/plugins/';</script>
+		<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
+
+		<script src="assets/js/scripts.js"></script>
+		<script src="/QuoteForm.js"></script>
+
+		<!-- REVOLUTION SLIDER -->
+		<script src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
+		<script src="assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
+		<script src="assets/js/view/demo.revolution_slider.js"></script>
+
+		<!-- PAGELEVEL SCRIPTS -->
+		<script src="assets/js/contact.js"></script>
+
+		<!-- 
+			GMAP.JS 
+			http://hpneo.github.io/gmaps/
+		-->
+		<script src="//maps.google.com/maps/api/js?key=AIzaSyCqCn84CgZN6o1Xc3P4dM657HIxkX3jzPY"></script>
+		<script src="assets/plugins/gmaps.js"></script> %>
+		<%# <script>
+
+			jQuery(document).ready(function(){
+
+				/**
+					@BASIC GOOGLE MAP
+				**/
+				var map2 = new GMaps({
+					div: '#map2',
+					lat: -12.043333,
+					lng: -77.028333,
+					scrollwheel: false
+				});
+
+				var marker = map2.addMarker({
+					lat: -12.043333,
+					lng: -77.028333,
+					title: 'Company, Inc.'
+				});
+
+			});
+		</script> %>
+	</body>
