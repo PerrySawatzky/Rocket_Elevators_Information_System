@@ -1,63 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-  <body class="smoothscroll enable-animation">
-    <!-- wrapper -->
-    <div id="wrapper">
-      <!-- 
-				AVAILABLE HEADER CLASSES
-				Default nav height: 96px
-				.header-md 		= 70px nav height
-				.header-sm 		= 60px nav height
-				.b-0 		= remove bottom border (only with transparent use)
-				.transparent	= transparent header
-				.translucent	= translucent header
-				.sticky			= sticky header
-				.static			= static header
-				.dark			= dark header
-				.bottom			= header on bottom
-				
-				shadow-before-1 = shadow 1 header top
-				shadow-after-1 	= shadow 1 header bottom
-				shadow-before-2 = shadow 2 header top
-				shadow-after-2 	= shadow 2 header bottom
-				shadow-before-3 = shadow 3 header top
-				shadow-after-3 	= shadow 3 header bottom
-				.clearfix		= required for mobile menu, do not remove!
-				Example Usage:  class="clearfix sticky header-sm transparent b-0"
-			-->
-
-
-      <!-- REVOLUTION SLIDER -->
+<!-- REVOLUTION SLIDER -->
       <div class="slider fullwidthbanner-container roundedcorners">
-        <!--
-					Navigation Styles:
-					
-						data-navigationStyle="" theme default navigation
-						
-						data-navigationStyle="preview1"
-						data-navigationStyle="preview2"
-						data-navigationStyle="preview3"
-						data-navigationStyle="preview4"
-						
-					Bottom Shadows
-						data-shadow="1"
-						data-shadow="2"
-						data-shadow="3"
-						
-					Slider Height (do not use on fullscreen mode)
-						data-height="300"
-						data-height="350"
-						data-height="400"
-						data-height="450"
-						data-height="500"
-						data-height="550"
-						data-height="600"
-						data-height="650"
-						data-height="700"
-						data-height="750"
-						data-height="800"
-				-->
         <div
           id="home-navigation"
           class="fullwidthbanner"
@@ -73,12 +15,11 @@
               data-masterspeed="700"
               data-saveperformance="off"
               data-title="Architectural View"
-			  data-delay="7000"
+			        data-delay="7000"
             >
               <!-- MAIN IMAGE -->
-              <%= image_tag("AdobeStock_103570025.jpeg")%>
               <img
-                src="demo_files/images/AdobeStock_103570025.jpeg"
+                src="<%= asset_path('AdobeStock_103570025.jpeg') %>"
                 alt="cover image"
                 data-bgposition="center top"
                 data-bgfit="cover"
@@ -191,17 +132,18 @@
               data-masterspeed="600"
               data-saveperformance="off"
               data-title="Architectural View"
-			  data-delay="7000"
+			        data-delay="7000"
         
               <!-- MAIN IMAGE -->
-              # <img
-              #   src="app/assets/images/AdobeStock_66781279.jpeg"
-              #   alt="cover image"
-              #   data-bgposition="center top"
-              #   data-bgfit="cover"
-              #   data-bgrepeat="no-repeat"
-              # />
-              <%= image_tag("AdobeStock_66781279.jpeg")%>
+             
+              <!-- second here -->
+              <img
+                src= <%= image_tag("AdobeStock_66781279.jpeg")%> 
+                alt="cover image"
+                data-bgposition="center top"
+                data-bgfit="cover"
+                data-bgrepeat="no-repeat"
+              />
               
 
               <div
@@ -289,10 +231,9 @@
 			  data-delay="7000"
             >
               <!-- MAIN IMAGE -->
-              <%= image_tag("AdobeStock_130711085.jpeg")%> 
+              <!-- third here -->
               <img
-
-                src="demo_files/images/AdobeStock_130711085.jpeg"
+                src= <%= image_tag("AdobeStock_130711085.jpeg")%> 
                 alt="cover image"
                 data-bgposition="center top"
                 data-bgfit="cover"
@@ -383,8 +324,8 @@
           <div class="row">
             <div class="col-sm-4">
               <img
+                src="<%= asset_path('AdobeStock_3294993.jpeg') %>"
                 class="img-fluid"
-                src="demo_files/images/AdobeStock_3294993.jpeg"
                 alt="img"
               />
               <h3 class="mt-10">Awards &amp; Major Projects</h3>
@@ -396,7 +337,11 @@
             </div>
 
             <div class="col-sm-4">
-              <%= image_tag("AdobeStock_179073967.jpeg")%> 
+              <img
+                src="<%= asset_path('AdobeStock_179073967.jpeg') %>"
+                class="img-fluid"
+                alt="img"
+              />
               <h3 class="mt-10">Residential Buildings</h3>
               <p>
                 Everyone needs a speedy and safe way down to the ground floor.
@@ -407,11 +352,10 @@
               >
             </div>
 
-            <div class="col-sm-4">
-              <%= image_tag("AdobeStock_170843598.jpeg")%> 
+            <div class="col-sm-4">  
               <img
+                src="<%= asset_path('AdobeStock_170843598.jpeg') %>"
                 class="img-fluid"
-                src="demo_files/images/AdobeStock_170843598.jpeg"
                 alt="img"
               />
               <h3 class="mt-10">Corporate Buildings</h3>
@@ -429,8 +373,8 @@
       <!-- Parallax -->
       <section
         class="parallax parallax-1"
-        style="
-          background-image: url('demo_files/images/AdobeStock_33298664.jpeg');
+        src=
+          background-image: url("<%= asset_path('AdobeStock_33298664.jpeg') %>");
         "
       >
         <div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
@@ -484,10 +428,9 @@
 
               <div class="item-box">
                 <figure>
-                <%= image_tag("Corporate1.jpg")%> 
                   <img
                     class="img-fluid"
-                    src="demo_files/images/Corporate1.jpg"
+                    src="<%= asset_path('Corporate1.jpg') %>"
                     width="600"
                     height="399"
                     alt=""
@@ -1059,98 +1002,86 @@
 
           <ul class="row clients-dotted list-inline">
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag("Customer1.jpg")%>
               <img
                 class="img-fluid"
-                src="demo_files/images/Customer1.jpg"
+                src= "<%= asset_path('Customer1.jpg') %>"
                 alt="client"
               />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag("customer2.jpg")%>
               <img
                 class="img-fluid"
-                src="demo_files/images/customer2.jpg"
+                src= "<%= asset_path('customer2.jpg') %>"
                 alt="client"
               />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-            <%= image_tag("customer3.jpg")%>
               <img
                 class="img-fluid"
-                src="demo_files/images/customer3.jpg"
+                src="<%= asset_path('customer3.jpg') %>"
                 alt="client"
               />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag("customer4.jpg")%>
               <img
                 class="img-fluid"
-                src="demo_files/images/customer4.jpg"
+                src="<%= asset_path('customer4.jpg') %>"
                 alt="client"
               />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag("customer5.jpg")%>
               <img
                 class="img-fluid"
-                src="demo_files/images/customer5.jpg"
+                src="<%= asset_path('customer5.jpg') %>"
                 alt="client"
               />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag("customer6.jpg")%>
               <img
                 class="img-fluid"
-                src="demo_files/images/customer6.jpg"
+                src="<%= asset_path('customer6.jpg') %>"
                 alt="client"
               />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag("customer7.jpg")%>
               <img
                 class="img-fluid"
-                src="demo_files/images/customer7.jpg"
+                src="<%= asset_path('customer7.jpg') %>"
                 alt="client"
               />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag("customer8.png")%>
               <img
                 class="img-fluid"
-                src="demo_files/images/customer8.png"
+                src="<%= asset_path('customer8.png') %>"
                 alt="client"
               />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag("customer9.png")%>
               <img
                 class="img-fluid"
-                src="demo_files/images/customer9.png"
+                src="<%= asset_path('customer9.png') %>"
                 alt="client"
               />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag("customer10.png")%>
               <img
                 class="img-fluid"
-                src="demo_files/images/customer10.png"
+                src="<%= asset_path('customer10.png') %>"
                 alt="client"
               />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag("customer11.png")%>
               <img
                 class="img-fluid"
-                src="demo_files/images/customer11.png"
+                src="<%= asset_path('customer11.png') %>"
                 alt="client"
               />
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <%= image_tag("customer12.png")%>
               <img
                 class="img-fluid"
-                src="demo_files/images/customer12.png"
+                src="<%= asset_path('customer12.png') %>"
                 alt="client"
               />
             </li>
