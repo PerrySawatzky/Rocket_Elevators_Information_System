@@ -5,6 +5,8 @@ before 'deploy', 'rvm1:install:ruby'
 set :rvm_map_bins, [ 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl' ]
 set :application, "PerrySawatzky"
 set :repo_url, "https://github.com/PerrySawatzky/Rocket_Elevators_Information_System"
+set :branch, 'main'
+
 
 # Default branch is :main
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
