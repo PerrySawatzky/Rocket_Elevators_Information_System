@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Building type:</strong>
+  <%= @quote.building_type %>
+</p>
+
+<p>
+  <strong>Product line:</strong>
+  <%= @quote.product_line %>
+</p>
+
+<p>
+  <strong>Apartments:</strong>
+  <%= @quote.apartments %>
+</p>
+
+<p>
+  <strong>Floors:</strong>
+  <%= @quote.floors %>
+</p>
+
+<p>
+  <strong>Basements:</strong>
+  <%= @quote.basements %>
+</p>
+
+<p>
+  <strong>Elevators:</strong>
+  <%= @quote.elevators %>
+</p>
+
+<p>
+  <strong>Companies:</strong>
+  <%= @quote.companies %>
+</p>
+
+<p>
+  <strong>Parking spots:</strong>
+  <%= @quote.parking_spots %>
+</p>
+
+<p>
+  <strong>Max occupancy per floor:</strong>
+  <%= @quote.max_occupancy_per_floor %>
+</p>
+
+<p>
+  <strong>Corporations:</strong>
+  <%= @quote.corporations %>
+</p>
+
+<p>
+  <strong>Business hours:</strong>
+  <%= @quote.business_hours %>
+</p>
+
+<%= link_to 'Edit', edit_quote_path(@quote) %> |
+<%= link_to 'Back', quotes_path %>

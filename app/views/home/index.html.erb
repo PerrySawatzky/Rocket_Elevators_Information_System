@@ -456,7 +456,7 @@
                   <%= image_tag("Residential1.jpg")%>
                   <img
                     class="img-fluid"
-                    src="demo_files/images/Residential1.jpg"
+                    src=<%= image_tag("Residential1.jpg")%>"
                     width="600"
                     height="399"
                     alt=""
@@ -1002,11 +1002,8 @@
 
           <ul class="row clients-dotted list-inline">
             <li class="col-md-3 col-sm-3 col-6">
-              <img
-                class="img-fluid"
-                src= "<%= asset_path('Customer1.jpg') %>"
-                alt="client"
-              />
+            <%= image_tag('Customer1.jpg', alt: "client", class: "img-fluid") %>
+              
             </li>
             <li class="col-md-3 col-sm-3 col-6">
               <img

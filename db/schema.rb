@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_06_10_153414) do
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -17,11 +18,45 @@ ActiveRecord::Schema.define(version: 2021_06_10_153414) do
     t.string "last_name"
     t.string "first_name"
     t.string "title"
+=======
+ActiveRecord::Schema.define(version: 2021_06_10_170636) do
+
+  create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "First_name"
+    t.string "Last_Name"
+    t.string "Title"
+    t.string "Email"
+>>>>>>> main
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+=======
+  create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "building_type"
+    t.string "product_line"
+    t.integer "apartments"
+    t.integer "floors"
+    t.integer "basements"
+    t.integer "elevators"
+    t.integer "companies"
+    t.integer "parking_spots"
+    t.integer "max_occupancy_per_floor"
+    t.integer "corporations"
+    t.string "business_hours"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "elevator_amount"
+    t.integer "unit_price"
+    t.integer "total_price"
+    t.integer "install_fees"
+    t.integer "final_price"
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+>>>>>>> main
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

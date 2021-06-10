@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+<<<<<<< HEAD
 employees_list = [
   [1, "Genest" , "Nicolas", "CEO"],
   [2, "Fortier" , "Nadya", "Director"],
@@ -34,3 +35,7 @@ employees_list = [
 employees_list.each do |user_id, last_name, first_name, title|
     Employee.create( user_id: user_id, last_name: last_name,  first_name: first_name, title: title)
 end
+=======
+employees.create(first_name:"mathieu", last_name:"dion", title:"engineer", email:"mathiue@gmail.com" )
+quotes.create()
+>>>>>>> main

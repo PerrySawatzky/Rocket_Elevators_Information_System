@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Quotes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Building type</th>
+      <th>Product line</th>
+      <th>Apartments</th>
+      <th>Floors</th>
+      <th>Basements</th>
+      <th>Elevators</th>
+      <th>Companies</th>
+      <th>Parking spots</th>
+      <th>Max occupancy per floor</th>
+      <th>Corporations</th>
+      <th>Business hours</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @quotes.each do |quote| %>
+      <tr>
+        <td><%= quote.building_type %></td>
+        <td><%= quote.product_line %></td>
+        <td><%= quote.apartments %></td>
+        <td><%= quote.floors %></td>
+        <td><%= quote.basements %></td>
+        <td><%= quote.elevators %></td>
+        <td><%= quote.companies %></td>
+        <td><%= quote.parking_spots %></td>
+        <td><%= quote.max_occupancy_per_floor %></td>
+        <td><%= quote.corporations %></td>
+        <td><%= quote.business_hours %></td>
+        <td><%= link_to 'Show', quote %></td>
+        <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
+        <td><%= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Quote', new_quote_path %>
