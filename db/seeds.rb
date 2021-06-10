@@ -8,3 +8,4 @@
 
 
 employees.create(first_name:"mathieu", last_name:"dion", title:"engineer", email:"mathiue@gmail.com" )
+quotes.create()

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_09_210003) do
+ActiveRecord::Schema.define(version: 2021_06_10_170636) do
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "First_name"
@@ -21,6 +21,30 @@ ActiveRecord::Schema.define(version: 2021_06_09_210003) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
+=======
+  create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "building_type"
+    t.string "product_line"
+    t.integer "apartments"
+    t.integer "floors"
+    t.integer "basements"
+    t.integer "elevators"
+    t.integer "companies"
+    t.integer "parking_spots"
+    t.integer "max_occupancy_per_floor"
+    t.integer "corporations"
+    t.string "business_hours"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "elevator_amount"
+    t.integer "unit_price"
+    t.integer "total_price"
+    t.integer "install_fees"
+    t.integer "final_price"
+  end
+
+>>>>>>> 53617f847e60b4c1a756aad5c91b43b2db21958d
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
