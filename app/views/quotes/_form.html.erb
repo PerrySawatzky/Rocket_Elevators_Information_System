@@ -1,0 +1,72 @@
+<%= form_with(model: quote, local: true) do |form| %>
+  <% if quote.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(quote.errors.count, "error") %> prohibited this quote from being saved:</h2>
+
+      <ul>
+      <% quote.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :building_type %>
+    <%= form.text_field :building_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_line %>
+    <%= form.text_field :product_line %>
+  </div>
+
+  <div class="field">
+    <%= form.label :apartments %>
+    <%= form.number_field :apartments %>
+  </div>
+
+  <div class="field">
+    <%= form.label :floors %>
+    <%= form.number_field :floors %>
+  </div>
+
+  <div class="field">
+    <%= form.label :basements %>
+    <%= form.number_field :basements %>
+  </div>
+
+  <div class="field">
+    <%= form.label :elevators %>
+    <%= form.number_field :elevators %>
+  </div>
+
+  <div class="field">
+    <%= form.label :companies %>
+    <%= form.number_field :companies %>
+  </div>
+
+  <div class="field">
+    <%= form.label :parking_spots %>
+    <%= form.number_field :parking_spots %>
+  </div>
+
+  <div class="field">
+    <%= form.label :max_occupancy_per_floor %>
+    <%= form.number_field :max_occupancy_per_floor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :corporations %>
+    <%= form.number_field :corporations %>
+  </div>
+
+  <div class="field">
+    <%= form.label :business_hours %>
+    <%= form.text_field :business_hours %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

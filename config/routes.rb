@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :quotes
   resources :employees
 
   devise_for :users
