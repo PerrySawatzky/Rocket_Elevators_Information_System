@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+=======
   resources :quotes
+>>>>>>> main
   resources :employees
 
   devise_for :users
