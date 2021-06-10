@@ -6,7 +6,7 @@ set :rvm_map_bins, [ 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl' ]
 set :application, "PerrySawatzky"
 set :repo_url, "https://github.com/PerrySawatzky/Rocket_Elevators_Information_System"
 
-# Default branch is :master
+# Default branch is :main
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
