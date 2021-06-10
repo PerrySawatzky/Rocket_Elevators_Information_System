@@ -149,6 +149,7 @@ GEM
     nokogiri (1.11.7-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    owlcarousel-rails (2.2.3.5)
     popper_js (1.16.0)
     public_suffix (4.0.6)
     puma (3.12.6)
@@ -269,6 +270,7 @@ DEPENDENCIES
   jquery-ui-rails
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.4.4, < 0.6.0)
+  owlcarousel-rails
   puma (~> 3.11)
   rails (~> 5.2.6)
   rvm1-capistrano3

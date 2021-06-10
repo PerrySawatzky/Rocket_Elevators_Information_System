@@ -1,3 +1,11 @@
+<script>
+  $( document ).ready(function() {
+      console.log( "ready!" );
+      _mixitup();
+      _owl_carousel();
+  });
+</script>
+
 <!-- REVOLUTION SLIDER -->
       <div class="slider fullwidthbanner-container roundedcorners">
         <div
@@ -349,16 +357,17 @@
       <!-- Parallax -->
       <section
         class="parallax parallax-1"
-        src=
-          background-image: url("<%= image_tag('AdobeStock_33298664.jpeg', alt: "img", class: "img-fluid")%>
-        "
+        # src=
+        #   background-image: url("<%= image_tag('AdobeStock_33298664.jpeg', alt: "img", class: "img-fluid")%>
+        # "
+        <%= image_tag('AdobeStock_33298664.jpeg', alt: "img", class: "img-fluid")%>
       >
         <div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
 
         <div class="container">
           <div class="text-center">
             <h2 class="fs-40 fw-300">
-              Safely &amp; speedily elevating customers since 1976
+              Safely & speedily elevating customers since 1976
             </h2>
             <a class="btn btn-default btn-lg" href="quote.html"
               >REQUEST A QUOTE <i class="fa fa-angle-right"></i
@@ -424,18 +433,7 @@
 
               <div class="item-box">
                 <figure>
-<<<<<<< HEAD
-                  <%= image_tag('Residential1.jpg', class: "image-fluid", width: "600", alt: "")%>
-=======
-                  <%= image_tag("Residential1.jpg")%>
-                  <img
-                    class="img-fluid"
-                    src=<%= image_tag("Residential1.jpg")%>"
-                    width="600"
-                    height="399"
-                    alt=""
-                  />
->>>>>>> 53617f847e60b4c1a756aad5c91b43b2db21958d
+                  <%= image_tag('Residential1.jpg', class: "image-fluid", width: "600", height: "182", alt: "")%>
                 </figure>
 
                 <div class="item-box-desc">
@@ -655,7 +653,7 @@
             <div id="CEO" class="team">
               <figure>
                 <!-- jpg must be titled exactly CEO.jpg-->
-                <%= image_tag("CEO.jpg")%>
+                <%= image_tag("CEO.jpg", class: "rounded")%>
               </figure>
               <div class="testimonial-content p-0">
                 <p class="lead">Patrick rulez Mathieu droolz.</p>
@@ -668,7 +666,7 @@
             <div class="team">
               <figure>
                 <!-- jpg must be titled exactly employee-of-the-month.jpg-->
-                <%= image_tag("employee-of-the-month.jpg")%>
+                <%= image_tag("employee-of-the-month.jpg", class: "rounded")%>
               </figure>
               <div id="employee" class="testimonial-content p-0">
                 <p class="lead">Yes boss, whatever you say boss.</p>
@@ -873,12 +871,7 @@
 
           <ul class="row clients-dotted list-inline">
             <li class="col-md-3 col-sm-3 col-6">
-<<<<<<< HEAD
               <%= image_tag("Customer1.jpg", class: "img-fluid", alt: "client")%>
-=======
-            <%= image_tag('Customer1.jpg', alt: "client", class: "img-fluid") %>
-              
->>>>>>> 53617f847e60b4c1a756aad5c91b43b2db21958d
             </li>
             <li class="col-md-3 col-sm-3 col-6">
               <%= image_tag("customer2.jpg", class: "img-fluid", alt: "client")%>

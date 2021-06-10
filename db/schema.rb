@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(version: 2021_06_10_170636) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
-=======
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "building_type"
     t.string "product_line"
@@ -44,7 +42,6 @@ ActiveRecord::Schema.define(version: 2021_06_10_170636) do
     t.integer "final_price"
   end
 
->>>>>>> 53617f847e60b4c1a756aad5c91b43b2db21958d
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
