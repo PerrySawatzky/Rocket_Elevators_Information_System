@@ -136,6 +136,7 @@ function getElevatorTotalPrice(){
 }
 function getFinalPrice(){
 	var finalPrice = 0;
+	var theForm = document.forms['quoteForm_'];
 	var avgDoorsPerFloor = getApartmentNumber() / getFloorNumber();
     var elevatorPerColumn = Math.ceil(avgDoorsPerFloor / 6);
     var elevatorColumns = Math.ceil(getFloorNumber() / 20);
