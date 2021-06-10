@@ -18,13 +18,7 @@
 			        data-delay="7000"
             >
               <!-- MAIN IMAGE -->
-              <img
-                src="<%= asset_path('AdobeStock_103570025.jpeg') %>"
-                alt="cover image"
-                data-bgposition="center top"
-                data-bgfit="cover"
-                data-bgrepeat="no-repeat"
-              />
+              <%= image_tag('AdobeStock_103570025.jpeg')%>
 
               <div
                 class="tp-caption white_big skewfromleft tp-resizeme"
@@ -137,13 +131,9 @@
               <!-- MAIN IMAGE -->
              
               <!-- second here -->
-              <img
-                src= <%= image_tag("AdobeStock_66781279.jpeg")%> 
-                alt="cover image"
-                data-bgposition="center top"
-                data-bgfit="cover"
-                data-bgrepeat="no-repeat"
-              />
+              
+              <%= image_tag("AdobeStock_66781279.jpeg")%>
+            
               
 
               <div
@@ -232,13 +222,8 @@
             >
               <!-- MAIN IMAGE -->
               <!-- third here -->
-              <img
-                src= <%= image_tag("AdobeStock_130711085.jpeg")%> 
-                alt="cover image"
-                data-bgposition="center top"
-                data-bgfit="cover"
-                data-bgrepeat="no-repeat"
-              />
+              <%= image_tag("AdobeStock_130711085.jpeg")%>
+             
 
               <div class="overlay dark-4">
                 <!-- dark overlay [0 to 9 opacity] -->
@@ -323,11 +308,8 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-4">
-              <img
-                src="<%= asset_path('AdobeStock_3294993.jpeg') %>"
-                class="img-fluid"
-                alt="img"
-              />
+             <%= image_tag('AdobeStock_3294993.jpeg', alt: "img", class: "img-fluid")%>
+             
               <h3 class="mt-10">Awards &amp; Major Projects</h3>
               <p>
                 Over the years we've been highly praised for our speed and
@@ -337,11 +319,8 @@
             </div>
 
             <div class="col-sm-4">
-              <img
-                src="<%= asset_path('AdobeStock_179073967.jpeg') %>"
-                class="img-fluid"
-                alt="img"
-              />
+              <%= image_tag('AdobeStock_179073967.jpeg', alt: "img", class: "img-fluid")%>
+            
               <h3 class="mt-10">Residential Buildings</h3>
               <p>
                 Everyone needs a speedy and safe way down to the ground floor.
@@ -352,12 +331,9 @@
               >
             </div>
 
-            <div class="col-sm-4">  
-              <img
-                src="<%= asset_path('AdobeStock_170843598.jpeg') %>"
-                class="img-fluid"
-                alt="img"
-              />
+            <div class="col-sm-4">
+            <%= image_tag('AdobeStock_170843598.jpeg', alt: "img", class: "img-fluid")%>  
+            
               <h3 class="mt-10">Corporate Buildings</h3>
               <p>
                 Everyone needs a speedy and safe way down to the ground floor.
@@ -374,7 +350,7 @@
       <section
         class="parallax parallax-1"
         src=
-          background-image: url("<%= asset_path('AdobeStock_33298664.jpeg') %>");
+          background-image: url("<%= image_tag('AdobeStock_33298664.jpeg', alt: "img", class: "img-fluid")%>
         "
       >
         <div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
@@ -428,13 +404,8 @@
 
               <div class="item-box">
                 <figure>
-                  <img
-                    class="img-fluid"
-                    src="<%= asset_path('Corporate1.jpg') %>"
-                    width="600"
-                    height="399"
-                    alt=""
-                  />
+                <%= image_tag("Corporate1.jpg", class: "img-fluid", width: "600", alt:"")%>
+                
                 </figure>
 
                 <div class="item-box-desc">
@@ -453,14 +424,7 @@
 
               <div class="item-box">
                 <figure>
-                  <%= image_tag("Residential1.jpg")%>
-                  <img
-                    class="img-fluid"
-                    src="demo_files/images/Residential1.jpg"
-                    width="600"
-                    height="399"
-                    alt=""
-                  />
+                  <%= image_tag('Residential1.jpg', class: "image-fluid", width: "600", alt: "")%>
                 </figure>
 
                 <div class="item-box-desc">
@@ -479,14 +443,7 @@
 
               <div class="item-box">
                 <figure>
-                  <%= image_tag("Residential2.jpg")%>
-                  <img
-                    class="img-fluid"
-                    src="demo_files/images/Residential2.jpg"
-                    width="600"
-                    height="399"
-                    alt=""
-                  />
+                  <%= image_tag("Residential2.jpg", class: "img-fluid", width: "600", height: "399", alt: "")%>
                 </figure>
 
                 <div class="item-box-desc">
@@ -505,14 +462,7 @@
 
               <div class="item-box">
                 <figure>
-                  <%= image_tag("Residential3.jpg")%>
-                  <img
-                    class="img-fluid"
-                    src="demo_files/images/Residential3.jpg"
-                    width="600"
-                    height="399"
-                    alt=""
-                  />
+                 <%= image_tag("Residential3.jpg", class: "img-fluid", width: "600", height: "399", alt: "")%>
                 </figure>
 
                 <div class="item-box-desc">
@@ -531,14 +481,7 @@
 
               <div class="item-box">
                 <figure>
-                <%= image_tag("Residential4.jpg")%>
-                  <img
-                    class="img-fluid"
-                    src="demo_files/images/Residential4.jpg"
-                    width="600"
-                    height="399"
-                    alt=""
-                  />
+                 <%= image_tag("Residential4.jpg", class: "img-fluid", width: "600", height: "399", alt: "")%>
                 </figure>
 
                 <div class="item-box-desc">
@@ -557,14 +500,7 @@
 
               <div class="item-box">
                 <figure>
-                <%= image_tag("Corporate2.jpg")%>
-                  <img
-                    class="img-fluid"
-                    src="demo_files/images/Corporate2.jpg"
-                    width="600"
-                    height="399"
-                    alt=""
-                  />
+                 <%= image_tag("Corporate2.jpg", class: "img-fluid", width: "600", height: "399", alt: "")%>
                 </figure>
 
                 <div class="item-box-desc">
@@ -583,14 +519,8 @@
 
               <div class="item-box">
                 <figure>
-                <%= image_tag("Corporate3.jpg")%>
-                  <img
-                    class="img-fluid"
-                    src="demo_files/images/Corporate3.jpg"
-                    width="600"
-                    height="399"
-                    alt=""
-                  />
+                  <%= image_tag("Corporate3.jpg", class: "img-fluid", width: "600", height: "399", alt: "")%>
+                </figure>
                 </figure>
 
                 <div class="item-box-desc">
@@ -609,14 +539,8 @@
 
               <div class="item-box">
                 <figure>
-                <%= image_tag("Award1.jpg")%>
-                  <img
-                    class="img-fluid"
-                    src="demo_files/images/Award1.jpg"
-                    width="600"
-                    height="399"
-                    alt=""
-                  />
+                   <%= image_tag("Award1.jpg", class: "img-fluid", width: "600", height: "399", alt: "")%>
+                </figure>
                 </figure>
 
                 <div class="item-box-desc">
@@ -635,14 +559,7 @@
 
               <div class="item-box">
                 <figure>
-                <%= image_tag("Award2.png")%>
-                  <img
-                    class="img-fluid"
-                    src="demo_files/images/Award2.png"
-                    width="600"
-                    height="399"
-                    alt=""
-                  />
+                  <%= image_tag("Award2.png", class: "img-fluid", width: "600", height: "399", alt: "")%>
                 </figure>
 
                 <div class="item-box-desc">
@@ -661,14 +578,7 @@
 
               <div class="item-box">
                 <figure>
-                <%= image_tag("Award3.jpg")%>
-                  <img
-                    class="img-fluid"
-                    src="demo_files/images/Award3.jpg"
-                    width="600"
-                    height="399"
-                    alt=""
-                  />
+                  <%= image_tag("Award3.jpg", class: "img-fluid", width: "600", height: "399", alt: "")%>
                 </figure>
 
                 <div class="item-box-desc">
@@ -687,14 +597,7 @@
 
               <div class="item-box">
                 <figure>
-                <%= image_tag("Award4.jpg")%>
-                  <img
-                    class="img-fluid"
-                    src="demo_files/images/Award4.jpg"
-                    width="600"
-                    height="399"
-                    alt=""
-                  />
+                  <%= image_tag("Award4.jpg", class: "img-fluid", width: "600", height: "399", alt: "")%>
                 </figure>
 
                 <div class="item-box-desc">
@@ -713,14 +616,7 @@
 
               <div class="item-box">
                 <figure>
-                <%= image_tag("Award5.png")%>
-                  <img
-                    class="img-fluid"
-                    src="demo_files/images/Award5.png"
-                    width="600"
-                    height="399"
-                    alt=""
-                  />
+                  <%= image_tag("Award5.png", class: "img-fluid", width: "600", height: "399", alt: "")%>
                 </figure>
 
                 <div class="item-box-desc">
@@ -749,7 +645,6 @@
               <figure>
                 <!-- jpg must be titled exactly CEO.jpg-->
                 <%= image_tag("CEO.jpg")%>
-                <img class="rounded" src="demo_files/images/CEO.jpg" alt="" />
               </figure>
               <div class="testimonial-content p-0">
                 <p class="lead">Patrick rulez Mathieu droolz.</p>
@@ -763,11 +658,6 @@
               <figure>
                 <!-- jpg must be titled exactly employee-of-the-month.jpg-->
                 <%= image_tag("employee-of-the-month.jpg")%>
-                <img
-                  class="rounded"
-                  src="demo_files/images/employee-of-the-month.jpg"
-                  alt=""
-                />
               </figure>
               <div id="employee" class="testimonial-content p-0">
                 <p class="lead">Yes boss, whatever you say boss.</p>
@@ -815,12 +705,7 @@
               <a
                 href="https://montreal.ctvnews.ca/new-elevators-up-and-running-at-montreal-s-busiest-metros-station-berri-uqam-1.5177673"
               >
-                <%= image_tag("CTV3.jpg")%>
-                <img
-                  class="img-fluid"
-                  src="demo_files/images/CTV3.jpg"
-                  alt=""
-                />
+                <%= image_tag("CTV3.jpg", class: "image-fluid", alt: "")%>
               </a>
 
               <h4 class="text-left mt-20">
@@ -844,12 +729,8 @@
               <a
                 href="https://www.facilitiesnet.com/elevators/contributed/Elevators-See-Major-Technology-Advances-in-the-Wake-of-Disasters--43829"
               >
-              <%= image_tag("TechnologyR.jpg")%>
-                <img
-                  class="img-fluid"
-                  src="demo_files/images/TechnologyR.jpg"
-                  alt=""
-                />
+              <%= image_tag("TechnologyR.jpg", class: "image-fluid", alt:"")%>
+            
               </a>
 
               <h4 class="text-left mt-20">
@@ -873,12 +754,7 @@
               <a
                 href="https://www.forbes.com/sites/suzannerowankelleher/2020/08/10/why-you-should-avoid-hotel-elevators-during-the-pandemic/?sh=3c0bdb466dc6"
               > 
-                <%= image_tag("CovidR.jpg")%>
-                <img
-                  class="img-fluid"
-                  src="demo_files/images/CovidR.jpg"
-                  alt=""
-                />
+                <%= image_tag("CovidR.jpg", class: "img-fluid", alt: "")%>
               </a>
               <h4 class="text-left mt-20">
                 <a
@@ -903,12 +779,7 @@
               <a
                 href="https://www.ultraleap.com/company/news/blog/touchless-elevator/"
               >
-              <%= image_tag("UltraleapR.jpg")%>
-                <img
-                  class="img-fluid"
-                  src="demo_files/images/UltraleapR.jpg"
-                  alt=""
-                />
+              <%= image_tag("UltraleapR.jpg", class: "img-fluid", alt: "")%>
               </a>
               <h4 class="text-left mt-20">
                 <a
@@ -931,12 +802,7 @@
               <a
                 href="https://www.smithsonianmag.com/innovation/elevators-are-going-green-180968907/"
               >
-                <%= image_tag("GoingGreenR.jpg")%>
-                <img
-                  class="img-fluid"
-                  src="demo_files/images/GoingGreenR.jpg"
-                  alt=""
-                />
+              <%= image_tag("GoingGreenR.jpg", class: "img-fluid", alt: "")%>
               </a>
               <h4 class="text-left mt-20">
                 <a
@@ -961,12 +827,7 @@
               <a
                 href="https://www.manufacturingtodayindia.com/products-suppliers/10319-mitsubishi-electric-to-supply-elevators-to-2-large-luxury-complexes-in-india"
               >
-                <%= image_tag("MitsubishiR.jpg")%>
-                <img
-                  class="img-fluid"
-                  src="demo_files/images/MitsubishiR.jpg"
-                  alt=""
-                />
+              <%= image_tag("MitsubishiR.jpg", class: "img-fluid", alt: "")%>
               </a>
               <h4 class="text-left mt-20">
                 <a
@@ -998,92 +859,43 @@
         <div class="container">
           <div class="heading-title heading-dotted text-center">
             <h2>Our Customers</h2>
-          </div>
 
           <ul class="row clients-dotted list-inline">
             <li class="col-md-3 col-sm-3 col-6">
-              <img
-                class="img-fluid"
-                src= "<%= asset_path('Customer1.jpg') %>"
-                alt="client"
-              />
+              <%= image_tag("Customer1.jpg", class: "img-fluid", alt: "client")%>
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <img
-                class="img-fluid"
-                src= "<%= asset_path('customer2.jpg') %>"
-                alt="client"
-              />
+              <%= image_tag("customer2.jpg", class: "img-fluid", alt: "client")%>
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <img
-                class="img-fluid"
-                src="<%= asset_path('customer3.jpg') %>"
-                alt="client"
-              />
+             <%= image_tag("customer3.jpg", class: "img-fluid", alt: "client")%>
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <img
-                class="img-fluid"
-                src="<%= asset_path('customer4.jpg') %>"
-                alt="client"
-              />
+             <%= image_tag("customer4.jpg", class: "img-fluid", alt: "client")%>
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <img
-                class="img-fluid"
-                src="<%= asset_path('customer5.jpg') %>"
-                alt="client"
-              />
+              <%= image_tag("customer5.jpg", class: "img-fluid", alt: "client")%>
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <img
-                class="img-fluid"
-                src="<%= asset_path('customer6.jpg') %>"
-                alt="client"
-              />
+              <%= image_tag("customer6.jpg", class: "img-fluid", alt: "client")%>
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <img
-                class="img-fluid"
-                src="<%= asset_path('customer7.jpg') %>"
-                alt="client"
-              />
+             <%= image_tag("customer7.jpg", class: "img-fluid", alt: "client")%>
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <img
-                class="img-fluid"
-                src="<%= asset_path('customer8.png') %>"
-                alt="client"
-              />
+              <%= image_tag("customer8.png", class: "img-fluid", alt: "client")%>
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <img
-                class="img-fluid"
-                src="<%= asset_path('customer9.png') %>"
-                alt="client"
-              />
+             <%= image_tag("customer9.png", class: "img-fluid", alt: "client")%>
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <img
-                class="img-fluid"
-                src="<%= asset_path('customer10.png') %>"
-                alt="client"
-              />
+             <%= image_tag("customer10.png", class: "img-fluid", alt: "client")%>
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <img
-                class="img-fluid"
-                src="<%= asset_path('customer11.png') %>"
-                alt="client"
-              />
+             <%= image_tag("customer11.png", class: "img-fluid", alt: "client")%>
             </li>
             <li class="col-md-3 col-sm-3 col-6">
-              <img
-                class="img-fluid"
-                src="<%= asset_path('customer12.png') %>"
-                alt="client"
-              />
+              <%= image_tag("customer12.png", class: "img-fluid", alt: "client")%>
             </li>
           </ul>
         </div>
