@@ -1,5 +1,237 @@
 <h1>New Quote</h1>
 
 <%= render 'form', quote: @quote %>
+<!-- wrapper -->
+		<div id="wrapper">
 
+			<div id="header" class="navbar-toggleable-md sticky header-md clearfix">
+
+				<!-- TOP NAV -->
+				<header id="topNav">
+					<div class="container">
+
+						<!-- Mobile Menu Button -->
+						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+							<i class="fa fa-bars"></i>
+						</button>
+					</div>
+				</header>
+				<!-- /Top Nav -->
+
+			</div>
+
+
+
+			<!-- REVOLUTION SLIDER -->
+			<div class="slider fullwidthbanner-container roundedcorners">
+				
+			</div>
+			<!-- REVOLUTION SLIDER -->
+			<div class="slider fullwidthbanner-container roundedcorners">
+
+		   <section id="quote_form">
+			<div class="container pt-30 pb-30">
+                 
+				<div class="row">
+
+					<div class="col-md-6">
+					<form action="" id="quoteForm_">
+						<div>
+							<select onchange="getBuildingType()" id="building-type">
+								<option value="" disabled selected>Select Building Type</option>
+								<option id="residential" value="residential1">Residential</option>
+								<option id="commercial" value="commercial1">Commercial</option>
+								<option id="corporate" value="corporate1">Corporate</option>
+								<option id="hybrid" value="hybrid1">Hybrid</option>
+							</select>
+						</div>
+
+						<div class="fs-grid">
+							<div id="residential1" class="building_type">
+								<div id=resultsInputsID_dropdown_residential >
+									<label class="fs-16">Product Line *</label>
+									<select onchange="getInstallationFees(),getElevatorTotalPrice(),getElevatorUnitPrice(),getFinalPrice()"  id="resultsInputsIDResidential" class="form-control">
+										<option value="" disabled selected>Select Product Line</option>
+										<option value="standard">Standard</option>
+										<option value="premium">Premium</option>
+										<option value="excelium">Excelium</option>
+										
+									</select>
+								</div>
+								<div id="number-of-apartments" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Apartments *</label>
+									<input oninput="getElevatorAmount(),getElevatorTotalPrice(),getInstallationFees(),getFinalPrice()" id="numberOfApartmentsResidential" type="text" class="form-control" value="">
+								</div>
+								<div id="number-of-floors" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Floors *</label>
+									<input oninput="getElevatorAmount(),getElevatorTotalPrice(),getInstallationFees(),getFinalPrice()" id="numberOfFloorsResidential" type="text" class="form-control" value="">
+								</div>
+								
+								<div id="number-of-basements" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Basements</label>
+									<input id="numberOfBasementsResidential" type="text" class="form-control" value="">
+								</div>
+							</div>
+							<div id="commercial1" class="building_type">
+								<div id=resultsInputsID_dropdown_commercial >
+									<label class="fs-16">Product Line *</label>
+									<select onchange="getCommercialElevatorUnitPrice(),getElevatorTotalPriceCom(),getInstallationFeesCom(),getFinalPriceCom()" id="resultsInputsIDCommercial" class="form-control">
+										<option value="" disabled selected>Select Product Line</option>
+										<option value="standard">Standard</option>
+										<option value="premium">Premium</option>
+										<option value="excelium">Excelium</option>
+									</select>
+								</div>
+								<div id="number-of-elevators" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Elevators *</label>
+									<input oninput="getElevatorTotalPriceCom(),getElevatorAmountCom2(),getInstallationFeesCom(),getFinalPriceCom()" id="numberOfElevatorsCommercial" type="text" class="form-control" value="">
+								</div>
+								<div id="number-of-floors" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Floors</label>
+									<input id="numberOfFloorsCommercial" type="text" class="form-control" value="">
+								</div>
+								
+								<div id="number-of-basements" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Basements</label>
+									<input id="numberOfBasementsCommercial" type="text" class="form-control" value="">
+								</div>
+								<div id="number-of-companies" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Companies</label>
+									<input id="numberOfCompaniesCommercial" type="text" class="form-control" value="">
+								</div>
+								<div id="number-of-parking-spots" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Parking Spots</label>
+									<input id="numberOfParkingSpotsCommercial" type="text" class="form-control" value="">
+								</div>
+							</div>
+							<div id="corporate1" class="building_type">
+								<div id=resultsInputsID_dropdown_corporate >
+									<label class="fs-16">Product Line *</label>
+									<select onchange="getCorporateElevatorUnitPrice(),getElevatorTotalPriceCorp(),getInstallationFeesCorp(),getFinalPriceCorp()" id="resultsInputsIDCorporate" class="form-control">
+										<option value="" disabled selected>Select Product Line</option>
+										<option value="standard">Standard</option>
+										<option value="premium">Premium</option>
+										<option value="excelium">Excelium</option>
+										
+									</select>
+								</div>
+								<div id="number-of-floors" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Floors *</label>
+									<input oninput="getElevatorAmountCorp(),getElevatorTotalPriceCorp(),getInstallationFeesCorp(),getFinalPriceCorp()" id="numberOfFloorsCorporate" type="text" class="form-control" value="">
+								</div>
+								<div id="number-of-basements" oninput="getElevatorAmountCorp(),getElevatorTotalPriceCorp(),getInstallationFeesCorp(),getFinalPriceCorp()" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Basements *</label>
+									<input id="numberOfBasementsCorporate" type="text" class="form-control" value="">
+								</div>
+								<div id="maximum-occupancy" class="col-sm-8 m-0">
+									<label class="fs-16">Maximum Occupancy per Floor *</label>
+									<input oninput="getElevatorAmountCorp(),getElevatorTotalPriceCorp(),getInstallationFeesCorp(),getFinalPriceCorp()" id="maximumOccupancyCorporate" type="text" class="form-control" value="">
+								</div>
+								<div id="number-of-parking-spots" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Parking Spots</label>
+									<input id="numberOfParkingSpotsCorporate" type="text" class="form-control" value="">
+								</div>
+								<div id="number-of-corporations" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Corporations</label>
+									<input id="numberOfCorporationsCorporate" type="text" class="form-control" value="">
+								</div>
+								
+							</div>
+							<div id="hybrid1" class="building_type">
+								<div id=resultsInputsID_dropdown_hybrid>
+									<label class="fs-16">Product Line *</label>
+									<select onchange="getFinalPriceHybrid(),getInstallationFeesHybrid(),getElevatorTotalPriceHybrid(),getElevatorAmountHybrid(),getHybridElevatorUnitPrice()" id="resultsInputsIDHybrid" class="form-control">
+										<option value="" disabled selected>Select Product Line</option>
+										<option value="standard">Standard</option>
+										<option value="premium">Premium</option>
+										<option value="excelium">Excelium</option>
+									</select>
+								</div>
+								<div id="number-of-floors" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Floors *</label>
+									<input oninput="getFinalPriceHybrid(),getInstallationFeesHybrid(),getElevatorTotalPriceHybrid(),getElevatorAmountHybrid()" id="numberOfFloorsHybrid" type="text" class="form-control" value="">
+								</div>
+								<div id="number-of-basements" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Basements *</label>
+									<input oninput="getFinalPriceHybrid(),getInstallationFeesHybrid(),getElevatorTotalPriceHybrid(),getElevatorAmountHybrid()" id="numberOfBasementsHybrid" type="text" class="form-control" value="">
+								</div>
+								<div id="maximum-occupancy" class="col-sm-8 m-0">
+									<label class="fs-16">Maximum Occupancy per Floor *</label>
+									<input oninput="getFinalPriceHybrid(),getInstallationFeesHybrid(),getElevatorTotalPriceHybrid(),getElevatorAmountHybrid()" id="maximumOccupancyHybrid" type="text" class="form-control" value="">
+								</div>
+								<div id="number-of-companies" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Companies</label>
+									<input id="numberOfCompaniesHybrid" type="text" class="form-control" value="">
+								</div>
+								<div id="number-of-parking-spots" class="col-sm-8 m-0">
+									<label class="fs-16">N. of Parking Spots</label>
+									<input id="numberOfParkingSpotsHybrid" type="text" class="form-control" value="">
+								</div>
+								<div id="business-hours" class="col-sm-8 m-0">
+									<label class="fs-16">Business Hours</label>
+									<input id="businessHoursHybrid" type="text" class="form-control" value="">
+								</div>
+							</div>
+						</div>
+					</form>
+						
+
+					</div>
+
+					<div class="col-md-6 mb-30">
+
+
+						<table class="table fs-14 m-0">
+							<tbody>
+								<tr>
+									<div id="elevator-amount">
+									<td class="b-0 p-3">Elevator Amount</td>
+									<td class="b-0 p-3 text-right text-danger fw-800"><span id="result-ElevatorAmount">0</span></td>
+								</div>
+								</tr>
+								<tr>
+									<div id="elevator-unit-price">
+									<td class="b-0 p-3">Elevator Unit Price</td>
+									<td class="b-0 p-3 text-right text-danger fw-800">$<span id="result-ElevatorUnit">0.00</span></td>
+								</div>
+								</tr>
+								<tr>
+									<div id="elevator-total-price">
+									<td class="b-0 p-3">Elevator Total Price</td>
+									<td class="b-0 p-3 text-right text-danger fw-800">$<span id="result-ElevatorPrice">0.00</span></td>
+								</div>
+								</tr>
+								<tr>
+									<div id="installation-fees"> 
+									<td class="b-0 p-3">Installation Fees</td>
+									<td class="b-0 p-3 text-right text-danger fw-800">$<span id="result-ElevatorFees">0.00</span></td>
+								</div>
+								</tr>
+							</tbody>
+						</table>
+
+						<hr />
+
+						<table class="table fs-14 m-0">
+							<tbody>
+								<tr>
+									<div id="final-price">
+									<td class="b-0 p-3">Final Price</td>
+									<td class="b-0 p-3 text-right text-black fw-800">$<span id="result-FinalPrice">0.00</span></td>
+								</div>
+								</tr>
+								
+							</tbody>
+						</table>
+
+
+					</div>
+
+				</div>
+
+			</div>
+		</section>
+               
+
+		</div>
 <%= link_to 'Back', quotes_path %>
