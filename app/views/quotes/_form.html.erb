@@ -1,4 +1,4 @@
-<%= form_with(model: quote, local: true) do |form| %>
+<%= form_with(model: quote, local: true, :method => "post") do |form| %>
   <% if quote.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(quote.errors.count, "error") %> prohibited this quote from being saved:</h2>
@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= form.label :building_type %>
-    <%= form.text_field :building_type %>
+    <%= form.text_field :building_type, :onchange => 'getBuildingType()'%>
   </div>
 
   <div class="field">
     <%= form.label :product_line %>
-    <%= form.text_field :product_line %>
+    <%= form.text_field :product_line, :onchange => 'getInstallationFees(), getElevatorTotalPrice(), getElevatorUnitPrice(), getFinalPrice()'%>
   </div>
 
   <div class="field">
     <%= form.label :apartments %>
-    <%= form.number_field :apartments %>
+    <%= form.number_field :apartments, :onchange => 'getElevatorAmount(), getElevatorTotalPrice(), getInstallationFees(), getFinalPrice()'%>
   </div>
 
   <div class="field">
@@ -69,4 +69,5 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>
