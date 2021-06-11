@@ -10,22 +10,22 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require owl.carousel
+ *= require owl.theme
  *= require_tree .
  *= require_self
  */
 
  // Custom bootstrap variables must be set or imported *before* bootstrap.
-<<<<<<< HEAD
- @import "bootstrap-sprockets";
-=======
+
 @import "bootstrap-sprockets";
->>>>>>> main
+
  @import "bootstrap";
  @import "font-awesome-sprockets";
  @import "font-awesome";
  @import "bootstrap-social";
-<<<<<<< HEAD
+
+ @import "layout";
+
  @import "pages";
-=======
-@import "pages";
->>>>>>> main
+
