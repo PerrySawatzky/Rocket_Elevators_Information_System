@@ -5,10 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th>first name</th>
-      <th>last name</th>
-      <th>title</th>
-      <th>email</th>
+      <th>User</th>
+      <th>Last name</th>
+      <th>First name</th>
+      <th>Title</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +16,10 @@
   <tbody>
     <% @employees.each do |employee| %>
       <tr>
+        <td><%= employee.user_id %></td>
+        <td><%= employee.last_name %></td>
         <td><%= employee.first_name %></td>
-        <td><%= employee.last_Name %></td>
         <td><%= employee.title %></td>
-        <td><%= employee.email %></td>
         <td><%= link_to 'Show', employee %></td>
         <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
         <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
