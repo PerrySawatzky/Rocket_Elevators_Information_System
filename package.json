@@ -1,5 +1,7 @@
 {
   "name": "Rocket_Elevators_Information_System",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "owl.carousel": "^2.3.4"
+  }
 }

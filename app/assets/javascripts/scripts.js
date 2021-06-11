@@ -40,6 +40,7 @@
 	window.width 	= jQuery(window).width();
 	window.height 	= jQuery(window).height();
 
+	console.log('SCRIPT.JS');
 
 	/* Init */
 	jQuery(window).ready(function () {
@@ -56,17 +57,17 @@
 		_loadPopperBS4();
 
 		// Load Bootstrap JS
-		loadScript(plugin_path + 'bootstrap/js/bootstrap.min.js', function() {
+		// loadScript(plugin_path + 'bootstrap/js/bootstrap.min.js', function() {
 
-			// Load Material Design Js
-			if(jQuery("body").hasClass('enable-materialdesign')) {
-				loadScript(plugin_path + 'mdl/material.min.js');
-			}
+		// 	// Load Material Design Js
+		// 	if(jQuery("body").hasClass('enable-materialdesign')) {
+		// 		loadScript(plugin_path + 'mdl/material.min.js');
+		// 	}
 
-			// Init
-			Init(false);
+		// 	// Init
+		// 	Init(false);
 
-		});
+		// });
 
 
 		/* --- */
@@ -85,6 +86,8 @@
 	Ajax Reinit:		Init(true);
  **************************************************************** **/
 	function Init(is_ajax) {
+
+console.log("INIT");
 
 		// First Load Only
 		if(is_ajax != true) {
@@ -1179,25 +1182,25 @@
 
 		if(_container1.length > 0) {
 
-			loadScript(plugin_path + 'jquery.nav.min.js', function() {
+			// loadScript(plugin_path + 'jquery.nav.min.js', function() {
 
-				jQuery(_container1).onePageNav({
-					currentClass: 		'active',
-					changeHash: 		false,
-					scrollSpeed: 		750,
-					scrollThreshold: 	0.5,
-					filter: 			':not(.external)',
-					easing: 			'easeInOutExpo'
-				});
+			// 	jQuery(_container1).onePageNav({
+			// 		currentClass: 		'active',
+			// 		changeHash: 		false,
+			// 		scrollSpeed: 		750,
+			// 		scrollThreshold: 	0.5,
+			// 		filter: 			':not(.external)',
+			// 		easing: 			'easeInOutExpo'
+			// 	});
 
-				// Close Nav on menu click
-				jQuery("#topMain.nav-onepage li>a").bind("click", function() {
-					if(window.width < 960) {
-						jQuery("button.btn-mobile").trigger('click');
-					}
-				});
+			// 	// Close Nav on menu click
+			// 	jQuery("#topMain.nav-onepage li>a").bind("click", function() {
+			// 		if(window.width < 960) {
+			// 			jQuery("button.btn-mobile").trigger('click');
+			// 		}
+			// 	});
 
-			});
+			// });
 		
 		}
 
@@ -1237,7 +1240,7 @@
 
 		if(_container.length > 0) {
 
-			loadScript(plugin_path + 'owl-carousel/owl.carousel.min.js', function() {
+			// loadScript(plugin_path + 'owl-carousel/owl.carousel.min.js', function() {
 
 				_container.each(function() {
 
@@ -1383,7 +1386,7 @@
 
 				});
 
-			});
+			// });
 
 		}
 
@@ -1795,7 +1798,7 @@
 		var _container = jQuery('.mix-grid');
 		
 		if(_container.length > 0) {
-			loadScript(plugin_path + 'mixitup/jquery.mixitup.min.js', function() {
+			//loadScript('jquery.mixitup.min.js', function() {
 
 				if(jQuery().mixitup) {
 
@@ -1806,7 +1809,7 @@
 
 				}
 			
-			});
+			//});
 		
 		}
 
