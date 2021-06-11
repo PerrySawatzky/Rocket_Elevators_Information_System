@@ -8,8 +8,10 @@ gem 'bootstrap-social-rails'
 
 ruby '2.6.6'
 
-
+gem 'toastr-rails'
 gem 'devise'
+
+gem 'cancancan'
 
 gem 'bootstrap', '~> 4.0.0'
 
