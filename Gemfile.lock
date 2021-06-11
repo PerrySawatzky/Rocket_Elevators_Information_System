@@ -159,13 +159,10 @@ GEM
     minitest (5.14.4)
     msgpack (1.4.2)
     mysql2 (0.5.3)
-<<<<<<< HEAD
     nested_form (0.3.2)
-=======
     net-scp (3.0.0)
       net-ssh (>= 2.6.5, < 7.0.0)
     net-ssh (6.1.0)
->>>>>>> main
     nio4r (2.5.7)
     nokogiri (1.11.7-x86_64-darwin)
       racc (~> 1.4)
@@ -266,13 +263,10 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-<<<<<<< HEAD
-    temple (0.8.2)
-=======
     sshkit (1.21.2)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
->>>>>>> main
+    temple (0.8.2)
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -324,11 +318,8 @@ DEPENDENCIES
   owlcarousel-rails
   puma (~> 3.11)
   rails (~> 5.2.6)
-<<<<<<< HEAD
   rails_admin
-=======
   rvm1-capistrano3
->>>>>>> main
   sass-rails (~> 5.0)
   selenium-webdriver
   spring
