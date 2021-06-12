@@ -67,7 +67,9 @@
               <ul id="topMain" class="nav nav-pills nav-main nav-onepage">
                 <li class="active">
                   <!-- HOME -->
+
                   <%= link_to 'HOME', root_path(@home) %>
+
                   </a>
                 </li>
                 <li><!-- SERVICES -->
@@ -77,11 +79,14 @@
                         </a>
                         <ul class="dropdown-menu">
                           <li> 
-                          <%= link_to 'Residential', home_residential_path, class: 'nav-link' %>
-                          
+                          <%= link_to 'Residential', home_residential_path, class: 'nav-link' %> 
                           </li>
-                          <li><a href="commercial.html">Commercial</a></li>
-                          <li><a href="quote.html">Request A Quote!</a></li>
+                          <li>
+                          <%= link_to 'Commecial', home_commercial_path, class: 'nav-link' %>
+                          </li>
+                          <li>
+                          <%= link_to 'Request A Quote!', home_quote_path, class: 'nav-link' %>
+                          </li>
                         </ul>
                       </li>
                     </li>
@@ -112,18 +117,21 @@
                 
                 <li>
                 <% if user_signed_in? %>
-                  Logged in as <strong><%= current_user.email %></strong>.
-                  <%= link_to 'EDIT PROFILE', edit_user_registration_path, :class => 'navbar-link' %>
+                  <div>
+                          Logged in as <strong><%= current_user.email %></strong>.
+                  </div>
+                  <li>                
+                    <%= link_to 'EDIT PROFILE', edit_user_registration_path, :class => 'navbar-link' %>
                   </li>
                   <li>
-                  <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+                    <%= link_to "LOGOUT", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
                   </li>
                 <% else %>
-                <li>
-                  <%= link_to "SIGN UP", new_user_registration_path, :class => 'navbar-link'  %> 
+                  <li>
+                    <%= link_to "SIGN UP", new_user_registration_path, :class => 'navbar-link'  %> 
                   </li>
                   <li>
-                  <%= link_to "LOGIN", new_user_session_path, :class => 'navbar-link'  %>
+                    <%= link_to "LOGIN", new_user_session_path, :class => 'navbar-link'  %>
                   </li>  
                 <% end %>
                 <% if notice %>
