@@ -308,8 +308,16 @@
             </li>
           </ul>
         </div>
-      </div>
+        </div>
       <!-- /REVOLUTION SLIDER -->
+
+      <!-- BUTTON CALLOUT -->
+			<a href="#contact" style= "border-color: #8B0000;background-color: #8B0000" class="btn btn-xlg btn-primary fs-20 fullwidth m-0 rad-0 p-40">
+				<span class="font-lato fs-30">
+					Did Rocket Elevators convince you? 
+					<strong>Contact us &raquo;</strong>
+				</span>
+			</a>
 
       <!-- Services -->
       <section id="services-navigation">
@@ -323,7 +331,7 @@
                 Over the years we've been highly praised for our speed and
                 safety! See for youself what the critics have to say.
               </p>
-              <a href="#portfolio-navigation" class="btn btn-default">AWARDS</a>
+              <a href="#portfolio" class="btn btn-default">AWARDS</a>
             </div>
 
             <div class="col-sm-4">
@@ -334,8 +342,7 @@
                 Everyone needs a speedy and safe way down to the ground floor.
                 Perhaps no one more than those in residential buildings!
               </p>
-              <a href="residential.html" class="btn btn-default"
-                >MORE DETAILS</a
+              <a href="residential.html" class="btn btn-default">MORE DETAILS</a
               >
             </div>
 
@@ -355,30 +362,20 @@
       <!-- /Services -->
 
       <!-- Parallax -->
-      <section
-        class="parallax parallax-1"
-        # src=
-        #   background-image: url("<%= image_tag('AdobeStock_33298664.jpeg', alt: "img", class: "img-fluid")%>
-        # "
-        <%= image_tag('AdobeStock_33298664.jpeg', alt: "img", class: "img-fluid")%>
-      >
-        <div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
+      <section class="parallax parallax-1" style="background-image: url('<%= image_tag('AdobeStock_33298664.jpeg')%>')">
+				<div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
 
-        <div class="container">
-          <div class="text-center">
-            <h2 class="fs-40 fw-300">
-              Safely & speedily elevating customers since 1976
-            </h2>
-            <a class="btn btn-default btn-lg" href="quote.html"
-              >REQUEST A QUOTE <i class="fa fa-angle-right"></i
-            ></a>
-            &nbsp; OR &nbsp;
-            <a class="btn btn-default btn-lg" href="#contact-navigation"
-              >CONTACT US <i class="fa fa-angle-right"></i
-            ></a>
-          </div>
-        </div>
-      </section>
+				<div class="container">
+
+					<div class="text-center">
+						<h2 class="fs-40 fw-300">Safely and speedily elevating customers since 1976</h2>
+						<a class="btn btn-default btn-lg" href="quote.html">GET A QUOTE <i class="fa fa-angle-right"></i></a> 
+						&nbsp; OR &nbsp; 
+						<a class="btn btn-warning btn-lg" style="background-color: #8B0000; border-color: #8B0000;" href="#contact">CONTACT US <i class="fa fa-angle-right"></i></a>
+					</div>
+
+				</div>
+			</section>
       <!-- /Parallax -->
 
       <!-- PORTFOLIO -->
@@ -645,40 +642,38 @@
 
       <!-- Team Sectiom -->
       <section id="team" class="section-xs dark">
-        <div class="container">
-          <div
-            class="owl-carousel text-center owl-testimonial m-0"
-            data-plugin-options='{"singleItem": true, "autoPlay": 3500, "navigation": false, "pagination": true, "transitionStyle":"fade"}'
-          >
-            <div id="CEO" class="team">
-              <figure>
-                <!-- jpg must be titled exactly CEO.jpg-->
-                <%= image_tag("CEO.jpg", class: "rounded")%>
-              </figure>
-              <div class="testimonial-content p-0">
-                <p class="lead">Patrick rulez Mathieu droolz.</p>
-                <cite>
-                  Patrick Thibault <br />
-                  <span>CEO of Rocket Elevators</span>
-                </cite>
-              </div>
+				<div class="container">
+					<div class="owl-carousel text-center owl-testimonial m-0" data-plugin-options='{"singleItem": true, "autoPlay": 3500, "navigation": false, "pagination": true, "transitionStyle":"fade"}'>
+						<div id="CEO" class="testimonial">
+            <div>
+							<figure style="padding-left: 585px;">
+								<img class="img-circle" style="width:128px;height:128px;class:center-block;" <%= image_tag("CEO.jpg")%> 
+							</figure>
             </div>
-            <div class="team">
-              <figure>
-                <!-- jpg must be titled exactly employee-of-the-month.jpg-->
-                <%= image_tag("employee-of-the-month.jpg", class: "rounded")%>
-              </figure>
-              <div id="employee" class="testimonial-content p-0">
-                <p class="lead">Yes boss, whatever you say boss.</p>
-                <cite>
-                  Perry Sawatzky <br />
-                  <span>Emplyee of the Month</span>
-                </cite>
+							<div class="testimonial-content p-0">
+								<cite>
+									Patrick Thibault
+									<span>CEO</span>
+								</cite>
+							</div>
+						</div>
+						<div id ="employee" class="testimonial">
+              <div>
+							<figure style="padding-left: 585px;">
+                <img class="img-circle" style="width:128px;height:128px;class:center-block;" <%= image_tag("employee-of-the-month.jpg")%> 
+							</figure>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
+							<div class="testimonial-content p-0">								
+								<cite>
+									Perry Sawatzky
+									<span>Employee of the Month</span>
+								</cite>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</section>
       <!-- /Team Section -->
 
       <!-- News -->
