@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :employees
 
   devise_for :users
+  get 'quotes/new'
   get 'home/quote'
   get 'home/residential'
   get 'home/commercial'

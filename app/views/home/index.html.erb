@@ -98,8 +98,8 @@
                   white-space: nowrap;
                 "
               >
-                <a class="btn btn-danger btn-lg" href="quote.html"
-                  >Offer of Services &nbsp; <i class="fa fa-angle-right"></i
+                <a class="btn btn-danger btn-lg" <%= link_to 'Offer of Services', quotes_new_path, class: 'nav-link' %>
+                  > &nbsp; <i class="fa fa-angle-right"></i
                 ></a>
               </div>
 
@@ -301,8 +301,8 @@
                 data-endspeed="500"
                 style="z-index: 4; max-width: auto;"
               >
-                <a class="btn btn-danger btn-lg" href="commercial.html"
-                  >DETAILS &nbsp; <i class="fa fa-angle-right"></i
+                <a class="btn btn-danger btn-lg" <%= link_to 'DETAILS', home_commercial_path, class: 'nav-link' %>
+                  > &nbsp; <i class="fa fa-angle-right"></i
                 ></a>
               </div>
             </li>
@@ -369,7 +369,7 @@
 
 					<div class="text-center">
 						<h2 class="fs-40 fw-300">Safely and speedily elevating customers since 1976</h2>
-						<a class="btn btn-default btn-lg" href="quote.html">GET A QUOTE <i class="fa fa-angle-right"></i></a> 
+						<a class="btn btn-default btn-lg" <%= link_to 'GET A QUOTE', quotes_new_path %> <i class="fa fa-angle-right"></i></a> 
 						&nbsp; OR &nbsp; 
 						<a class="btn btn-warning btn-lg" style="background-color: #8B0000; border-color: #8B0000;" href="#contact">CONTACT US <i class="fa fa-angle-right"></i></a>
 					</div>
