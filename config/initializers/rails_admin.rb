@@ -1,19 +1,21 @@
 RailsAdmin.config do |config|
 
-  config.authorize_with do
-    config.authorize_with :cancancan
-  end
+  
 
   ### Popular gems integration
 
   ## == Devise ==
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
-  # config.current_user_method(&:current_user)
+  config.authenticate_with do
+    warden.authenticate! scope: :user
+  end
+  config.current_user_method(&:current_user)
 
   ## == CancanCan ==
-  # config.authorize_with :cancancan
+  config.authorize_with :cancancan
+
+  config.authorize_with do
+    redirect_to main_app.root_path unless warden.user.superadmin_role == true
+  end
 
   ## == Pundit ==
   # config.authorize_with :pundit
