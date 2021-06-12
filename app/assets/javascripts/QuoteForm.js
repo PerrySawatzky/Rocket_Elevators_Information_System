@@ -2,6 +2,7 @@
 var theForm = document.forms['quoteForm_'];
 
 function getBuildingType(){
+	
 	var theForm = document.forms['quoteForm_'];
     var selectedBuildingType = theForm.elements['building-type'];
 		if(selectedBuildingType.value==='residential1'){
