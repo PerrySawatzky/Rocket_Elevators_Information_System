@@ -17,13 +17,11 @@
  */
 
  // Custom bootstrap variables must be set or imported *before* bootstrap.
-@import "bootstrap-sprockets";
+ @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "font-awesome-sprockets";
  @import "font-awesome";
  @import "bootstrap-social";
-
  @import "layout";
-
  @import "pages";
 
