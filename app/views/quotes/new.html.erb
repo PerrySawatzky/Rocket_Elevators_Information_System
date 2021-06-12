@@ -1,40 +1,10 @@
-<h1>New Quote</h1>
-
-<%= render 'form', quote: @quote %>
-<!-- wrapper -->
-		<div id="wrapper">
-
-			<div id="header" class="navbar-toggleable-md sticky header-md clearfix">
-
-				<!-- TOP NAV -->
-				<header id="topNav">
-					<div class="container">
-
-						<!-- Mobile Menu Button -->
-						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
-							<i class="fa fa-bars"></i>
-						</button>
-					</div>
-				</header>
-				<!-- /Top Nav -->
-
-			</div>
-
-
-
-			<!-- REVOLUTION SLIDER -->
-			<div class="slider fullwidthbanner-container roundedcorners">
-				
-			</div>
-			<!-- REVOLUTION SLIDER -->
-			<div class="slider fullwidthbanner-container roundedcorners">
-
-		   <section id="quote_form">
+<h1>Cofigure elevator setup</h1>
 			<div class="container pt-30 pb-30">
                  
 				<div class="row">
 
 					<div class="col-md-6">
+				
 					<form action="" id="quoteForm_">
 						<div>
 							<select onchange="getBuildingType()" id="building-type">
@@ -228,10 +198,8 @@
 					</div>
 
 				</div>
-
-			</div>
-		</section>
-               
-
-		</div>
+				
+<h1>Recieve discount on installation if you fill in the fields below manually!</h1>
+  <%= render 'form', quote: @quote %>
+  
 <%= link_to 'Back', quotes_path %>
