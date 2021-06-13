@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @customer.user_id %>
+</p>
+
+<p>
+  <strong>Customer creation date:</strong>
+  <%= @customer.customer_creation_date %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @customer.company_name %>
+</p>
+
+<p>
+  <strong>Headquarters address:</strong>
+  <%= @customer.headquarters_address %>
+</p>
+
+<p>
+  <strong>Company contact full name:</strong>
+  <%= @customer.company_contact_full_name %>
+</p>
+
+<p>
+  <strong>Company contact phone:</strong>
+  <%= @customer.company_contact_phone %>
+</p>
+
+<p>
+  <strong>Company contact email:</strong>
+  <%= @customer.company_contact_email %>
+</p>
+
+<p>
+  <strong>Company description:</strong>
+  <%= @customer.company_description %>
+</p>
+
+<p>
+  <strong>Service tech authority full name:</strong>
+  <%= @customer.service_tech_authority_full_name %>
+</p>
+
+<p>
+  <strong>Technical authority for service phone:</strong>
+  <%= @customer.technical_authority_for_service_phone %>
+</p>
+
+<p>
+  <strong>Technical manager email for service:</strong>
+  <%= @customer.technical_manager_email_for_service %>
+</p>
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>

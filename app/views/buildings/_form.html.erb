@@ -1,0 +1,57 @@
+<%= form_with(model: building, local: true) do |form| %>
+  <% if building.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(building.errors.count, "error") %> prohibited this building from being saved:</h2>
+
+      <ul>
+      <% building.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :customer_id %>
+    <%= form.number_field :customer_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address_of_the_building %>
+    <%= form.text_field :address_of_the_building %>
+  </div>
+
+  <div class="field">
+    <%= form.label :full_name_of_the_building_administrator %>
+    <%= form.text_field :full_name_of_the_building_administrator %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email_of_the_administrator_of_the_building %>
+    <%= form.text_field :email_of_the_administrator_of_the_building %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone_number_of_the_building_administrator %>
+    <%= form.text_field :phone_number_of_the_building_administrator %>
+  </div>
+
+  <div class="field">
+    <%= form.label :full_name_of_the_technical_contact_for_the_building %>
+    <%= form.text_field :full_name_of_the_technical_contact_for_the_building %>
+  </div>
+
+  <div class="field">
+    <%= form.label :technical_contact_email_for_the_building %>
+    <%= form.text_field :technical_contact_email_for_the_building %>
+  </div>
+
+  <div class="field">
+    <%= form.label :technical_contact_phone_for_the_building %>
+    <%= form.text_field :technical_contact_phone_for_the_building %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
