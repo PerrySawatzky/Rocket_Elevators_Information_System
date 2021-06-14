@@ -99,8 +99,8 @@
                   white-space: nowrap;
                 "
               >
-                <a class="btn btn-danger btn-lg" href="quote.html"
-                  >Offer of Services &nbsp; <i class="fa fa-angle-right"></i
+                <a class="btn btn-danger btn-lg" <%= link_to 'Offer of Services', quotes_new_path, class: 'nav-link' %>
+                  > &nbsp; <i class="fa fa-angle-right"></i
                 ></a>
               </div>
 
@@ -302,8 +302,8 @@
                 data-endspeed="500"
                 style="z-index: 4; max-width: auto;"
               >
-                <a class="btn btn-danger btn-lg" href="commercial.html"
-                  >DETAILS &nbsp; <i class="fa fa-angle-right"></i
+                <a class="btn btn-danger btn-lg" <%= link_to 'DETAILS', home_commercial_path, class: 'nav-link' %>
+                  > &nbsp; <i class="fa fa-angle-right"></i
                 ></a>
               </div>
             </li>
@@ -370,7 +370,7 @@
 
 					<div class="text-center">
 						<h2 class="fs-40 fw-300">Safely and speedily elevating customers since 1976</h2>
-						<a class="btn btn-default btn-lg" href="quote.html">GET A QUOTE <i class="fa fa-angle-right"></i></a> 
+						<a class="btn btn-default btn-lg" <%= link_to 'GET A QUOTE', quotes_new_path %> <i class="fa fa-angle-right"></i></a> 
 						&nbsp; OR &nbsp; 
 						<a class="btn btn-warning btn-lg" style="background-color: #8B0000; border-color: #8B0000;" href="#contact">CONTACT US <i class="fa fa-angle-right"></i></a>
 					</div>
@@ -643,13 +643,15 @@
 
       <!-- Team Sectiom -->
       <section id="team" class="section-xs dark">
+
 				<div class="container">
 					<div class="owl-carousel text-center owl-testimonial m-0" data-plugin-options='{"singleItem": true, "autoPlay": 3500, "navigation": false, "pagination": true, "transitionStyle":"fade"}'>
 						<div id="CEO" class="testimonial">
             <div>
-							<figure style="padding-left: 585px;">
+							<figure style="padding-left: 420px;">
 								<img class="img-circle" style="width:128px;height:128px;class:center-block;" <%= image_tag("CEO.jpg")%> 
 							</figure>
+
             </div>
 							<div class="testimonial-content p-0">
 								<cite>
@@ -660,7 +662,7 @@
 						</div>
 						<div id ="employee" class="testimonial">
               <div>
-							<figure style="padding-left: 585px;">
+							<figure style="padding-left: 420px;">
                 <img class="img-circle" style="width:128px;height:128px;class:center-block;" <%= image_tag("employee-of-the-month.jpg")%> 
 							</figure>
               </div>
@@ -864,7 +866,6 @@
         <div class="container">
           <div class="heading-title heading-dotted text-center">
             <h2>Our Customers</h2>
-
           <ul class="row clients-dotted list-inline">
             <li class="col-md-3 col-sm-3 col-6">
               <%= image_tag("Customer1.jpg", class: "img-fluid", alt: "client")%>

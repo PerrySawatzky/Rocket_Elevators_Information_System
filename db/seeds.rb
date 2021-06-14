@@ -31,7 +31,46 @@ employees_list = [
   [21, "Murray" , "Jonathan", "Developer"]
 ]
 
+
+users_list = [
+  ["nicolas.genest@codeboxx.biz", "password", true],
+  ["nadya.fortier@codeboxx.biz", "password", true],
+  ["martin.chantal@codeboxx.biz", "password", true],
+  ["mathieu.houde@codeboxx.biz", "password", true],
+  ["patrick.thibault@codeboxx.biz", "password", true],
+  ["david.boutin@codeboxx.biz", "password", true],
+  ["mathieu.lortie@codeboxx.biz", "password", true],
+  ["thomas.carrier@codeboxx.biz", "password", true],
+  ["serge.savoie@codeboxx.biz", "password", true],
+  ["francis.patry-jessop@codeboxx.biz", "password", true],
+  ["mathieu.lefrancois@codeboxx.biz", "password", true],
+  ["david.larochelle@codeboxx.biz", "password", true],
+  ["nicolas.pineault@codeboxx.biz", "password", true],
+  ["david.amyot@codeboxx.biz", "password", true],
+  ["remi.gagnon@codeboxx.biz", "password", true],
+  ["timothy.wever@codeboxx.biz", "password", true],
+  ["kiril.kleinerman@codeboxx.biz", "password", true],
+  ["emmanuela.derilus@codeboxx.biz", "password", true],
+  ["abdul.akeeb@codebozz.biz", "password", true],
+  ["krista.sheely@codeboxx.biz", "password", true],
+  ["jonathan.murray@codeboxx.biz", "password", true]
+
+]
+
+# User.create! do |u|
+#   u.email     = 'test_admin@test.com'
+#   u.password  = 'password'
+#   u.superadmin_role = true
+
+
+
+
+
 employees_list.each do |user_id, last_name, first_name, title|
     Employee.create( user_id: user_id, last_name: last_name,  first_name: first_name, title: title)
+end
+
+users_list.each do |email, password, superadmin_role|
+  User.create( email: email, password: password, superadmin_role: superadmin_role)
 end
 

@@ -10,64 +10,95 @@
       </ul>
     </div>
   <% end %>
+<div class="container pt-30 pb-30">
+  <div class="row">	
+		<div class="container pt-30 pb-30">
+	
 
-  <div class="field">
-    <%= form.label :building_type %>
-    <%= form.text_field :building_type, :onchange => 'getBuildingType()'%>
+      <div class="col-sm-4 m-0">
+        <%= form.label :building_type, class:"fs-16" %>
+        <%= form.text_field :building_type, class:"form-control"%>
+      </div>
+
+      <div class="col-sm-4 m-0">
+        <%= form.label :product_line, class:"fs-16"  %>
+        <%= form.text_field :product_line, class:"form-control"%>
+      </div>
+
+      <div class="col-sm-4 m-0">
+        <%= form.label :apartments, class:"fs-16"  %>
+        <%= form.number_field :apartments, class:"form-control"%>
+      </div>
+
+      <div class="col-sm-4 m-0">
+        <%= form.label :floors, class:"fs-16"  %>
+        <%= form.number_field :floors, class:"form-control"%>
+      </div>
+
+      <div class="col-sm-4 m-0">
+        <%= form.label :basements, class:"fs-16"  %>
+        <%= form.number_field :basements, class:"form-control"%>
+      </div>
+
+      <div class="col-sm-4 m-0">
+        <%= form.label :elevators, class:"fs-16"  %>
+        <%= form.number_field :elevators, class:"form-control" %>
+      </div>
+
+      <div class="col-sm-4 m-0">
+        <%= form.label :companies, class:"fs-16"  %>
+        <%= form.number_field :companies, class:"form-control" %>
+      </div>
+
+      <div class="col-sm-4 m-0">
+        <%= form.label :parking_spots, class:"fs-16"  %>
+        <%= form.number_field :parking_spots, class:"form-control" %>
+      </div>
+
+      <div class="col-sm-4 m-0">
+        <%= form.label :max_occupancy_per_floor, class:"fs-16"  %>
+        <%= form.number_field :max_occupancy_per_floor, class:"form-control"  %>
+      </div>
+
+      <div class="col-sm-4 m-0">
+        <%= form.label :corporations, class:"fs-16"  %>
+        <%= form.number_field :corporations, class:"form-control" %>
+      </div>
+
+      <div class="col-sm-4 m-0">
+        <%= form.label :business_hours, class:"fs-16"  %>
+        <%= form.text_field :business_hours, class:"form-control" %>
+      </div>
+
+      <div class="col-sm-4 m-0">
+        <%= form.label :elevator_amount, class:"fs-16"  %>
+        <%= form.text_field :elevator_amount, class:"form-control" %>
+      </div>
+
+      <div class="col-sm-4 m-0">
+        <%= form.label :unit_price, class:"fs-16"  %>
+        <%= form.text_field :unit_price, class:"form-control" %>
+      </div>
+
+      <div class="col-sm-4 m-0">
+        <%= form.label :total_price, class:"fs-16"  %>
+        <%= form.text_field :total_price, class:"form-control" %>
+      </div>
+
+      <div class="col-sm-4 m-0">
+        <%= form.label :install_fees, class:"fs-16"  %>
+        <%= form.text_field :install_fees, class:"form-control" %>
+      </div>
+
+      <div class="col-sm-4 m-0">
+        <%= form.label :final_price, class:"fs-16"  %>
+        <%= form.text_field :final_price, class:"form-control"%>
+      </div>
+
+      <div class="col-sm-4 m-0">
+        <%= form.submit %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :product_line %>
-    <%= form.text_field :product_line, :onchange => 'getInstallationFees(), getElevatorTotalPrice(), getElevatorUnitPrice(), getFinalPrice()'%>
-  </div>
-
-  <div class="field">
-    <%= form.label :apartments %>
-    <%= form.number_field :apartments, :onchange => 'getElevatorAmount(), getElevatorTotalPrice(), getInstallationFees(), getFinalPrice()'%>
-  </div>
-
-  <div class="field">
-    <%= form.label :floors %>
-    <%= form.number_field :floors %>
-  </div>
-
-  <div class="field">
-    <%= form.label :basements %>
-    <%= form.number_field :basements %>
-  </div>
-
-  <div class="field">
-    <%= form.label :elevators %>
-    <%= form.number_field :elevators %>
-  </div>
-
-  <div class="field">
-    <%= form.label :companies %>
-    <%= form.number_field :companies %>
-  </div>
-
-  <div class="field">
-    <%= form.label :parking_spots %>
-    <%= form.number_field :parking_spots %>
-  </div>
-
-  <div class="field">
-    <%= form.label :max_occupancy_per_floor %>
-    <%= form.number_field :max_occupancy_per_floor %>
-  </div>
-
-  <div class="field">
-    <%= form.label :corporations %>
-    <%= form.number_field :corporations %>
-  </div>
-
-  <div class="field">
-    <%= form.label :business_hours %>
-    <%= form.text_field :business_hours %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-
+</div>
 <% end %>

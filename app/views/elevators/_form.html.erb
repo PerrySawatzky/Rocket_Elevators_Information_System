@@ -1,0 +1,67 @@
+<%= form_with(model: elevator, local: true) do |form| %>
+  <% if elevator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(elevator.errors.count, "error") %> prohibited this elevator from being saved:</h2>
+
+      <ul>
+      <% elevator.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :column_id %>
+    <%= form.number_field :column_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :serial_number %>
+    <%= form.text_field :serial_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :model %>
+    <%= form.text_field :model %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_of_commissioning %>
+    <%= form.date_select :date_of_commissioning %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_inspection %>
+    <%= form.date_select :last_inspection %>
+  </div>
+
+  <div class="field">
+    <%= form.label :certificate_of_inspection %>
+    <%= form.text_field :certificate_of_inspection %>
+  </div>
+
+  <div class="field">
+    <%= form.label :information %>
+    <%= form.text_field :information %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_field :notes %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
