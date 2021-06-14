@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "faker"
+
 
 
 employees_list = [
@@ -57,12 +59,28 @@ users_list = [
 
 ]
 
+
 # User.create! do |u|
 #   u.email     = 'test_admin@test.com'
 #   u.password  = 'password'
 #   u.superadmin_role = true
 
+100.times do 
+    Lead.create(
+      full_name: Faker::Food.fruits,
+      company_name: Faker::Food.fruits,
+      email: Faker::Food.fruits,
+      phone: Faker::Food.fruits,
+      project_name: Faker::Food.fruits,
+      project_description: Faker::Food.fruits,
+      dept_in_charge_of_elevators: Faker::Food.fruits,
+      message: Faker::Food.fruits,
+      attached_file: ,
+      date_of_contact_request: Faker::Food.fruits,
 
+  )
+
+end
 
 
 
