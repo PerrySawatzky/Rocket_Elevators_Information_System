@@ -1066,17 +1066,21 @@
                       <label for="contact:attachment">File Attachment</label>
 
                       <!-- custom file upload -->
-                      <input
+                      <%= form.label :attached_file %>
+                      <%= form.file_field :attached_file%>
+
+                    <%#   <input
                         class="custom-file-upload"
                         type="file"
                         id="file"
                         name="contact[attachment]"
                         id="attachment"
                         data-btn-text="Select File"
-                      />
+                      /> %>
                       <small class="text-muted block"
                         >Max file size: 10Mb (zip/pdf/jpg/png)</small
                       >
+                    <%= form.date_field :date_of_contact_request, value: Date.today, style:"display:none" %>
                     </div>
                   </div>
                 </fieldset>
