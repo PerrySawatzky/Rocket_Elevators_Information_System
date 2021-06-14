@@ -1,0 +1,32 @@
+<%= form_with(model: building_detail, local: true) do |form| %>
+  <% if building_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(building_detail.errors.count, "error") %> prohibited this building_detail from being saved:</h2>
+
+      <ul>
+      <% building_detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :building_id %>
+    <%= form.number_field :building_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :information_key %>
+    <%= form.text_field :information_key %>
+  </div>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.text_field :value %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
