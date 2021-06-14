@@ -986,6 +986,8 @@
                 fields!
               </div>
               <!-- /Alert Mandatory -->
+              
+              <%= form_with(model: Lead, local: true, :method => "post") do |form| %>
 
               <form
                 action="php/contact.php"
@@ -997,77 +999,39 @@
 
                   <div class="row">
                     <div class="col-md-4">
-                      <label for="contact:name">Full Name *</label>
-                      <input
-                        required
-                        type="text"
-                        value=""
-                        class="form-control"
-                        name="contact[name][required]"
-                        id="name"
-                      />
+                      <%= form.label :full_name %>
+                      <%= form.text_field :full_name, class:"form-control" %>
                     </div>
                     <div class="col-md-4">
-                      <label for="contact:email">E-mail *</label>
-                      <input
-                        required
-                        type="email"
-                        value=""
-                        class="form-control"
-                        name="contact[email][required]"
-                        id="email"
-                      />
+                      <%= form.label :email %>
+                      <%= form.text_field :email, class:"form-control" %>
                     </div>
                     <div class="col-md-4">
-                      <label for="contact:phone">Phone</label>
-                      <input
-                        type="text"
-                        value=""
-                        class="form-control"
-                        name="contact[phone]"
-                        id="phone"
-                      />
+                      <%= form.label :phone %>
+                      <%= form.text_field :phone, class:"form-control" %>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-8">
-                      <label for="contact:subject">Company Name *</label>
-                      <input
-                        required
-                        type="text"
-                        value=""
-                        class="form-control"
-                        name="contact[company_name][required]"
-                        id="company_name"
-                      />
+                      <%= form.label :company_name %>
+                      <%= form.text_field :company_name, class:"form-control" %>
                     </div>
                     <div class="col-md-8">
-                      <label for="contact:subject">Project Name *</label>
-                      <input
-                        required
-                        type="text"
-                        value=""
-                        class="form-control"
-                        name="contact[project_name][required]"
-                        id="project_name"
-                      />
+                      <%= form.label :project_name %>
+                      <%= form.text_field :project_name, class:"form-control" %>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
-                        <label for="contact:message">Project Description</label>
-                        <textarea
-                          required
-                          maxlength="10000"
-                          rows="8"
-                          class="form-control"
-                          name="contact[project_description]"
-                          id="project_description"
-                        ></textarea>
-                      </div>
+                        <%= form.label :project_description %>
+                        <%= form.text_field :project_description, class:"form-control" %>
                     </div>
                     <div class="col-md-4">
-                      <label for="contact_department">Department</label>
-                      <select
+                      <%= form.label :dept_in_charge_of_elevators %>
+
+                      <%= form.select :dept_in_charge_of_elevators, [ 'Commercial', 'Corporate', 'Hybrid', 'Residential'], :prompt => '--- Select ---', class:"form-control pointer", id:"department" %>
+         
+                      
+                      <%# <select
                         class="form-control pointer"
                         name="contact[department]"
                         id="department"
@@ -1077,12 +1041,16 @@
                         <option value="Corporate">Corporate</option>
                         <option value="Hybrid">Hybrid</option>
                         <option value="Residential">Residential</option>
-                      </select>
+                      </select> %>
+
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
-                      <label for="contact:message">Message *</label>
+                    <%= form.label :message %>
+                    <%= form.text_field :message, class:"form-control", id:"message", maxlength:"10000", rows:"16" %>
+                    
+                      <%# <label for="contact:message">Message *</label>
                       <textarea
                         required
                         maxlength="10000"
@@ -1090,7 +1058,7 @@
                         class="form-control"
                         name="contact[message]"
                         id="message"
-                      ></textarea>
+                      ></textarea> %>
                     </div>
                   </div>
                   <div class="row">
@@ -1122,6 +1090,8 @@
                 </div>
               </form>
             </div>
+
+            <%end%>
             <!-- /FORM -->
 
             <!-- INFO -->
