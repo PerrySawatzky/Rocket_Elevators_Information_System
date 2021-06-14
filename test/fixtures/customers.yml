@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  customer_creation_date: 2021-06-14
+  company_name: MyString
+  headquarters_address: MyString
+  company_contact_full_name: MyString
+  company_contact_phone: MyString
+  company_contact_email: MyString
+  company_description: MyString
+  service_tech_authority_full_name: MyString
+  technical_authority_for_service_phone: MyString
+  technical_manager_email_for_service: MyString
+
+two:
+  user_id: 1
+  customer_creation_date: 2021-06-14
+  company_name: MyString
+  headquarters_address: MyString
+  company_contact_full_name: MyString
+  company_contact_phone: MyString
+  company_contact_email: MyString
+  company_description: MyString
+  service_tech_authority_full_name: MyString
+  technical_authority_for_service_phone: MyString
+  technical_manager_email_for_service: MyString

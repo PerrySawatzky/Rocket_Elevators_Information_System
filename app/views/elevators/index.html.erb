@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Elevators</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Serial number</th>
+      <th>Model</th>
+      <th>Type</th>
+      <th>Status</th>
+      <th>Date of commissioning</th>
+      <th>Last inspection</th>
+      <th>Certificate of inspection</th>
+      <th>Information</th>
+      <th>Notes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @elevators.each do |elevator| %>
+      <tr>
+        <td><%= elevator.column_id %></td>
+        <td><%= elevator.serial_number %></td>
+        <td><%= elevator.model %></td>
+        <td><%= elevator.type %></td>
+        <td><%= elevator.status %></td>
+        <td><%= elevator.date_of_commissioning %></td>
+        <td><%= elevator.last_inspection %></td>
+        <td><%= elevator.certificate_of_inspection %></td>
+        <td><%= elevator.information %></td>
+        <td><%= elevator.notes %></td>
+        <td><%= link_to 'Show', elevator %></td>
+        <td><%= link_to 'Edit', edit_elevator_path(elevator) %></td>
+        <td><%= link_to 'Destroy', elevator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Elevator', new_elevator_path %>

@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Buildings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>Address of the building</th>
+      <th>Full name of the building administrator</th>
+      <th>Email of the administrator of the building</th>
+      <th>Phone number of the building administrator</th>
+      <th>Full name of the technical contact for the building</th>
+      <th>Technical contact email for the building</th>
+      <th>Technical contact phone for the building</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @buildings.each do |building| %>
+      <tr>
+        <td><%= building.customer_id %></td>
+        <td><%= building.address_of_the_building %></td>
+        <td><%= building.full_name_of_the_building_administrator %></td>
+        <td><%= building.email_of_the_administrator_of_the_building %></td>
+        <td><%= building.phone_number_of_the_building_administrator %></td>
+        <td><%= building.full_name_of_the_technical_contact_for_the_building %></td>
+        <td><%= building.technical_contact_email_for_the_building %></td>
+        <td><%= building.technical_contact_phone_for_the_building %></td>
+        <td><%= link_to 'Show', building %></td>
+        <td><%= link_to 'Edit', edit_building_path(building) %></td>
+        <td><%= link_to 'Destroy', building, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Building', new_building_path %>

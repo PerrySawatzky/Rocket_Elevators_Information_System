@@ -1,0 +1,72 @@
+<%= form_with(model: customer, local: true) do |form| %>
+  <% if customer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+      <ul>
+      <% customer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_creation_date %>
+    <%= form.date_select :customer_creation_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_name %>
+    <%= form.text_field :company_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :headquarters_address %>
+    <%= form.text_field :headquarters_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_contact_full_name %>
+    <%= form.text_field :company_contact_full_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_contact_phone %>
+    <%= form.text_field :company_contact_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_contact_email %>
+    <%= form.text_field :company_contact_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_description %>
+    <%= form.text_field :company_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :service_tech_authority_full_name %>
+    <%= form.text_field :service_tech_authority_full_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :technical_authority_for_service_phone %>
+    <%= form.text_field :technical_authority_for_service_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :technical_manager_email_for_service %>
+    <%= form.text_field :technical_manager_email_for_service %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,67 @@
+<%= form_with(model: lead, local: true) do |form| %>
+  <% if lead.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lead.errors.count, "error") %> prohibited this lead from being saved:</h2>
+
+      <ul>
+      <% lead.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :full_name %>
+    <%= form.text_field :full_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_name %>
+    <%= form.text_field :company_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :project_name %>
+    <%= form.text_field :project_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :project_description %>
+    <%= form.text_field :project_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dept_in_charge_of_elevators %>
+    <%= form.text_field :dept_in_charge_of_elevators %>
+  </div>
+
+  <div class="field">
+    <%= form.label :message %>
+    <%= form.text_field :message %>
+  </div>
+
+  <div class="field">
+    <%= form.label :attached_file %>
+    <%= form.text_field :attached_file %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_of_contact_request %>
+    <%= form.date_select :date_of_contact_request %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
