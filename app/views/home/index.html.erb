@@ -1030,18 +1030,7 @@
 
                       <%= form.select :dept_in_charge_of_elevators, [ 'Commercial', 'Corporate', 'Hybrid', 'Residential'], :prompt => '--- Select ---', class:"form-control pointer", id:"department" %>
          
-                      
-                      <%# <select
-                        class="form-control pointer"
-                        name="contact[department]"
-                        id="department"
-                      >
-                        <option value="">--- Select ---</option>
-                        <option value="Commercial">Commercial</option>
-                        <option value="Corporate">Corporate</option>
-                        <option value="Hybrid">Hybrid</option>
-                        <option value="Residential">Residential</option>
-                      </select> %>
+       
 
                     </div>
                   </div>
@@ -1050,15 +1039,7 @@
                     <%= form.label :message %>
                     <%= form.text_field :message, class:"form-control", id:"message", maxlength:"10000", rows:"16" %>
                     
-                      <%# <label for="contact:message">Message *</label>
-                      <textarea
-                        required
-                        maxlength="10000"
-                        rows="8"
-                        class="form-control"
-                        name="contact[message]"
-                        id="message"
-                      ></textarea> %>
+          
                     </div>
                   </div>
                   <div class="row">
@@ -1069,18 +1050,11 @@
                       <%= form.label :attached_file %>
                       <%= form.file_field :attached_file%>
 
-                    <%#   <input
-                        class="custom-file-upload"
-                        type="file"
-                        id="file"
-                        name="contact[attachment]"
-                        id="attachment"
-                        data-btn-text="Select File"
-                      /> %>
+            
                       <small class="text-muted block"
                         >Max file size: 10Mb (zip/pdf/jpg/png)</small
                       >
-                    <%= form.date_field :date_of_contact_request, value: Date.today, style:"display:none" %>
+        
                     </div>
                   </div>
                 </fieldset>
