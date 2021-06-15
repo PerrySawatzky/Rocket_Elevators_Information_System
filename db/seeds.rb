@@ -8,11 +8,6 @@
 
 # require "faker"
 
-# require 'json'
-# ​
-# file = File.read('real_addresses.json')
-# ​
-# data_hash = JSON.parse(file)
 
 employees_list = [
   [1, "Genest" , "Nicolas", "CEO"],
@@ -115,24 +110,6 @@ breeds_array.each do |breed|
   end
 
 
-
-
-# 100.times do 
-#     Lead.create(
-#       full_name: Faker::Food.fruits,
-#       company_name: Faker::Food.fruits,
-#       email: Faker::Food.fruits,
-#       phone: Faker::Food.fruits,
-#       project_name: Faker::Food.fruits,
-#       project_description: Faker::Food.fruits,
-#       dept_in_charge_of_elevators: Faker::Food.fruits,
-#       message: Faker::Food.fruits,
-
-#       date_of_contact_request: Faker::Food.fruits,
-
-#   )
-
-# end
 
 
 
