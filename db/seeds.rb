@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# require "faker"
+ require "faker"
 
 
 employees_list = [
@@ -75,17 +75,20 @@ users_list = [
 #response = RestClient.get("https://api-adresse.data.gouv.fr/search/?q=nice&type=street")
 
 
-response = RestClient.get("https://api-adresse.data.gouv.fr/search/?q=marseille&limit=100")
 
 
-breeds_array = JSON.parse(response)
 
-breeds_array.each do |breed|
   #breeds_array["features"][i]["properties"]     --exemple--
   
       i = 0
     loop do
-      i += 1
+      response = RestClient.get("https://api-adresse.data.gouv.fr/search/?q=10+bd&limit=100")
+ 
+
+
+      breeds_array = JSON.parse(response)
+
+      breeds_array.each do |breed|
 
       Address.create(
   #     type_of_address: breeds_array["features"][i]["properties"]["type"],
@@ -98,8 +101,9 @@ breeds_array.each do |breed|
         country: breeds_array["features"][i]["properties"]["city"],
         notes: Faker::Lorem.paragraph,
       )
+      i += 1
 
-      if i == 9
+      if i == 100
         break      
       end
     end
