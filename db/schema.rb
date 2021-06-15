@@ -164,3 +164,12 @@ ActiveRecord::Schema.define(version: 2021_06_14_185918) do
   end
 
 end
+
+ActiveRecord::Schema.define(version: 2020_05_25_1838)
+  create_table "data", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "phone"
+    t.string "email"
+  end
+end
