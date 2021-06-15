@@ -1,3 +1,5 @@
+require "faker"
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -74,3 +76,12 @@ users_list.each do |email, password, superadmin_role|
   User.create( email: email, password: password, superadmin_role: superadmin_role)
 end
 
+1000.times do 
+  fakeData = Fake.new(
+    name: Faker::Name.name,
+    address: Faker::Address.street_name,
+    phone: Faker::PhoneNumber.cell_phone,
+    email: Faker::Internet.email,
+    )
+  fakeData.save
+end

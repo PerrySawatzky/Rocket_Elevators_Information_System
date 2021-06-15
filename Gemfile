@@ -85,6 +85,6 @@ gem 'owlcarousel-rails'
 
 gem 'rails_admin'
 
-
+gem 'faker'
 
 
