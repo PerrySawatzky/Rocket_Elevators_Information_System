@@ -93,9 +93,9 @@ breeds_array.each do |breed|
       i += 1
 
       Address.create(
-        type_of_address: breeds_array["features"][i]["properties"]["type"],
+  #     type_of_address: breeds_array["features"][i]["properties"]["type"],
   #     status: Faker::Food.fruits,
-  #     entity: Faker::Food.fruits,
+        entity: breeds_array["features"][i]["properties"]["type"],
         number_and_street: breeds_array["features"][i]["properties"]["label"],
         suite_or_apartment: breeds_array["features"][i]["properties"]["housenumber"],
         city: "France",
