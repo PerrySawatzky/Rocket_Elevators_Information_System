@@ -5,13 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require "faker"
 
-require 'json'
-​
-file = File.read('real_addresses.json')
-​
-data_hash = JSON.parse(file)
+# require "faker"
+
+# require 'json'
+# ​
+# file = File.read('real_addresses.json')
+# ​
+# data_hash = JSON.parse(file)
 
 employees_list = [
   [1, "Genest" , "Nicolas", "CEO"],
@@ -75,26 +76,43 @@ users_list = [
 
 
 #response = RestClient.get("https://api-adresse.data.gouv.fr/reverse/?lon=2.37&lat=48.357")
-response = RestClient.get("https://api-adresse.data.gouv.fr/search/?q=nice&type=street")
+
+#response = RestClient.get("https://api-adresse.data.gouv.fr/search/?q=nice&type=street")
+
+
+response = RestClient.get("https://api-adresse.data.gouv.fr/search/?q=marseille&limit=100")
+
+
 breeds_array = JSON.parse(response)
 
 breeds_array.each do |breed|
+  #breeds_array["features"][i]["properties"]     --exemple--
+  
+      i = 0
+    loop do
+      i += 1
 
- Address.create(
-    type_of_address: Faker::Food.fruits,
-    status: Faker::Food.fruits,
-    entity: Faker::Food.fruits,
-    number_and_street: breed[1]['address_components']['number'] + " " + breed[1]['address_components']['suffix'] + " " + breed[1]['address_components']['street'],
-    suite_or_apartment: Faker::Food.fruits,
-    city: breed[1]['address_components']['city'],
-    postal_code: Faker::Food.fruits,
-    country: breed[1]['address_components']['country'],
-    notes: Faker::Food.fruits,
+      Address.create(
+        type_of_address: breeds_array["features"][i]["properties"]["type"],
+  #     status: Faker::Food.fruits,
+  #     entity: Faker::Food.fruits,
+        number_and_street: breeds_array["features"][i]["properties"]["label"],
+        suite_or_apartment: breeds_array["features"][i]["properties"]["housenumber"],
+        city: "France",
+        postal_code: breeds_array["features"][i]["properties"]["postcode"],
+        country: breeds_array["features"][i]["properties"]["city"],
+        notes: Faker::Lorem.paragraph,
+      )
 
-  )
+      if i == 9
+        break      
+      end
+    end
+   
+
+  binding.pry
 
   end
-  binding.pry
 
 
 
