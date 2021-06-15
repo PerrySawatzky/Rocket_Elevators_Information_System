@@ -14,11 +14,8 @@ data_hash = JSON.parse(file)
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-<<<<<<< HEAD
 
  require "faker"
-=======
->>>>>>> 4ac5a80ed1794b0aa18d9b326e2e11920057f61b
 
 
 employees_list = [
@@ -110,6 +107,11 @@ end
   )
 end
 
+
+data_hash['addresses'].each do |address|
+  Address.create( number_and_street: address['address1'], suite_or_apartment: address['address2'], city: address['city'], postal_code: address['postalCode'] )
+end
+
 500.times do 
   Building.create(
     customer_id: Faker::IDNumber.valid,
@@ -126,7 +128,7 @@ end
 500.times do 
   Column.create(
     battery_id: Faker::IDNumber.valid,
-    type: Faker::Address.full_address,
+    #type: Faker::Address.full_address,
     num_floors_served: Faker::Number.within(range: 1..60),
     # status: Faker::Internet.email,
     information: Faker::Lorem.paragraph,
@@ -175,9 +177,6 @@ end
 
 
 
-data_hash['addresses'].each do |address|
-  Address.create( number_and_street: address['address1'], suite_or_apartment: address['address2'], city: address['city'], postal_code: address['postalCode'] )
-end
 
 # 500.times do 
 #   Address.create(
