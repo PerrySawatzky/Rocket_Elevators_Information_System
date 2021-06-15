@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "faker"
 
-# require 'json'
-# ​
-# file = File.read('real_addresses.json')
-# ​
-# data_hash = JSON.parse(file)
+require 'json'
+​
+file = File.read('real_addresses.json')
+​
+data_hash = JSON.parse(file)
 
 employees_list = [
   [1, "Genest" , "Nicolas", "CEO"],
@@ -71,7 +71,7 @@ users_list = [
 
 
 #response = RestClient.get("https://api.geocod.io/v1.6/geocode?q=7515+118+Ave+NW%2C+Edmonton%2C+AB+T5B+0X2%2C+Canada&api_key=c6903cee5395ed05c901910eee956010e59563c")
-response = RestClient.get("http://ip-api.com/json/24.48.0.1?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query")
+#response = RestClient.get("http://ip-api.com/json/24.48.0.1?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query")
 
 
 #response = RestClient.get("https://api-adresse.data.gouv.fr/reverse/?lon=2.37&lat=48.357")
@@ -80,18 +80,18 @@ breeds_array = JSON.parse(response)
 
 breeds_array.each do |breed|
 
-#  Address.create(
-#     type_of_address: Faker::Food.fruits,
-#     status: Faker::Food.fruits,
-#     entity: Faker::Food.fruits,
-#     number_and_street: breed[1]['address_components']['number'] + " " + breed[1]['address_components']['suffix'] + " " + breed[1]['address_components']['street'],
-#     suite_or_apartment: Faker::Food.fruits,
-#     city: breed[1]['address_components']['city'],
-#     postal_code: Faker::Food.fruits,
-#     country: breed[1]['address_components']['country'],
-#     notes: Faker::Food.fruits,
+ Address.create(
+    type_of_address: Faker::Food.fruits,
+    status: Faker::Food.fruits,
+    entity: Faker::Food.fruits,
+    number_and_street: breed[1]['address_components']['number'] + " " + breed[1]['address_components']['suffix'] + " " + breed[1]['address_components']['street'],
+    suite_or_apartment: Faker::Food.fruits,
+    city: breed[1]['address_components']['city'],
+    postal_code: Faker::Food.fruits,
+    country: breed[1]['address_components']['country'],
+    notes: Faker::Food.fruits,
 
-#   )
+  )
 
   end
   binding.pry
