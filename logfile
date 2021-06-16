@@ -1,0 +1,51 @@
+2021-06-15 11:45:58.376 EDT [12271] LOG:  starting PostgreSQL 13.3 on x86_64-apple-darwin19.6.0, compiled by Apple clang version 12.0.0 (clang-1200.0.32.29), 64-bit
+2021-06-15 11:45:58.386 EDT [12271] LOG:  listening on IPv6 address "::1", port 5432
+2021-06-15 11:45:58.386 EDT [12271] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2021-06-15 11:45:58.399 EDT [12271] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2021-06-15 11:45:58.442 EDT [12272] LOG:  database system was shut down at 2021-06-15 11:41:00 EDT
+2021-06-15 11:45:58.446 EDT [12271] LOG:  database system is ready to accept connections
+2021-06-15 11:46:12.786 EDT [12305] FATAL:  role "postgres" does not exist
+2021-06-15 11:47:45.985 EDT [12308] FATAL:  role "postgres" does not exist
+2021-06-15 11:58:37.901 EDT [12349] FATAL:  role "postgres" does not exist
+2021-06-15 12:08:19.687 EDT [12379] FATAL:  role "postgres" does not exist
+2021-06-15 12:08:47.405 EDT [12380] FATAL:  role "postgres" does not exist
+2021-06-15 12:11:18.436 EDT [12386] FATAL:  database "officeimac" does not exist
+2021-06-15 12:11:50.036 EDT [12420] FATAL:  database "officeimac" does not exist
+2021-06-15 12:19:37.543 EDT [12483] FATAL:  role "postgres" does not exist
+2021-06-15 12:19:46.980 EDT [12484] FATAL:  role "postgres" does not exist
+2021-06-15 12:23:40.246 EDT [12498] FATAL:  role "postgres" does not exist
+2021-06-15 12:24:14.632 EDT [12500] FATAL:  role "postgres" does not exist
+2021-06-15 12:24:53.027 EDT [12504] FATAL:  role "postgres" does not exist
+2021-06-15 12:24:59.503 EDT [12505] FATAL:  role "postgres" does not exist
+2021-06-15 12:25:43.275 EDT [12508] FATAL:  role "postgres" does not exist
+2021-06-15 12:26:21.168 EDT [12512] FATAL:  role "postgres" does not exist
+2021-06-15 12:26:32.305 EDT [12515] FATAL:  role "postgres" does not exist
+2021-06-15 12:26:59.304 EDT [12525] FATAL:  database "template0" is not currently accepting connections
+2021-06-15 12:31:14.403 EDT [12470] ERROR:  syntax error at or near "/" at character 1
+2021-06-15 12:31:14.403 EDT [12470] STATEMENT:  /I
+	CREATE DATABASE Rocket_Elevators_Information_System_Postgres
+	CREATE DATABASE Rocket_Elevators_Information_System_Postgres;
+2021-06-15 12:31:57.000 EDT [12572] FATAL:  role "rocket_elevators_information_system_postgres" does not exist
+2021-06-15 12:32:09.865 EDT [12574] FATAL:  role "rocket_elevators_information_system_postgres" does not exist
+2021-06-15 13:53:39.971 EDT [13170] FATAL:  database "$Rocket_Elevators_Information_System_Postgres" does not exist
+2021-06-15 13:54:07.717 EDT [13173] FATAL:  database "Rocket_Elevators_Information_System_Postgres" does not exist
+2021-06-15 14:31:37.970 EDT [13631] FATAL:  database "Rocket_Elevators_Information_System_Postgres" does not exist
+2021-06-15 14:34:38.163 EDT [13658] ERROR:  relation "factquotes" already exists
+2021-06-15 14:34:38.163 EDT [13658] STATEMENT:  CREATE TABLE FactQuotes (
+		quote_id int,
+		creation varchar(255),
+		company_name varchar(255),
+		email varchar(255),
+		num_of_elevators int	
+	);
+2021-06-15 16:15:57.328 EDT [14704] FATAL:  database "sales" does not exist
+2021-06-15 16:17:01.107 EDT [14722] FATAL:  database "rocket_rlevators_rnformation_system_postgres" does not exist
+2021-06-15 16:17:11.467 EDT [14756] FATAL:  database "rocket_rlevators_information_system_postgres" does not exist
+2021-06-16 00:33:13.173 EDT [12276] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2021-06-16 00:33:26.796 EDT [12276] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2021-06-16 09:20:02.968 EDT [19480] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2021-06-16 09:20:06.824 EDT [12276] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2021-06-16 09:20:41.132 EDT [12276] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2021-06-16 09:20:43.318 EDT [19486] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2021-06-16 09:20:55.292 EDT [12276] LOG:  using stale statistics instead of current ones because stats collector is not responding
+2021-06-16 09:22:38.767 EDT [12276] LOG:  using stale statistics instead of current ones because stats collector is not responding

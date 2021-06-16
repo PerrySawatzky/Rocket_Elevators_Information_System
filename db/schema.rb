@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_14_185918) do
+ActiveRecord::Schema.define(version: 2021_06_16_165123) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "type_of_address"
+    t.string "address_type"
     t.string "status"
     t.string "entity"
     t.string "number_and_street"
@@ -24,11 +24,12 @@ ActiveRecord::Schema.define(version: 2021_06_14_185918) do
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "building_id"
   end
 
   create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "building_id"
-    t.string "type"
+    t.string "battery_type"
     t.string "status"
     t.string "employee_id"
     t.date "commissioned_date"
@@ -63,7 +64,7 @@ ActiveRecord::Schema.define(version: 2021_06_14_185918) do
 
   create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "battery_id"
-    t.string "type"
+    t.string "column_type"
     t.integer "num_floors_served"
     t.string "status"
     t.string "information"
@@ -92,7 +93,7 @@ ActiveRecord::Schema.define(version: 2021_06_14_185918) do
     t.integer "column_id"
     t.string "serial_number"
     t.string "model"
-    t.string "type"
+    t.string "elevator_type"
     t.string "status"
     t.date "date_of_commissioning"
     t.date "last_inspection"
@@ -159,6 +160,7 @@ ActiveRecord::Schema.define(version: 2021_06_14_185918) do
     t.boolean "admin"
     t.boolean "superadmin_role", default: false
     t.boolean "user_role", default: true
+    t.integer "customer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

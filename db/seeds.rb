@@ -75,6 +75,21 @@ users_list = [
 #   u.superadmin_role = true
 
 
+<<<<<<< HEAD
+=======
+
+users_list.each do |email, password, superadmin_role|
+  User.create( email: email, password: password, superadmin_role: superadmin_role)
+end
+
+#response = RestClient.get("https://api.geocod.io/v1.6/geocode?q=7515+118+Ave+NW%2C+Edmonton%2C+AB+T5B+0X2%2C+Canada&api_key=c6903cee5395ed05c901910eee956010e59563c")
+#response = RestClient.get("http://ip-api.com/json/24.48.0.1?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query")
+
+
+#response = RestClient.get("https://api-adresse.data.gouv.fr/reverse/?lon=2.37&lat=48.357")
+
+#response = RestClient.get("https://api-adresse.data.gouv.fr/search/?q=nice&type=street")
+>>>>>>> main
 
 
 address_type = ["Billing", "Shipping", "Home", "Business"]
@@ -166,12 +181,9 @@ end
  
 
 
-
 employees_list.each do |user_id, last_name, first_name, title|
     Employee.create( user_id: user_id, last_name: last_name,  first_name: first_name, title: title)
 end
 
-users_list.each do |email, password, superadmin_role|
-  User.create( email: email, password: password, superadmin_role: superadmin_role)
-end
+
 
