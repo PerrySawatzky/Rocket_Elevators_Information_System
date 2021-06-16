@@ -74,9 +74,6 @@ users_list = [
 #   u.password  = 'password'
 #   u.superadmin_role = true
 
-data_hash['addresses'].each do |address|
-  Address.create( number_and_street: address['address1'], suite_or_apartment: address['address2'], city: address['city'], postal_code: address['postalCode'] )
-end
 
 500.times do 
     Lead.create(
@@ -107,9 +104,13 @@ end
   )
 end
 
+address_type = ["Residential", "Commercial", "Corporate", "Hybrid"]
+address_status = ["Active", "Inactive"]
+adress_entity = ["Building", "Customer"]
 
 data_hash['addresses'].each do |address|
-  Address.create( number_and_street: address['address1'], suite_or_apartment: address['address2'], city: address['city'], postal_code: address['postalCode'] )
+  
+  Address.create(type_of_address: address_type[rand(4)], status: address_status[rand(2)],entity: adress_entity[rand(2)], number_and_street: address['address1'], suite_or_apartment: address['address2'], city: address['city'], postal_code: address['postalCode'], country: address["state"], notes: Faker::Lorem.paragraph  )
 end
 
 500.times do 
@@ -150,13 +151,6 @@ end
     notes: Faker::Lorem.paragraph,
   )
 end
-# 500.times do 
-#   Building_detail.create(
-#     building_id: Faker::IDNumber.valid,
-#     information_key: Faker::Lorem.sentences,
-#     value: Faker::Number.number(digits: 10)
-#   )
-# end
 
 
 500.times do 
@@ -174,23 +168,6 @@ end
     technical_manager_email_for_service: Faker::Internet.email
   )
 end
-
-
-
-
-# 500.times do 
-#   Address.create(
-#     type_of_address: ,
-#     status: ,
-#     entity: ,
-#     number_and_street: addresses,ra
-#     suite_or_apartment: ,
-#     city: Faker::Address.city,
-#     postal_code: Faker::Address.zip_code,
-#     country: Faker::Address.country,
-#     notes: Faker::Lorem.sentences,
-#   )
-# end
 
 
 employees_list.each do |user_id, last_name, first_name, title|
