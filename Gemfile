@@ -88,4 +88,5 @@ gem 'rails_admin'
 
 gem 'faker'
 
+gem 'json'
 
