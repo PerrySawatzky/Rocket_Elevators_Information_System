@@ -15,8 +15,6 @@ data_hash = JSON.parse(file)
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
- require "faker"
-
 
 employees_list = [
   [1, "Genest" , "Nicolas", "CEO"],
@@ -93,20 +91,7 @@ elevatorModel = ["Standard", "Premium", "Excelium"]
 data_hash['addresses'].each do |address|  
   statusBattery = ["online", "offline"]
   date = Faker::Date.between(from: '2018-06-20', to: '2021-06-20')
-  Address.create(
-    address_type: address_type[rand(4)], 
-    status: address_status[rand(2)],
-    entity: adress_entity[rand(2)], 
-    number_and_street: address['address1'], 
-    suite_or_apartment: address['address2'], 
-    city: address['city'], 
-    postal_code: address['postalCode'], 
-    country: address["state"], 
-    notes: Faker::Lorem.paragraph,
-    #created_at: , 
-    #updated_at: , 
-    #building_id: , 
-  )
+  
   
 
   lead = Lead.create(
@@ -156,6 +141,21 @@ data_hash['addresses'].each do |address|
     technical_contact_phone_for_the_building: Faker::PhoneNumber.phone_number,
     created_at: customer.created_at,
     updated_at: customer.updated_at,
+  )
+
+  Address.create(
+    address_type: address_type[rand(4)], 
+    status: address_status[rand(2)],
+    entity: adress_entity[rand(2)], 
+    number_and_street: address['address1'], 
+    suite_or_apartment: address['address2'], 
+    city: address['city'], 
+    postal_code: address['postalCode'], 
+    country: address["state"], 
+    notes: Faker::Lorem.paragraph,
+    created_at: building.created_at, 
+    updated_at: building.updated_at, 
+    building_id: building.id, 
   )
  
 
