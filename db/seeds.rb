@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# require "faker"
+
 
 employees_list = [
   [1, "Genest" , "Nicolas", "CEO"],
@@ -57,10 +59,55 @@ users_list = [
 
 ]
 
+
 # User.create! do |u|
 #   u.email     = 'test_admin@test.com'
 #   u.password  = 'password'
 #   u.superadmin_role = true
+
+
+#response = RestClient.get("https://api.geocod.io/v1.6/geocode?q=7515+118+Ave+NW%2C+Edmonton%2C+AB+T5B+0X2%2C+Canada&api_key=c6903cee5395ed05c901910eee956010e59563c")
+#response = RestClient.get("http://ip-api.com/json/24.48.0.1?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query")
+
+
+#response = RestClient.get("https://api-adresse.data.gouv.fr/reverse/?lon=2.37&lat=48.357")
+
+#response = RestClient.get("https://api-adresse.data.gouv.fr/search/?q=nice&type=street")
+
+
+response = RestClient.get("https://api-adresse.data.gouv.fr/search/?q=marseille&limit=100")
+
+
+breeds_array = JSON.parse(response)
+
+breeds_array.each do |breed|
+  #breeds_array["features"][i]["properties"]     --exemple--
+  
+      i = 0
+    loop do
+      i += 1
+
+      Address.create(
+  #     type_of_address: breeds_array["features"][i]["properties"]["type"],
+  #     status: Faker::Food.fruits,
+        entity: breeds_array["features"][i]["properties"]["type"],
+        number_and_street: breeds_array["features"][i]["properties"]["label"],
+        suite_or_apartment: breeds_array["features"][i]["properties"]["housenumber"],
+        city: "France",
+        postal_code: breeds_array["features"][i]["properties"]["postcode"],
+        country: breeds_array["features"][i]["properties"]["city"],
+        notes: Faker::Lorem.paragraph,
+      )
+
+      if i == 9
+        break      
+      end
+    end
+   
+
+  binding.pry
+
+  end
 
 
 

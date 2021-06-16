@@ -107,9 +107,9 @@ ActiveRecord::Schema.define(version: 2021_06_14_185918) do
     t.integer "user_id"
     t.string "last_name"
     t.string "first_name"
-    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
   end
 
   create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
