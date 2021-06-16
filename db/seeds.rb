@@ -85,8 +85,13 @@ end
 address_type = ["Billing", "Shipping", "Home", "Business"]
 address_status = ["Active", "Inactive"]
 adress_entity = ["Building", "Customer"]
-i = 0
+
+
+typeBattery = ["Residential", "Commercial", "Corporate", "Hybrid"]
+elevatorModel = ["Standard", "Premium", "Excelium"]
+
 data_hash['addresses'].each do |address|  
+  statusBattery = ["online", "offline"]
   date = Faker::Date.between(from: '2018-06-20', to: '2021-06-20')
   Address.create(
     address_type: address_type[rand(4)], 
@@ -127,15 +132,15 @@ data_hash['addresses'].each do |address|
   customer = Customer.create(
     user_id: lead.id,
     customer_creation_date: Faker::Date.backward(days: 14),
-    company_name: Faker::Company.name,
+    company_name: Faker::Company.name.gsub(/-/, " "),
     headquarters_address: address['address1'],
-    company_contact_full_name: Faker::Name.name,
-    company_contact_phone: Faker::PhoneNumber.phone_number,
-    company_contact_email: Faker::Internet.email,
-    company_description: Faker::Lorem.paragraph,
-    service_tech_authority_full_name: Faker::Name.name,
-    technical_authority_for_service_phone: Faker::PhoneNumber.phone_number,
-    technical_manager_email_for_service: Faker::Internet.email,
+    company_contact_full_name: Faker::Name.name.gsub(/-/, " "),
+    company_contact_phone: Faker::PhoneNumber.phone_number.gsub(/-/, " "),
+    company_contact_email: Faker::Internet.email.gsub(/-/, " "),
+    company_description: Faker::Lorem.paragraph.gsub(/-/, " "),
+    service_tech_authority_full_name: Faker::Name.name.gsub(/-/, " "),
+    technical_authority_for_service_phone: Faker::PhoneNumber.phone_number.gsub(/-/, " "),
+    technical_manager_email_for_service: Faker::Internet.email.gsub(/-/, " "),
     created_at: lead.date_of_contact_request,
     updated_at: lead.updated_at,
   )
@@ -143,58 +148,83 @@ data_hash['addresses'].each do |address|
   building = Building.create(
     customer_id: customer.id,
     address_of_the_building: address['address1'],
-    full_name_of_the_building_administrator: Faker::Name.name,
-    email_of_the_administrator_of_the_building: Faker::Internet.email,
-    phone_number_of_the_building_administrator: Faker::PhoneNumber.phone_number,
-    full_name_of_the_technical_contact_for_the_building: Faker::Name.name,
-    technical_contact_email_for_the_building: Faker::Internet.email,
-    technical_contact_phone_for_the_building: Faker::PhoneNumber.phone_number,
+    full_name_of_the_building_administrator: Faker::Name.name.gsub(/-/, " "),
+    email_of_the_administrator_of_the_building: Faker::Internet.email.gsub(/-/, " "),
+    phone_number_of_the_building_administrator: Faker::PhoneNumber.phone_number.gsub(/-/, " "),
+    full_name_of_the_technical_contact_for_the_building: Faker::Name.name.gsub(/-/, " "),
+    technical_contact_email_for_the_building: Faker::Internet.email.gsub(/-/, " "),
+    technical_contact_phone_for_the_building: Faker::PhoneNumber.phone_number.gsub(/-/, " "),
     created_at: customer.created_at,
     updated_at: customer.updated_at,
   )
+ 
+
 
 
   battery = Battery.create(
     building_id: building.id,
-    # battery_type: null,
-    # status: null,
-    employee_id: Faker::IDNumber.valid,
+    battery_type: typeBattery[rand(4)],
+    status: statusBattery[rand(2)],
+    employee_id: Faker::IDNumber.valid.gsub(/-/, " "),
     commissioned_date: Faker::Date.backward(days: 14),
     last_inspection_date: Faker::Date.backward(days: 14),
-    certificate_of_operations: Faker::File.mime_type,
-    information: Faker::Lorem.paragraph,
-    notes: Faker::Lorem.paragraph,
+    certificate_of_operations: Faker::File.mime_type.gsub(/-/, " "),
+    information: Faker::Lorem.paragraph.gsub(/-/, " "),
+    notes: Faker::Lorem.paragraph.gsub(/-/, " "),
     created_at: building.created_at,
     updated_at: building.updated_at,
   )
+
+  
+
+  if battery.status == "offline"
+    statusBattery = ["offline", "offline", "offline"]
+  else
+    statusBattery = ["online", "online", "offline"]
+  end
+
   
   column = Column.create(
     battery_id: battery.id,
-    #column_type: Faker::Address.full_address,
+    column_type: battery.battery_type,
     num_floors_served: Faker::Number.within(range: 1..60),
-    # status: Faker::Internet.email,
-    information: Faker::Lorem.paragraph,
-    notes: Faker::Lorem.paragraph,
+    status: statusBattery[rand(3)],
+    information: Faker::Lorem.paragraph.gsub(/-/, " "),
+    notes: Faker::Lorem.paragraph.gsub(/-/, " "),
     created_at: battery.created_at,
     updated_at: battery.updated_at,
   )
 
-  Elevator.create(
+  if column.status == "offline"
+    statusBattery = ["offline", "offline", "offline", "offline"]
+  else
+    statusBattery = ["online", "online", "online", "offline"]
+  end
+
+  elevator = Elevator.create(
     column_id: column.id,
-    serial_number: Faker::IDNumber.valid,
-    model: Faker::IDNumber.valid,
-    # elevator_type: Faker::Internet.email,
-    # status: Faker::Lorem.paragraph,
+    serial_number: Faker::Number.number(digits: 10),
+    model: elevatorModel[rand(3)],
+    elevator_type: column.column_type,
+    status: statusBattery[rand(4)],
     date_of_commissioning: Faker::Date.backward(days: 14),
     last_inspection: Faker::Date.backward(days: 14),
-    certificate_of_inspection: Faker::File.mime_type,
-    information: Faker::Lorem.paragraph,
-    notes: Faker::Lorem.paragraph,
+    certificate_of_inspection: Faker::File.mime_type.gsub(/-/, " "),
+    information: Faker::Lorem.paragraph.gsub(/-/, " "),
+    notes: Faker::Lorem.paragraph.gsub(/-/, " "),
     created_at: column.created_at,
     updated_at: column.updated_at,
   )
 
-  i = i + 1
+  BuildingDetail.create(
+    building_id: building.id,
+    information_key: battery.battery_type + " " + Faker::Lorem.paragraph.gsub(/-/, " "),
+    value: elevator.model,
+    created_at: building.created_at,
+    updated_at: building.updated_at,
+  )
+
+
 
 end
 
