@@ -18,6 +18,12 @@ module BI
         def query_dim_customers
             self.conn.exec( "SELECT * FROM DimCustomers" ) do |result|
                 #select answers from this table and for each, make one result
+                # creation = created_at
+                # company_name = company_name
+                # full_name_company_contact = company_contact_full_name
+                # email_company_contact = company_contact_email
+                # num_of_elevators = num entries in elevators table with user_id
+                
                 result.each do |row|
                     #for each result do a row
                     puts row.values_at('company_name')
@@ -26,11 +32,24 @@ module BI
                 end
               end
         end
-        def query_customer 
-        
+        def query_facts_contact
+            #contact_id
+            #creation
+            #company_name
+            #email
+            #project_name
+            self.conn.exec( "SELECT * FROM ")
+        end
+        def query_facts_quotes
+            Quotes.all.each do |quotes|
+                puts "hello"
+                
+                # quotes.each do |row|
+                #     row.values_at('')
+        end
         # customers in postrgres vs customers in mysql
         # creation = created_at
-        # ompany_name = company_name
+        # company_name = company_name
         # full_name_company_contact = company_contact_full_name
         # email_company_contact = company_contact_email
         # num_of_elevators = num entries in elevators table with user_id
@@ -47,9 +66,16 @@ module BI
 
         def sync_mysql_buildings
             Building.all.each do |building|
+
+                #nb_elvator = self.count_elevator(building)
+
                 puts building
             end
         end
+
+        # def count_elevator(building)
+        #     building.batteries
+        # end
 
     end
 end

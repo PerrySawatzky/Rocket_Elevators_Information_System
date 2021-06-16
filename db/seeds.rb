@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# require "faker"
+require "faker"
 
 
 employees_list = [
@@ -110,7 +110,7 @@ breeds_array.each do |breed|
     end
    
 
-  binding.pry
+   binding.pry
 
   end
 
