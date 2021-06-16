@@ -64,6 +64,6 @@ class LeadsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def lead_params
-      params.require(:lead).permit(:full_name, :company_name, :email, :phone, :project_name, :project_description, :dept_in_charge_of_elevators, :message, :attached_file, :date_of_contact_request)
+      params.require(:lead).permit(:full_name, :company_name, :email, :phone, :project_name, :project_description, :dept_in_charge_of_elevators, :message, :attached_file, :date_of_contact_request, :file)
     end
 end

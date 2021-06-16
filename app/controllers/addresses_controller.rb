@@ -19,6 +19,8 @@ class AddressesController < ApplicationController
   def edit
   end
 
+ 
+
   # POST /addresses or /addresses.json
   def create
     @address = Address.new(address_params)
