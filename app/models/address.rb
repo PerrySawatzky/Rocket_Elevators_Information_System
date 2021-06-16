@@ -1,3 +1,3 @@
 class Address < ApplicationRecord
-    has_one :building
+    belongs_to :building
 end
