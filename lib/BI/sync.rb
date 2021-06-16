@@ -9,7 +9,7 @@ module BI
             conn = PG::Connection.new( 
                 :host => "127.0.0.1", 
                 :port => 5432, 
-                :dbname => 'rocket_elevators_information_system_postgres', 
+                :dbname => 'rocket_elevators_postgres', 
                 :user => 'officeimac', 
                 :password => '' )
                 self.conn = conn
