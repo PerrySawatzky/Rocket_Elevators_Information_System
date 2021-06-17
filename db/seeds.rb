@@ -78,12 +78,29 @@ users_list.each do |email, password, superadmin_role|
   User.create( email: email, password: password, superadmin_role: superadmin_role)
 end
 
+employees_list.each do |user_id, last_name, first_name, title|
+  Employee.create( user_id: user_id, last_name: last_name,  first_name: first_name, title: title)
+end
+
 address_type = ["Billing", "Shipping", "Home", "Business"]
 address_status = ["Active", "Inactive"]
 adress_entity = ["Building", "Customer"]
 i = 0
 data_hash['addresses'].each do |address|  
-  Address.create(type_of_address: address_type[rand(4)], status: address_status[rand(2)],entity: adress_entity[rand(2)], number_and_street: address['address1'], suite_or_apartment: address['address2'], city: address['city'], postal_code: address['postalCode'], country: address["state"], notes: Faker::Lorem.paragraph  )
+  Address.create(
+    type_of_address: address_type[rand(4)], 
+    status: address_status[rand(2)],
+    entity: adress_entity[rand(2)], 
+    number_and_street: address['address1'], 
+    suite_or_apartment: address['address2'], 
+    city: address['city'], 
+    postal_code: address['postalCode'], 
+    country: address["state"], 
+    notes: Faker::Lorem.paragraph,
+    #created_at: , 
+    #updated_at: , 
+    #building_id: , 
+  )
   
 
   Lead.create(
@@ -96,7 +113,9 @@ data_hash['addresses'].each do |address|
       dept_in_charge_of_elevators: Faker::Job.field, #commercial, residential ..&
       message: Faker::Lorem.paragraph,
       attached_file: Faker::File.mime_type,
-      date_of_contact_request: Faker::Date.between(from: '2018-06-20', to: '2021-06-20')
+      date_of_contact_request: Faker::Date.between(from: '2018-06-20', to: '2021-06-20'),
+      #created_at: ,
+      #updated_at: ,
   )
   
   Customer.create(
@@ -111,6 +130,8 @@ data_hash['addresses'].each do |address|
     service_tech_authority_full_name: Faker::Name.name,
     technical_authority_for_service_phone: Faker::PhoneNumber.phone_number,
     technical_manager_email_for_service: Faker::Internet.email
+    #created_at: ,
+    #updated_at: ,
   )
 
   Building.create(
@@ -122,12 +143,14 @@ data_hash['addresses'].each do |address|
     full_name_of_the_technical_contact_for_the_building: Faker::Name.name,
     technical_contact_email_for_the_building: Faker::Internet.email,
     technical_contact_phone_for_the_building: Faker::PhoneNumber.phone_number,
+    #created_at: ,
+    #updated_at: ,
   )
 
 
   Battery.create(
     building_id: i,
-    # type: null,
+    # battery_type: null,
     # status: null,
     employee_id: Faker::IDNumber.valid,
     commissioned_date: Faker::Date.backward(days: 14),
@@ -135,28 +158,34 @@ data_hash['addresses'].each do |address|
     certificate_of_operations: Faker::File.mime_type,
     information: Faker::Lorem.paragraph,
     notes: Faker::Lorem.paragraph,
+    #created_at: ,
+    #updated_at: ,
   )
   
   Column.create(
     battery_id: i,
-    #type: Faker::Address.full_address,
+    #column_type: Faker::Address.full_address,
     num_floors_served: Faker::Number.within(range: 1..60),
     # status: ,
     information: Faker::Lorem.paragraph,
     notes: Faker::Lorem.paragraph,
+    #created_at: ,
+    #updated_at: ,
   )
 
   Elevator.create(
     column_id: i,
     serial_number: Faker::IDNumber.valid,
     model: Faker::IDNumber.valid,
-    # type: Faker::Internet.email,
+    # elevator_type: Faker::Internet.email,
     # status: Faker::Lorem.paragraph,
     date_of_commissioning: Faker::Date.backward(days: 14),
     last_inspection: Faker::Date.backward(days: 14),
     certificate_of_inspection: Faker::File.mime_type,
     information: Faker::Lorem.paragraph,
     notes: Faker::Lorem.paragraph,
+    #created_at: ,
+    #updated_at: ,
   )
 
   i = i + 1
@@ -167,9 +196,7 @@ end
  
 
 
-employees_list.each do |user_id, last_name, first_name, title|
-    Employee.create( user_id: user_id, last_name: last_name,  first_name: first_name, title: title)
-end
+
 
 
 
