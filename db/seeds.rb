@@ -149,7 +149,7 @@ data_hash['addresses'].each do |address|
 
 ###################################### Address Create ###################################### 
 
-address = Address.create(
+addresses = Address.create(
     address_type: address_type[rand(4)], 
     status: address_status[rand(2)],
     entity: adress_entity[rand(2)], 
@@ -167,7 +167,7 @@ address = Address.create(
 
   building = Building.create(
     customer_id: customer.id,
-    address_of_the_building: address['address1'],
+    address_of_the_building: addresses.number_and_street + " " + addresses.city,
     full_name_of_the_building_administrator: Faker::Name.name,
     email_of_the_administrator_of_the_building: Faker::Internet.email,
     phone_number_of_the_building_administrator: Faker::PhoneNumber.phone_number,
@@ -176,7 +176,7 @@ address = Address.create(
     technical_contact_phone_for_the_building: Faker::PhoneNumber.phone_number,
     created_at: customer.created_at,
     updated_at: customer.updated_at,
-    address_id: address.id
+    address_id: addresses.id
   )
 
 
