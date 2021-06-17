@@ -123,7 +123,7 @@ data_hash['addresses'].each do |address|
     user_id: user.id,
     customer_creation_date: Faker::Date.backward(days: 14),
     company_name: Faker::Company.name,
-    headquarters_address: address['address1'],
+    headquarters_address: address['address1'] + " " + address['city'],
     company_contact_full_name: Faker::Name.name,
     company_contact_phone: Faker::PhoneNumber.phone_number,
     company_contact_email: Faker::Internet.email,
