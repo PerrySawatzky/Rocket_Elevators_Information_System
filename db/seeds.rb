@@ -86,21 +86,20 @@ address_type = ["Billing", "Shipping", "Home", "Business"]
 address_status = ["Active", "Inactive"]
 adress_entity = ["Building", "Customer"]
 i = 0
-data_hash['addresses'].each do |address|  
-  Address.create(
-    type_of_address: address_type[rand(4)], 
-    status: address_status[rand(2)],
-    entity: adress_entity[rand(2)], 
-    number_and_street: address['address1'], 
-    suite_or_apartment: address['address2'], 
-    city: address['city'], 
-    postal_code: address['postalCode'], 
-    country: address["state"], 
-    notes: Faker::Lorem.paragraph,
-    #created_at: , 
-    #updated_at: , 
-    #building_id: , 
-  )
+Address.create(
+  address_type: address_type[rand(4)], 
+  status: address_status[rand(2)],
+  entity: adress_entity[rand(2)], 
+  number_and_street: address['address1'], 
+  suite_or_apartment: address['address2'], 
+  city: address['city'], 
+  postal_code: address['postalCode'], 
+  country: address["state"], 
+  notes: Faker::Lorem.paragraph,
+  #created_at: , 
+  #updated_at: , 
+  #building_id: , 
+)
   
 
   Lead.create(
@@ -110,19 +109,17 @@ data_hash['addresses'].each do |address|
       phone: Faker::PhoneNumber.phone_number,
       project_name: Faker::Lorem.word,
       project_description: Faker::Lorem.paragraph,
-      dept_in_charge_of_elevators: Faker::Job.field, #commercial, residential ..&
+      dept_in_charge_of_elevators: Faker::Job.field, 
       message: Faker::Lorem.paragraph,
       attached_file: Faker::File.mime_type,
-      date_of_contact_request: Faker::Date.between(from: '2018-06-20', to: '2021-06-20'),
-      #created_at: ,
-      #updated_at: ,
+      date_of_contact_request: Faker::Date.between(from: '2018-06-20', to: '2021-06-20')
   )
   
   Customer.create(
     user_id: i,
     customer_creation_date: Faker::Date.backward(days: 14),
     company_name: Faker::Company.name,
-    headquarters_address: Address.create(A),
+    headquarters_address: address['address1'],
     company_contact_full_name: Faker::Name.name,
     company_contact_phone: Faker::PhoneNumber.phone_number,
     company_contact_email: Faker::Internet.email,
