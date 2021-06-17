@@ -69,6 +69,8 @@ users_list = [
 ]
 
 
+
+
 # User.create! do |u|
 #   u.email     = 'test_admin@test.com'
 #   u.password  = 'password'
@@ -90,6 +92,33 @@ adress_entity = ["Building", "Customer"]
 
 typeBattery = ["Residential", "Commercial", "Corporate", "Hybrid"]
 
+i = 0
+loop do
+  date = Faker::Date.between(from: '2018-06-20', to: '2021-06-20')
+  i += 1
+  lead = Lead.create(
+    full_name: Faker::Name.name,
+    company_name: Faker::Company.name,
+    email: Faker::Internet.email,
+    phone: Faker::PhoneNumber.phone_number,
+    project_name: Faker::Lorem.word,
+    project_description: Faker::Lorem.paragraph,
+    dept_in_charge_of_elevators: Faker::Job.field,
+    message: Faker::Lorem.paragraph,
+    attached_file: Faker::File.mime_type,
+    date_of_contact_request: date,
+    created_at: date,
+    updated_at: Faker::Date.between(from: date, to: '2021-06-20'),   
+  )
+  
+  if i == 10
+    break      
+  end
+end
+
+
+
+
 
 data_hash['addresses'].each do |address|  
   statusBattery = ["online", "offline"]
@@ -102,23 +131,7 @@ data_hash['addresses'].each do |address|
  
   )
   
-  
 
-  lead = Lead.create(
-      full_name: Faker::Name.name,
-      company_name: Faker::Company.name,
-      email: Faker::Internet.email,
-      phone: Faker::PhoneNumber.phone_number,
-      project_name: Faker::Lorem.word,
-      project_description: Faker::Lorem.paragraph,
-      dept_in_charge_of_elevators: Faker::Job.field, #commercial, residential ..&
-      message: Faker::Lorem.paragraph,
-      attached_file: Faker::File.mime_type,
-      date_of_contact_request: date,
-      created_at: date,
-      updated_at: Faker::Date.between(from: date, to: '2021-06-20'),   
-  )
-  
   customer = Customer.create(
     user_id: user.id,
     customer_creation_date: Faker::Date.backward(days: 14),
@@ -131,8 +144,8 @@ data_hash['addresses'].each do |address|
     service_tech_authority_full_name: Faker::Name.name,
     technical_authority_for_service_phone: Faker::PhoneNumber.phone_number,
     technical_manager_email_for_service: Faker::Internet.email,
-    created_at: lead.date_of_contact_request,
-    updated_at: lead.updated_at,
+    created_at: date,
+    updated_at: Faker::Date.between(from: date, to: '2021-06-20'),
   )
 
   building = Building.create(
@@ -261,30 +274,6 @@ data_hash['addresses'].each do |address|
   else
     unitPrice = 15400
   end
-
-
-
-  Quote.create(
-      building_type: typeBattery[rand(4)],
-      product_line: quoteProductLine,
-      apartments: (floor * 20),
-      floors: floor,
-      basements: Faker::Number.within(range: 1..10),
-      elevators: (floor / 10),
-      companies: Faker::Company.name,
-      parking_spots: (floor * 20),
-      max_occupancy_per_floor: ((floor * 20) * 2),
-  #    corporations: ,    
-  #   business_hours: ,
-  #   created_at: ,
-  #   updated_at: ,
-  #   elevator_amount: ,
-  #   apartments: ,
-      unit_price: unitPrice,
-  #   total_price: ,
-  #   install_fees: ,
-  #   final_price: ,
-  )
 
 end
 
