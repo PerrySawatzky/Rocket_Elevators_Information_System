@@ -68,8 +68,6 @@ users_list = [
 
 ]
 
-<<<<<<< HEAD
-=======
 quote_list = [
   ["residential", "standard", 100, 21, 5, nil, nil, nil, nil, nil, nil, nil, nil, 2, 7565, 15130, 1513, 16643, Faker::Company.name ,Faker::Internet.email],
   ["residential", "excelium", 200, 61, 2, nil, nil, nil, nil, nil, nil, nil, nil, 4, 15400, 61600, 9856, 71456, Faker::Company.name ,Faker::Internet.email],
@@ -83,7 +81,6 @@ quote_list = [
   ["hybrid", "excelium", nil, 21, 5, nil, 40, 300, 20, nil, "8 to 5", nil, nil, 7, 15400, 107800, 17248, 125048, Faker::Company.name ,Faker::Internet.email]
 ]
 
->>>>>>> 671c660a8b141f9510c9d4c78a62cea568670138
 # User.create! do |u|
 #   u.email     = 'test_admin@test.com'
 #   u.password  = 'password'
@@ -290,11 +287,8 @@ addresses = Address.create(
     updated_at: building.updated_at,
   )
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 671c660a8b141f9510c9d4c78a62cea568670138
 end
 
 
