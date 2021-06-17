@@ -89,7 +89,7 @@ adress_entity = ["Building", "Customer"]
 
 
 typeBattery = ["Residential", "Commercial", "Corporate", "Hybrid"]
-elevatorModel = ["Standard", "Premium", "Excelium"]
+
 
 data_hash['addresses'].each do |address|  
   statusBattery = ["online", "offline"]
@@ -99,6 +99,7 @@ data_hash['addresses'].each do |address|
     email: Faker::Internet.email,
     password: Faker::Lorem.characters(number: 10),
     superadmin_role: false
+ 
   )
   
   
@@ -204,25 +205,45 @@ data_hash['addresses'].each do |address|
     statusBattery = ["online", "online", "online", "offline"]
   end
 
-  elevator = Elevator.create(
-    column_id: column.id,
-    serial_number: Faker::Number.number(digits: 10),
-    model: elevatorModel[rand(3)],
-    elevator_type: column.column_type,
-    status: statusBattery[rand(4)],
-    date_of_commissioning: Faker::Date.backward(days: 14),
-    last_inspection: Faker::Date.backward(days: 14),
-    certificate_of_inspection: Faker::File.mime_type,
-    information: Faker::Lorem.paragraph,
-    notes: Faker::Lorem.paragraph,
-    created_at: column.created_at,
-    updated_at: column.updated_at,
-  )
+  elevatorModel = ["Standard", "Premium", "Excelium"]
+  valueElevator = elevatorModel[rand(3)]
+    i = 0
+  loop do
+    i += 1
+    elevator = Elevator.create(
+      column_id: column.id,
+      serial_number: Faker::Number.number(digits: 10),
+      model: valueElevator,
+      elevator_type: column.column_type,
+      status: statusBattery[rand(4)],
+      date_of_commissioning: Faker::Date.backward(days: 14),
+      last_inspection: Faker::Date.backward(days: 14),
+      certificate_of_inspection: Faker::File.mime_type,
+      information: Faker::Lorem.paragraph,
+      notes: Faker::Lorem.paragraph,
+      created_at: column.created_at,
+      updated_at: column.updated_at,
+    )
+    if i == 2
+      break      
+    end
+  end
+
+  diceValue = rand(2)
+  valueType = ""
+
+  if diceValue == 1
+    valueType = "type"
+  else
+    valueType = "contruction year"
+    valueElevator = Faker::Number.between(from: 1900, to: 2010)
+  end
+ 
 
   BuildingDetail.create(
     building_id: building.id,
-    information_key: battery.battery_type + " " + Faker::Lorem.paragraph,
-    value: elevator.model,
+    information_key: valueType,
+    value: valueElevator,
     created_at: building.created_at,
     updated_at: building.updated_at,
   )
