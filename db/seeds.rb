@@ -68,9 +68,6 @@ users_list = [
 
 ]
 
-
-
-
 # User.create! do |u|
 #   u.email     = 'test_admin@test.com'
 #   u.password  = 'password'
@@ -89,8 +86,10 @@ address_type = ["Billing", "Shipping", "Home", "Business"]
 address_status = ["Active", "Inactive"]
 adress_entity = ["Building", "Customer"]
 
-
 typeBattery = ["Residential", "Commercial", "Corporate", "Hybrid"]
+
+
+###################################### Lead Create ######################################  
 
 i = 0
 loop do
@@ -117,20 +116,20 @@ loop do
 end
 
 
-
-
-
+# loop on address
 data_hash['addresses'].each do |address|  
   statusBattery = ["online", "offline"]
   date = Faker::Date.between(from: '2018-06-20', to: '2021-06-20')
+
+###################################### User Create ######################################  
 
   user = User.create( 
     email: Faker::Internet.email,
     password: Faker::Lorem.characters(number: 10),
     superadmin_role: false
- 
-  )
-  
+  ) 
+
+###################################### Customer Create ######################################   
 
   customer = Customer.create(
     user_id: user.id,
@@ -148,6 +147,24 @@ data_hash['addresses'].each do |address|
     updated_at: Faker::Date.between(from: date, to: '2021-06-20'),
   )
 
+###################################### Address Create ###################################### 
+
+address = Address.create(
+    address_type: address_type[rand(4)], 
+    status: address_status[rand(2)],
+    entity: adress_entity[rand(2)], 
+    number_and_street: address['address1'], 
+    suite_or_apartment: address['address2'], 
+    city: address['city'], 
+    postal_code: address['postalCode'], 
+    country: address["state"], 
+    notes: Faker::Lorem.paragraph,
+    created_at: customer.created_at, 
+    updated_at: customer.updated_at, 
+  )
+
+###################################### Building Create ######################################   
+
   building = Building.create(
     customer_id: customer.id,
     address_of_the_building: address['address1'],
@@ -159,31 +176,19 @@ data_hash['addresses'].each do |address|
     technical_contact_phone_for_the_building: Faker::PhoneNumber.phone_number,
     created_at: customer.created_at,
     updated_at: customer.updated_at,
+    address_id: address.id
   )
 
-  Address.create(
-    address_type: address_type[rand(4)], 
-    status: address_status[rand(2)],
-    entity: adress_entity[rand(2)], 
-    number_and_street: address['address1'], 
-    suite_or_apartment: address['address2'], 
-    city: address['city'], 
-    postal_code: address['postalCode'], 
-    country: address["state"], 
-    notes: Faker::Lorem.paragraph,
-    created_at: building.created_at, 
-    updated_at: building.updated_at, 
-  )
- 
 
 
+###################################### Battery Create ######################################   
 
   battery = Battery.create(
     building_id: building.id,
     battery_type: typeBattery[rand(4)],
     status: statusBattery[rand(2)],
     employee_id: Faker::IDNumber.valid,
-    commissioned_date: Faker::Date.backward(days: 14),
+    commissioned_date: Faker::Date.backward(days: 14), 
     last_inspection_date: Faker::Date.backward(days: 14),
     certificate_of_operations: Faker::File.mime_type,
     information: Faker::Lorem.paragraph,
@@ -192,14 +197,13 @@ data_hash['addresses'].each do |address|
     updated_at: building.updated_at,
   )
 
-  
+###################################### Column Create ######################################    
 
   if battery.status == "offline"
     statusBattery = ["offline", "offline", "offline"]
   else
     statusBattery = ["online", "online", "offline"]
   end
-
   
   column = Column.create(
     battery_id: battery.id,
@@ -211,6 +215,8 @@ data_hash['addresses'].each do |address|
     created_at: battery.created_at,
     updated_at: battery.updated_at,
   )
+
+###################################### Elevator Create ######################################  
 
   if column.status == "offline"
     statusBattery = ["offline", "offline", "offline", "offline"]
@@ -230,7 +236,7 @@ data_hash['addresses'].each do |address|
       elevator_type: column.column_type,
       status: statusBattery[rand(4)],
       date_of_commissioning: Faker::Date.backward(days: 14),
-      last_inspection: Faker::Date.backward(days: 14),
+      last_inspection: battery.last_inspection_date,
       certificate_of_inspection: Faker::File.mime_type,
       information: Faker::Lorem.paragraph,
       notes: Faker::Lorem.paragraph,
@@ -241,6 +247,8 @@ data_hash['addresses'].each do |address|
       break      
     end
   end
+
+###################################### Building Detail ######################################
 
   diceValue = rand(2)
   valueType = ""
@@ -260,20 +268,6 @@ data_hash['addresses'].each do |address|
     created_at: building.created_at,
     updated_at: building.updated_at,
   )
-
-  floor = Faker::Number.within(range: 10..150)
-
-  quoteProductLine = elevatorModel[rand(3)]
-
-  unitPrice = 0
-
-  if quoteProductLine == "Standard"
-    unitPrice = 7565
-  elsif quoteProductLine == "Premium"
-    unitPrice = 12345
-  else
-    unitPrice = 15400
-  end
 
 end
 
