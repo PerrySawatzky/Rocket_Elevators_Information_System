@@ -156,7 +156,7 @@ data_hash['addresses'].each do |address|
     notes: Faker::Lorem.paragraph,
     created_at: building.created_at, 
     updated_at: building.updated_at, 
-    building_id: building.id, 
+    #building_id: building.id, 
   )
  
 
