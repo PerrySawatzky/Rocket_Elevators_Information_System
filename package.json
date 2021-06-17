@@ -3,5 +3,8 @@
   "private": true,
   "dependencies": {
     "owl.carousel": "^2.3.4"
+  },
+  "devDependencies": {
+    "rrad": "^1.1.0"
   }
 }
