@@ -15,6 +15,8 @@ data_hash = JSON.parse(file)
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+ require "faker"
+
 
 employees_list = [
   [1, "Genest" , "Nicolas", "CEO"],
@@ -72,9 +74,6 @@ users_list = [
 #   u.password  = 'password'
 #   u.superadmin_role = true
 
-data_hash['addresses'].each do |address|
-  Address.create( number_and_street: address['address1'], suite_or_apartment: address['address2'], city: address['city'], postal_code: address['postalCode'] )
-end
 
 
 500.times do 
@@ -85,7 +84,7 @@ end
       phone: Faker::PhoneNumber.phone_number,
       project_name: Faker::Lorem.word,
       project_description: Faker::Lorem.paragraph,
-      dept_in_charge_of_elevators: Faker::Job.field,
+      dept_in_charge_of_elevators: Faker::Job.field, #commercial, residential ..?
       message: Faker::Lorem.paragraph,
       attached_file: Faker::File.mime_type,
       date_of_contact_request: Faker::Date.between(from: '2018-06-20', to: '2021-06-20')
@@ -106,7 +105,13 @@ end
   )
 end
 
-500.times do 
+address_type = ["Residential", "Commercial", "Corporate", "Hybrid"]
+address_status = ["Active", "Inactive"]
+adress_entity = ["Building", "Customer"]
+
+data_hash['addresses'].each do |address|  
+  Address.create(type_of_address: address_type[rand(4)], status: address_status[rand(2)],entity: adress_entity[rand(2)], number_and_street: address['address1'], suite_or_apartment: address['address2'], city: address['city'], postal_code: address['postalCode'], country: address["state"], notes: Faker::Lorem.paragraph  )
+  
   Building.create(
     customer_id: Faker::IDNumber.valid,
     address_of_the_building: Address.create(A),
@@ -117,12 +122,28 @@ end
     technical_contact_email_for_the_building: Faker::Internet.email,
     technical_contact_phone_for_the_building: Faker::PhoneNumber.phone_number,
   )
+
+  Customer.create(
+    user_id: Faker::IDNumber.valid,
+    customer_creation_date: Faker::Date.backward(days: 14),
+    company_name: Faker::Company.name,
+    headquarters_address: Address.create(A),
+    company_contact_full_name: Faker::Name.name,
+    company_contact_phone: Faker::PhoneNumber.phone_number,
+    company_contact_email: Faker::Internet.email,
+    company_description: Faker::Lorem.paragraph,
+    service_tech_authority_full_name: Faker::Name.name,
+    technical_authority_for_service_phone: Faker::PhoneNumber.phone_number,
+    technical_manager_email_for_service: Faker::Internet.email
+  )
+  
 end
+
 
 500.times do 
   Column.create(
     battery_id: Faker::IDNumber.valid,
-    # type: ,
+    #type: Faker::Address.full_address,
     num_floors_served: Faker::Number.within(range: 1..60),
     # status: ,
     information: Faker::Lorem.paragraph,
@@ -144,34 +165,7 @@ end
     notes: Faker::Lorem.paragraph,
   )
 end
-# 500.times do 
-#   Building_detail.create(
-#     building_id: Faker::IDNumber.valid,
-#     information_key: Faker::Lorem.sentences,
-#     value: Faker::Number.number(digits: 10)
-#   )
-# end
 
-
-500.times do 
-  Customer.create(
-    user_id: Faker::IDNumber.valid,
-    customer_creation_date: Faker::Date.backward(days: 14),
-    company_name: Faker::Company.name,
-    headquarters_address: Faker::Address.full_address,
-    company_contact_full_name: Faker::Name.name,
-    company_contact_phone: Faker::PhoneNumber.phone_number,
-    company_contact_email: Faker::Internet.email,
-    company_description: Faker::Lorem.paragraph,
-    service_tech_authority_full_name: Faker::Name.name,
-    technical_authority_for_service_phone: Faker::PhoneNumber.phone_number,
-    technical_manager_email_for_service: Faker::Internet.email
-  )
-end
-
-data_hash['addresses'].each do |address|
-  Address.create( number_and_street: address['address1'], suite_or_apartment: address['address2'], city: address['city'], postal_code: address['postalCode'] )
-end
 
 employees_list.each do |user_id, last_name, first_name, title|
     Employee.create( user_id: user_id, last_name: last_name,  first_name: first_name, title: title)
