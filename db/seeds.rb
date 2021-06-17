@@ -76,6 +76,7 @@ data_hash['addresses'].each do |address|
   Address.create( number_and_street: address['address1'], suite_or_apartment: address['address2'], city: address['city'], postal_code: address['postalCode'] )
 end
 
+
 500.times do 
     Lead.create(
       full_name: Faker::Name.name,
@@ -94,8 +95,8 @@ end
 500.times do 
   Battery.create(
     building_id: Faker::IDNumber.valid,
-    # type: null,
-    # status: null,
+    # building: ["Question","Corporate","Residential"].sample,
+    # status: ,
     employee_id: Faker::IDNumber.valid,
     commissioned_date: Faker::Date.backward(days: 14),
     last_inspection_date: Faker::Date.backward(days: 14),
@@ -108,7 +109,7 @@ end
 500.times do 
   Building.create(
     customer_id: Faker::IDNumber.valid,
-    address_of_the_building: Faker::Address.full_address,
+    address_of_the_building: Address.create(A),
     full_name_of_the_building_administrator: Faker::Name.name,
     email_of_the_administrator_of_the_building: Faker::Internet.email,
     phone_number_of_the_building_administrator: Faker::PhoneNumber.phone_number,
@@ -121,9 +122,9 @@ end
 500.times do 
   Column.create(
     battery_id: Faker::IDNumber.valid,
-    type: Faker::Address.full_address,
+    # type: ,
     num_floors_served: Faker::Number.within(range: 1..60),
-    # status: Faker::Internet.email,
+    # status: ,
     information: Faker::Lorem.paragraph,
     notes: Faker::Lorem.paragraph,
   )
@@ -168,26 +169,9 @@ end
   )
 end
 
-
-
 data_hash['addresses'].each do |address|
   Address.create( number_and_street: address['address1'], suite_or_apartment: address['address2'], city: address['city'], postal_code: address['postalCode'] )
 end
-
-# 500.times do 
-#   Address.create(
-#     type_of_address: ,
-#     status: ,
-#     entity: ,
-#     number_and_street: addresses,ra
-#     suite_or_apartment: ,
-#     city: Faker::Address.city,
-#     postal_code: Faker::Address.zip_code,
-#     country: Faker::Address.country,
-#     notes: Faker::Lorem.sentences,
-#   )
-# end
-
 
 employees_list.each do |user_id, last_name, first_name, title|
     Employee.create( user_id: user_id, last_name: last_name,  first_name: first_name, title: title)
