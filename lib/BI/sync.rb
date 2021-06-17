@@ -30,7 +30,7 @@ module BI
                     #look at the column with value 'company_name' and print those
                     #INSERT into DimCustomers (company_name) VALUES ('PARROT INC')
                 end
-              end
+            end
         end
         def query_facts_contact
             #contact_id
@@ -40,10 +40,11 @@ module BI
             #project_name
             self.conn.exec( "SELECT * FROM ")
         end
+
         def query_facts_quotes
             Quotes.all.each do |quotes|
                 puts "hello"
-                
+            end
                 # quotes.each do |row|
                 #     row.values_at('')
         end
