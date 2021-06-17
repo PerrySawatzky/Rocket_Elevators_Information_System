@@ -248,7 +248,43 @@ data_hash['addresses'].each do |address|
     updated_at: building.updated_at,
   )
 
+  floor = Faker::Number.within(range: 10..150)
 
+  quoteProductLine = elevatorModel[rand(3)]
+
+  unitPrice = 0
+
+  if quoteProductLine == "Standard"
+    unitPrice = 7565
+  elsif quoteProductLine == "Premium"
+    unitPrice = 12345
+  else
+    unitPrice = 15400
+  end
+
+
+
+  Quote.create(
+      building_type: typeBattery[rand(4)],
+      product_line: quoteProductLine,
+      apartments: (floor * 20),
+      floors: floor,
+      basements: Faker::Number.within(range: 1..10),
+      elevators: (floor / 10),
+      companies: Faker::Company.name,
+      parking_spots: (floor * 20),
+      max_occupancy_per_floor: ((floor * 20) * 2),
+  #    corporations: ,    
+  #   business_hours: ,
+  #   created_at: ,
+  #   updated_at: ,
+  #   elevator_amount: ,
+  #   apartments: ,
+      unit_price: unitPrice,
+  #   total_price: ,
+  #   install_fees: ,
+  #   final_price: ,
+  )
 
 end
 

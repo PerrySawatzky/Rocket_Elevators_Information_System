@@ -20,7 +20,7 @@
 //= require rails-ujs
 //= require toastr
 //= require activestorage
-//= require turbolinks
+
 //= require popper
 //= require scripts
 //= require bootstrap-sprockets
