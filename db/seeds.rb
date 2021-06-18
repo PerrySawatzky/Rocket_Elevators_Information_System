@@ -16,7 +16,6 @@ data_hash = JSON.parse(file)
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-
 employees_list = [
   [1, "Genest" , "Nicolas", "CEO"],
   [2, "Fortier" , "Nadya", "Director"],
@@ -84,23 +83,15 @@ end
 address_type = ["Billing", "Shipping", "Home", "Business"]
 address_status = ["Active", "Inactive"]
 adress_entity = ["Building", "Customer"]
-i = 0
+
+
+typeBattery = ["Residential", "Commercial", "Corporate", "Hybrid"]
+elevatorModel = ["Standard", "Premium", "Excelium"]
+
 data_hash['addresses'].each do |address|  
+  statusBattery = ["online", "offline"]
   date = Faker::Date.between(from: '2018-06-20', to: '2021-06-20')
-  Address.create(
-    address_type: address_type[rand(4)], 
-    status: address_status[rand(2)],
-    entity: adress_entity[rand(2)], 
-    number_and_street: address['address1'], 
-    suite_or_apartment: address['address2'], 
-    city: address['city'], 
-    postal_code: address['postalCode'], 
-    country: address["state"], 
-    notes: Faker::Lorem.paragraph,
-    #created_at: , 
-    #updated_at: , 
-    #building_id: , 
-  )
+  
   
 
   lead = Lead.create(
@@ -152,11 +143,28 @@ data_hash['addresses'].each do |address|
     updated_at: customer.updated_at,
   )
 
+  Address.create(
+    address_type: address_type[rand(4)], 
+    status: address_status[rand(2)],
+    entity: adress_entity[rand(2)], 
+    number_and_street: address['address1'], 
+    suite_or_apartment: address['address2'], 
+    city: address['city'], 
+    postal_code: address['postalCode'], 
+    country: address["state"], 
+    notes: Faker::Lorem.paragraph,
+    created_at: building.created_at, 
+    updated_at: building.updated_at, 
+    building_id: building.id, 
+  )
+ 
+
+
 
   battery = Battery.create(
     building_id: building.id,
-    # battery_type: null,
-    # status: null,
+    battery_type: typeBattery[rand(4)],
+    status: statusBattery[rand(2)],
     employee_id: Faker::IDNumber.valid,
     commissioned_date: Faker::Date.backward(days: 14),
     last_inspection_date: Faker::Date.backward(days: 14),
@@ -166,24 +174,39 @@ data_hash['addresses'].each do |address|
     created_at: building.created_at,
     updated_at: building.updated_at,
   )
+
+  
+
+  if battery.status == "offline"
+    statusBattery = ["offline", "offline", "offline"]
+  else
+    statusBattery = ["online", "online", "offline"]
+  end
+
   
   column = Column.create(
     battery_id: battery.id,
-    #column_type: Faker::Address.full_address,
+    column_type: battery.battery_type,
     num_floors_served: Faker::Number.within(range: 1..60),
-    # status: ,
+    status: statusBattery[rand(3)],
     information: Faker::Lorem.paragraph,
     notes: Faker::Lorem.paragraph,
     created_at: battery.created_at,
     updated_at: battery.updated_at,
   )
 
-  Elevator.create(
+  if column.status == "offline"
+    statusBattery = ["offline", "offline", "offline", "offline"]
+  else
+    statusBattery = ["online", "online", "online", "offline"]
+  end
+
+  elevator = Elevator.create(
     column_id: column.id,
-    serial_number: Faker::IDNumber.valid,
-    model: Faker::IDNumber.valid,
-    # elevator_type: Faker::Internet.email,
-    # status: Faker::Lorem.paragraph,
+    serial_number: Faker::Number.number(digits: 10),
+    model: elevatorModel[rand(3)],
+    elevator_type: column.column_type,
+    status: statusBattery[rand(4)],
     date_of_commissioning: Faker::Date.backward(days: 14),
     last_inspection: Faker::Date.backward(days: 14),
     certificate_of_inspection: Faker::File.mime_type,
@@ -193,7 +216,15 @@ data_hash['addresses'].each do |address|
     updated_at: column.updated_at,
   )
 
-  i = i + 1
+  BuildingDetail.create(
+    building_id: building.id,
+    information_key: battery.battery_type + " " + Faker::Lorem.paragraph,
+    value: elevator.model,
+    created_at: building.created_at,
+    updated_at: building.updated_at,
+  )
+
+
 
 end
 

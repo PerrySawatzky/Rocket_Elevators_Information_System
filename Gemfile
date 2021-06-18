@@ -82,7 +82,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rest-client'
 
-gem 'pry'
+gem 'json'
 
 gem 'owlcarousel-rails'
 
@@ -90,5 +90,5 @@ gem 'rails_admin'
 
 gem 'faker'
 
-gem 'json'
+
 
