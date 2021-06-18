@@ -466,6 +466,7 @@
         {
             "address1": "388 East Main Street",
             "address2": "",
+            "city": "Middlebury",
             "state": "VT",
             "postalCode": "05753",
             "coordinates": {
@@ -861,6 +862,7 @@
         {
             "address1": "270 Chrissy's Court",
             "address2": "",
+            "city": "Bristol",
             "state": "VT",
             "postalCode": "05443",
             "coordinates": {

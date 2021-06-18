@@ -16,6 +16,8 @@ data_hash = JSON.parse(file)
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+require "faker"
+
 employees_list = [
   [1, "Genest" , "Nicolas", "CEO"],
   [2, "Fortier" , "Nadya", "Director"],
