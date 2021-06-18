@@ -68,11 +68,28 @@ users_list = [
 
 ]
 
+quote_list = [
+  ["residential", "standard", 100, 21, 5, nil, nil, nil, nil, nil, nil, nil, nil, 2, 7565, 15130, 1513, 16643, Faker::Company.name ,Faker::Internet.email],
+  ["residential", "excelium", 200, 61, 2, nil, nil, nil, nil, nil, nil, nil, nil, 4, 15400, 61600, 9856, 71456, Faker::Company.name ,Faker::Internet.email],
+  ["residential", "standard", 700, 101, 20, nil, nil, nil, nil, nil, nil, nil, nil, 12, 7656, 90780, 9078, 99858, Faker::Company.name ,Faker::Internet.email],
+  ["commercial", "standard", nil, 20, 5, 10, 10, 200, nil, nil, nil, nil, nil, 10, 7565, 75650, 7565, 83215, Faker::Company.name ,Faker::Internet.email],
+  ["commercial", "excelium", nil, 30, 10, 16, 25, 450, nil, nil, nil, nil, nil, 16, 15400, 246400, 39424, 285824, Faker::Company.name ,Faker::Internet.email],
+  ["commercial", "premium", nil, 4, 50, 20, 200, 300, nil, nil, nil, nil, nil, 20, 12345, 246900, 32097, 278997, Faker::Company.name ,Faker::Internet.email],
+  ["corporate", "standard", nil, 51, 10, nil, nil, 200, 20, 30, nil, nil, nil, 4, 7565, 30260, 3026, 33286, Faker::Company.name ,Faker::Internet.email],
+  ["corporate", "excelium", nil, 52, 50, nil, nil, 150, 5, 10, nil, nil, nil, 3, 15400, 46200, 7392, 53592, Faker::Company.name ,Faker::Internet.email],
+  ["hybrid", "standard", nil, 60, 10, nil, 20, 200, 10, nil, "9 to 5", nil, nil, 4, 7565, 30260, 3026, 33286, Faker::Company.name ,Faker::Internet.email],
+  ["hybrid", "excelium", nil, 21, 5, nil, 40, 300, 20, nil, "8 to 5", nil, nil, 7, 15400, 107800, 17248, 125048, Faker::Company.name ,Faker::Internet.email]
+]
 
 # User.create! do |u|
 #   u.email     = 'test_admin@test.com'
 #   u.password  = 'password'
 #   u.superadmin_role = true
+
+quote_list.each do |building_type, product_line, apartments, floors, basements, elevators, companies, parking_spots, max_occupancy_per_floor, corporations, business_hours, created_at, updated_at, elevator_amount, unit_price, total_price, install_fees, final_price, company_name, email|
+  Quote.create( building_type: building_type, product_line: product_line, apartments: apartments, floors: floors, basements: basements, elevators: elevators, companies: companies, parking_spots: parking_spots, max_occupancy_per_floor: max_occupancy_per_floor, corporations: corporations, business_hours: business_hours, created_at: created_at, updated_at: updated_at, elevator_amount: elevator_amount, total_price: total_price, install_fees: install_fees, final_price: final_price, company_name: company_name, email: email)
+end
+
 
 users_list.each do |email, password, superadmin_role|
   User.create( email: email, password: password, superadmin_role: superadmin_role)
@@ -248,43 +265,7 @@ data_hash['addresses'].each do |address|
     updated_at: building.updated_at,
   )
 
-  floor = Faker::Number.within(range: 10..150)
 
-  quoteProductLine = elevatorModel[rand(3)]
-
-  unitPrice = 0
-
-  if quoteProductLine == "Standard"
-    unitPrice = 7565
-  elsif quoteProductLine == "Premium"
-    unitPrice = 12345
-  else
-    unitPrice = 15400
-  end
-
-
-
-  Quote.create(
-      building_type: typeBattery[rand(4)],
-      product_line: quoteProductLine,
-      apartments: (floor * 20),
-      floors: floor,
-      basements: Faker::Number.within(range: 1..10),
-      elevators: (floor / 10),
-      companies: Faker::Company.name,
-      parking_spots: (floor * 20),
-      max_occupancy_per_floor: ((floor * 20) * 2),
-  #    corporations: ,    
-  #   business_hours: ,
-  #   created_at: ,
-  #   updated_at: ,
-  #   elevator_amount: ,
-  #   apartments: ,
-      unit_price: unitPrice,
-  #   total_price: ,
-  #   install_fees: ,
-  #   final_price: ,
-  )
 
 end
 
