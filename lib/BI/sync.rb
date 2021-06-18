@@ -18,7 +18,7 @@ module BI
                 :host => ENV['PG_HOST'], 
                 :port => 5432, 
                 :dbname => ENV['DBNAME'], 
-                :user => ENV['USER'],
+                :user => ENV['PG_USER'],
                 :password => ENV['PASSWORD'] )
                 self.conn = conn
             end
