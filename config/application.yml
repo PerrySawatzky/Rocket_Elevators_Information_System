@@ -9,7 +9,7 @@
 development:
   PG_HOST: '127.0.0.1'
   DBNAME: 'rocket_elevators_postgres'
-  USER: 'officeimac'
+  PG_USER: 'officeimac'
   PASSWORD: ''
 
 
