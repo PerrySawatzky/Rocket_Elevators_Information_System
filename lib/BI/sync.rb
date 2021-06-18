@@ -2,11 +2,6 @@ require 'pg'
 
 module BI
     class Sync
-
-        #Install Figaro Gem
-        #Configure application.yml 
-        #User ENV variables in here
-        #Add application.yml to .gitignore
         #deploy
         #configre application.yml on server
 
@@ -42,12 +37,6 @@ module BI
                 '#{email}', 
                 '#{num_of_elevators}')")
             end
-        end
-        def all_methods
-            empty_factquotes()
-            inject_factcontact()
-            inject_factquotes()
-            
         end
         def inject_factcontact
             Lead.all.each do |lead|
