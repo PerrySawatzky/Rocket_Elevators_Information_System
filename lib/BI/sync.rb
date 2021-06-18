@@ -2,16 +2,24 @@ require 'pg'
 
 module BI
     class Sync
+
+        #Install Figaro Gem
+        #Configure application.yml 
+        #User ENV variables in here
+        #Add application.yml to .gitignore
+        #deploy
+        #configre application.yml on server
+
         #init varable such as my_tool using BI::Sync.new "my_tool = BI::Sync.new"
         attr_accessor :conn
         #conn attribute connects us to the proper database, update these values when deploying
         def initialize
             conn = PG::Connection.new( 
-                :host => "127.0.0.1", 
+                :host => ENV['PG_HOST'], 
                 :port => 5432, 
-                :dbname => 'rocket_elevators_postgres', 
-                :user => 'officeimac', 
-                :password => '' )
+                :dbname => ENV['DBNAME'], 
+                :user => ENV['USER'],
+                :password => ENV['PASSWORD'] )
                 self.conn = conn
             end
             
@@ -34,6 +42,12 @@ module BI
                 '#{email}', 
                 '#{num_of_elevators}')")
             end
+        end
+        def all_methods
+            empty_factquotes()
+            inject_factcontact()
+            inject_factquotes()
+            
         end
         def inject_factcontact
             Lead.all.each do |lead|
@@ -59,7 +73,7 @@ module BI
             Elevator.all.each do |elevator|
                 date_of_commissioning = elevator.date_of_commissioning
                 building_id = elevator.column.battery.building_id
-                customer_id = elevator .column.battery.building.customer.id
+                customer_id = elevator.column.battery.building.customer.id
                 building_city = elevator.column.battery.building.address.city
                 serial_number =  elevator.serial_number
                 self.conn.exec("INSERT into factelevator (
@@ -81,12 +95,12 @@ module BI
                 company_name = customer.company_name
                 full_name_company_contact = customer.company_contact_full_name
                 email_company_contact = customer.company_contact_email
-                num_of_elevators = 2
-                # Elevator.all.each do |elevator|
-                #     if elevator.column.battery.building.customer.id == customer.id
-                #         num_of_elevators += 1
-                #     end
-                # end
+                num_of_elevators = 0
+                Elevator.all.each do |elevator|
+                    if elevator.column.battery.building.customer.id == customer.id
+                        num_of_elevators += 1
+                    end
+                end
                 customer_city = customer.headquarters_address
                 self.conn.exec("INSERT into DimCustomers (
                 creation, 
@@ -118,7 +132,8 @@ module BI
                     
         def sync_mysql
 
-            self.sync_mysql_buildings
+            puts "TEST"
+            #self.sync_mysql_buildings
 
         end
 
