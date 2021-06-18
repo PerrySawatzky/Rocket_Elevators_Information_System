@@ -22,7 +22,17 @@ module BI
                 company_name = quote.company_name
                 email = quote.email 
                 num_of_elevators = quote.elevator_amount
-                self.conn.exec("INSERT into factquotes (quote_id, creation, company_name, email, num_of_elevators) VALUES ('#{quote_id}', '#{creation}', '#{company_name.gsub("'", "")}', '#{email}', '#{num_of_elevators}')")
+                self.conn.exec("INSERT into factquotes (
+                quote_id, 
+                creation, 
+                company_name, 
+                email, 
+                num_of_elevators) VALUES (
+                '#{quote_id}', 
+                '#{creation}', 
+                '#{company_name.gsub("'", "")}', 
+                '#{email}', 
+                '#{num_of_elevators}')")
             end
         end
         def inject_factcontact
@@ -32,61 +42,78 @@ module BI
                 company_name = lead.company_name 
                 email = lead.email 
                 project_name = lead.project_name
-                self.conn.exec("INSERT into factcontact (contact_id, creation, company_name, email, project_name) VALUES ('#{contact_id}', '#{creation}', '#{company_name.gsub("'", "")}', '#{email}', '#{project_name}')")
+                self.conn.exec("INSERT into factcontact (
+                contact_id, 
+                creation, 
+                company_name, 
+                email, 
+                project_name) VALUES (
+                '#{contact_id}', 
+                '#{creation}', 
+                '#{company_name.gsub("'", "")}', 
+                '#{email}', 
+                '#{project_name.gsub("'", "")}')")
             end
         end
         def inject_factelevator
             Elevator.all.each do |elevator|
                 date_of_commissioning = elevator.date_of_commissioning
-                building_id = elevator.column.battery.building.id
+                building_id = elevator.column.battery.building_id
                 customer_id = elevator .column.battery.building.customer.id
                 building_city = elevator.column.battery.building.address.city
                 serial_number =  elevator.serial_number
-                self.conn.exec("INSERT into factelevator (date_of_commissioning, building_id, customer_id, building_city, serial_number) VALUES ('#{date_of_commissioning}','#{building_id}', '#{customer_id}', '#{building_city.gsub("'", "")}', '#{serial_number}')")
+                self.conn.exec("INSERT into factelevator (
+                date_of_commissioning, 
+                building_id, 
+                customer_id, 
+                building_city, 
+                serial_number) VALUES (
+                '#{date_of_commissioning}',
+                '#{building_id}', 
+                '#{customer_id}', 
+                '#{building_city.gsub("'", "")}', 
+                '#{serial_number}')")
             end
         end
-        def query_dimcustomers
+        def inject_dimcustomers
             Customer.all.each do |customer|
-                creation_date =  customer.created_at
+                creation =  customer.created_at
                 company_name = customer.company_name
-                main_contact = customer.company_contact_full_name
-                main_email = customer.company_contact_email
-                nbelevators = 1
-                # customer_city = customer.user.
-                puts companyname
-                # puts maincontact
-                puts mainemail
-                puts nbelevators
-                self.conn.exec("INSERT into DimCustomers (company_name, creation) VALUES ('#{company_name.gsub("'", "")}', '#{creation_date}')")
+                full_name_company_contact = customer.company_contact_full_name
+                email_company_contact = customer.company_contact_email
+                num_of_elevators = 2
+                # Elevator.all.each do |elevator|
+                #     if elevator.column.battery.building.customer.id == customer.id
+                #         num_of_elevators += 1
+                #     end
+                # end
+                customer_city = customer.headquarters_address
+                self.conn.exec("INSERT into DimCustomers (
+                creation, 
+                company_name, 
+                full_name_company_contact, 
+                email_company_contact, 
+                num_of_elevators, 
+                customer_city) VALUES (
+                '#{creation}', 
+                '#{company_name.gsub("'", "")}', 
+                '#{full_name_company_contact.gsub("'", "")}', 
+                '#{email_company_contact}', 
+                '#{num_of_elevators}', 
+                '#{customer_city.gsub("'", "")}')")
             end
-            
-            # self.conn.exec( "SELECT * FROM DimCustomers" ) do |result|
-            #     puts "hello"
-            #     #select answers from this table and for each, make one result
-            #     # creation = created_at
-            #     # company_name = company_name
-            #     # full_name_company_contact = company_contact_full_name
-            #     # email_company_contact = company_contact_email
-            #     # num_of_elevators = num entries in elevators table with user_id
-                
-            #     result.each do |row|
-            #         puts "wow"
-            #         #for each result do a row
-            #         puts row.values_at('company_name')
-            #         #look at the column with value 'company_name' and print those
-            #         self.conn.exec("INSERT into DimCustomers (company_name) VALUES ('DOG SHIT')")
-            #     end
-            # end
         end
-
+        def empty_factquotes
+            self.conn.exec("TRUNCATE TABLE factquotes")
+        end
         def empty_factcontact
             self.conn.exec("TRUNCATE TABLE factcontact")
         end
-        def empty_dimcustomers
-            self.conn.exec("TRUNCATE TABLE dimcustomers")
-        end
         def empty_factelevator
             self.conn.exec("TRUNCATE TABLE factelevator")
+        end
+        def empty_dimcustomers
+            self.conn.exec("TRUNCATE TABLE dimcustomers")
         end
                     
         def sync_mysql
