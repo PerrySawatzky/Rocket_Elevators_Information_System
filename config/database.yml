@@ -15,9 +15,14 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
 <<<<<<< HEAD
+<<<<<<< HEAD
   password:
 =======
   password: root
+=======
+  password: 
+
+>>>>>>> 4e49cfbf1a25f4c771b179ca12e03363561d668c
 
 
 >>>>>>> be3a5489452cb261bb6acdbaaf074597b849c47b
