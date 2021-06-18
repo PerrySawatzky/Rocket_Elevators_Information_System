@@ -15,8 +15,8 @@ data_hash = JSON.parse(file)
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-require "faker"
 
+require "faker"
 
 employees_list = [
   [1, "Genest" , "Nicolas", "CEO"],
@@ -78,15 +78,27 @@ users_list.each do |email, password, superadmin_role|
   User.create( email: email, password: password, superadmin_role: superadmin_role)
 end
 
+employees_list.each do |user_id, last_name, first_name, title|
+  Employee.create( user_id: user_id, last_name: last_name,  first_name: first_name, title: title)
+end
+
 address_type = ["Billing", "Shipping", "Home", "Business"]
 address_status = ["Active", "Inactive"]
 adress_entity = ["Building", "Customer"]
-i = 0
+
+
+typeBattery = ["Residential", "Commercial", "Corporate", "Hybrid"]
+elevatorModel = ["Standard", "Premium", "Excelium"]
+
 data_hash['addresses'].each do |address|  
-  Address.create(address_type: address_type[rand(4)], status: address_status[rand(2)],entity: adress_entity[rand(2)], number_and_street: address['address1'], suite_or_apartment: address['address2'], city: address['city'], postal_code: address['postalCode'], country: address["state"], notes: Faker::Lorem.paragraph  )
+  statusBattery = ["online", "offline"]
+  date = Faker::Date.between(from: '2018-06-20', to: '2021-06-20')
+  
   
 
-  Lead.create(
+  lead = Lead.create(
+    
+    
       full_name: Faker::Name.name,
       company_name: Faker::Company.name,
       email: Faker::Internet.email,
@@ -96,11 +108,16 @@ data_hash['addresses'].each do |address|
       dept_in_charge_of_elevators: Faker::Job.field, #commercial, residential ..&
       message: Faker::Lorem.paragraph,
       attached_file: Faker::File.mime_type,
-      date_of_contact_request: Faker::Date.between(from: '2018-06-20', to: '2021-06-20')
+      date_of_contact_request: date,
+      created_at: date,
+      updated_at: Faker::Date.between(from: date, to: '2021-06-20'),
+
+   
+     
   )
   
-  Customer.create(
-    user_id: i,
+  customer = Customer.create(
+    user_id: lead.id,
     customer_creation_date: Faker::Date.backward(days: 14),
     company_name: Faker::Company.name,
     headquarters_address: address['address1'],
@@ -110,11 +127,13 @@ data_hash['addresses'].each do |address|
     company_description: Faker::Lorem.paragraph,
     service_tech_authority_full_name: Faker::Name.name,
     technical_authority_for_service_phone: Faker::PhoneNumber.phone_number,
-    technical_manager_email_for_service: Faker::Internet.email
+    technical_manager_email_for_service: Faker::Internet.email,
+    created_at: lead.date_of_contact_request,
+    updated_at: lead.updated_at,
   )
 
-  Building.create(
-    customer_id: i,
+  building = Building.create(
+    customer_id: customer.id,
     address_of_the_building: address['address1'],
     full_name_of_the_building_administrator: Faker::Name.name,
     email_of_the_administrator_of_the_building: Faker::Internet.email,
@@ -122,44 +141,92 @@ data_hash['addresses'].each do |address|
     full_name_of_the_technical_contact_for_the_building: Faker::Name.name,
     technical_contact_email_for_the_building: Faker::Internet.email,
     technical_contact_phone_for_the_building: Faker::PhoneNumber.phone_number,
+    created_at: customer.created_at,
+    updated_at: customer.updated_at,
   )
 
+  Address.create(
+    address_type: address_type[rand(4)], 
+    status: address_status[rand(2)],
+    entity: adress_entity[rand(2)], 
+    number_and_street: address['address1'], 
+    suite_or_apartment: address['address2'], 
+    city: address['city'], 
+    postal_code: address['postalCode'], 
+    country: address["state"], 
+    notes: Faker::Lorem.paragraph,
+    created_at: building.created_at, 
+    updated_at: building.updated_at, 
+    building_id: building.id, 
+  )
+ 
 
-  Battery.create(
-    building_id: i,
-    # type: null,
-    # status: null,
+
+
+  battery = Battery.create(
+    building_id: building.id,
+    battery_type: typeBattery[rand(4)],
+    status: statusBattery[rand(2)],
     employee_id: Faker::IDNumber.valid,
     commissioned_date: Faker::Date.backward(days: 14),
     last_inspection_date: Faker::Date.backward(days: 14),
     certificate_of_operations: Faker::File.mime_type,
     information: Faker::Lorem.paragraph,
     notes: Faker::Lorem.paragraph,
-  )
-  
-  Column.create(
-    battery_id: i,
-    #type: Faker::Address.full_address,
-    num_floors_served: Faker::Number.within(range: 1..60),
-    # status: Faker::Internet.email,
-    information: Faker::Lorem.paragraph,
-    notes: Faker::Lorem.paragraph,
+    created_at: building.created_at,
+    updated_at: building.updated_at,
   )
 
-  Elevator.create(
-    column_id: i,
-    serial_number: Faker::IDNumber.valid,
-    model: Faker::IDNumber.valid,
-    # type: Faker::Internet.email,
-    # status: Faker::Lorem.paragraph,
+  
+
+  if battery.status == "offline"
+    statusBattery = ["offline", "offline", "offline"]
+  else
+    statusBattery = ["online", "online", "offline"]
+  end
+
+  
+  column = Column.create(
+    battery_id: battery.id,
+    column_type: battery.battery_type,
+    num_floors_served: Faker::Number.within(range: 1..60),
+    status: statusBattery[rand(3)],
+    information: Faker::Lorem.paragraph,
+    notes: Faker::Lorem.paragraph,
+    created_at: battery.created_at,
+    updated_at: battery.updated_at,
+  )
+
+  if column.status == "offline"
+    statusBattery = ["offline", "offline", "offline", "offline"]
+  else
+    statusBattery = ["online", "online", "online", "offline"]
+  end
+
+  elevator = Elevator.create(
+    column_id: column.id,
+    serial_number: Faker::Number.number(digits: 10),
+    model: elevatorModel[rand(3)],
+    elevator_type: column.column_type,
+    status: statusBattery[rand(4)],
     date_of_commissioning: Faker::Date.backward(days: 14),
     last_inspection: Faker::Date.backward(days: 14),
     certificate_of_inspection: Faker::File.mime_type,
     information: Faker::Lorem.paragraph,
     notes: Faker::Lorem.paragraph,
+    created_at: column.created_at,
+    updated_at: column.updated_at,
   )
 
-  i = i + 1
+  BuildingDetail.create(
+    building_id: building.id,
+    information_key: battery.battery_type + " " + Faker::Lorem.paragraph,
+    value: elevator.model,
+    created_at: building.created_at,
+    updated_at: building.updated_at,
+  )
+
+
 
 end
 
@@ -167,9 +234,7 @@ end
  
 
 
-employees_list.each do |user_id, last_name, first_name, title|
-    Employee.create( user_id: user_id, last_name: last_name,  first_name: first_name, title: title)
-end
+
 
 
 

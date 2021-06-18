@@ -15,7 +15,7 @@ module BI
                 self.conn = conn
             end
             
-        def query_fact_quotes
+        def inject_factquotes
             Quote.all.each do |quotes|
                 #quote_id > Quote > id
                 #creation > Quote > created_at
@@ -27,52 +27,34 @@ module BI
             # quotes.each do |row|
             #     row.values_at('')
         end
-        def query_fact_contact
-            #contact_id > Leads > id
-            #creation > Leads > created_at
-            #company_name >Leads > email
-            #email> Leads > email
-            #project_name > Leads>project_name
-            self.conn.exec( "SELECT * FROM ")
-        end
-        def query_fact_elevator
-            
-            Elevator.all.each do |elevators|
-                serialnum =  elevators.serial_number
-                columnid = elevators.column_id
-                # batteryid = Column.columnid.battery_id
-                address = elevators.column.battery.building.address
-                puts columnid
-                date_of_commissioning = elevators.date_of_commissioning
-                puts date_of_commissioning
-                self.conn.exec("INSERT into factelevator (serial_number) VALUES (#{serialnum})")
+        def inject_factcontact
+            Lead.all.each do |lead|
+                contact_id = lead.id
+                creation = lead.created_at
+                company_name = lead.company_name 
+                email = lead.email 
+                project_name = lead.project_name
+                self.conn.exec("INSERT into factcontact (contact_id, creation, company_name, email, project_name) VALUES ('#{contact_id}', '#{creation}', '#{company_name.gsub("'", "")}', '#{email}', '#{project_name}')")
             end
-            #    Elevator.find_by_sql("SELECT id, serial_number FROM elevators").all.each do |elevators|
-            #     puts 'elevators'
-            #    end
-            # Elevator.pluck(:serial_number) do |elevators|
-            #     # puts elevators
-            #     # puts "good"
-            #     elevators.each do |row|
-            #         # puts row.values_at('serial_number')
-            #         # puts "great"
-            #         self.conn.exec("INSERT into factelevator (serial_number) VALUES (row)")
-            #         # puts elevators
-            #     end
-            # end
-            # Elevator.connection:serial_number.each do |elevators|
-            #     puts elevators
-            #     puts "wowiebazowie"
-            # end
         end
-        def query_dim_customers
+        def inject_factelevator
+            Elevator.all.each do |elevator|
+                date_of_commissioning = elevator.date_of_commissioning
+                building_id = elevator.column.battery.building.id
+                customer_id = elevator .column.battery.building.customer.id
+                building_city = elevator.column.battery.building.address.city
+                serial_number =  elevator.serial_number
+                self.conn.exec("INSERT into factelevator (date_of_commissioning, building_id, customer_id, building_city, serial_number) VALUES ('#{date_of_commissioning}','#{building_id}', '#{customer_id}', '#{building_city.gsub("'", "")}', '#{serial_number}')")
+            end
+        end
+        def query_dimcustomers
             Customer.all.each do |customer|
-                creationdate =  customer.created_at
-                companyname = customer.company_name
-                # maincontact = customers.company_contact_full_name
-                mainemail = customer.company_contact_email
-                #customercity = 
+                creation_date =  customer.created_at
+                company_name = customer.company_name
+                main_contact = customer.company_contact_full_name
+                main_email = customer.company_contact_email
                 nbelevators = 5
+                customer_city = customer.user.
                 puts companyname
                 # puts maincontact
                 puts mainemail
@@ -99,10 +81,13 @@ module BI
             # end
         end
 
-        def empty_customer_table
+        def empty_factcontact
+            self.conn.exec("TRUNCATE TABLE factcontact")
+        end
+        def empty_dimcustomers
             self.conn.exec("TRUNCATE TABLE dimcustomers")
         end
-        def empty_elevator_table
+        def empty_factelevator
             self.conn.exec("TRUNCATE TABLE factelevator")
         end
                     
