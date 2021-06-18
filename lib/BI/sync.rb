@@ -16,16 +16,14 @@ module BI
             end
             
         def inject_factquotes
-            Quote.all.each do |quotes|
-                #quote_id > Quote > id
-                #creation > Quote > created_at
-                #company_name > ?????
-                #email > ????
-                # nbElevator > Quote > elevator_amount
-                puts "hello"
+            Quote.all.each do |quote|
+                quote_id = quote.id
+                creation = quote.created_at
+                company_name = quote.company_name
+                email = quote.email 
+                num_of_elevators = quote.elevator_amount
+                self.conn.exec("INSERT into factquotes (quote_id, creation, company_name, email, num_of_elevators) VALUES ('#{quote_id}', '#{creation}', '#{company_name.gsub("'", "")}', '#{email}', '#{num_of_elevators}')")
             end
-            # quotes.each do |row|
-            #     row.values_at('')
         end
         def inject_factcontact
             Lead.all.each do |lead|
@@ -53,13 +51,13 @@ module BI
                 company_name = customer.company_name
                 main_contact = customer.company_contact_full_name
                 main_email = customer.company_contact_email
-                nbelevators = 5
-                customer_city = customer.user.
+                nbelevators = 1
+                # customer_city = customer.user.
                 puts companyname
                 # puts maincontact
                 puts mainemail
                 puts nbelevators
-                self.conn.exec("INSERT into DimCustomers (company_name, creation) VALUES ('#{companyname.gsub("'", "")}', '#{creationdate}')")
+                self.conn.exec("INSERT into DimCustomers (company_name, creation) VALUES ('#{company_name.gsub("'", "")}', '#{creation_date}')")
             end
             
             # self.conn.exec( "SELECT * FROM DimCustomers" ) do |result|
