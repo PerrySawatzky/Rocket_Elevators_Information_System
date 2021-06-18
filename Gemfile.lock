@@ -120,6 +120,8 @@ GEM
     faker (2.18.0)
       i18n (>= 1.6, < 2)
     ffi (1.15.1)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     font-awesome-sass (4.3.2.1)
       sass (~> 3.2)
     globalid (0.4.2)
@@ -336,6 +338,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   faker
+  figaro (~> 1.1, >= 1.1.1)
   font-awesome-sass (~> 4.3.0)
   groupdate
   jbuilder (~> 2.5)
