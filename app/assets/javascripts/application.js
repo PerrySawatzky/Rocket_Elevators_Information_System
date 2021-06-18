@@ -20,12 +20,14 @@
 //= require rails-ujs
 //= require toastr
 //= require activestorage
-//= require turbolinks
+
 //= require popper
 //= require scripts
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require owl.carousel
 //= require_tree .
+//= require chartkick
+//= require Chart.bundle
 
 

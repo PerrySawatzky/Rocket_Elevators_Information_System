@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  type_of_address: MyString
+  address_type: MyString
   status: MyString
   entity: MyString
   number_and_street: MyString
@@ -12,7 +12,7 @@ one:
   notes: MyString
 
 two:
-  type_of_address: MyString
+  address_type: MyString
   status: MyString
   entity: MyString
   number_and_street: MyString
