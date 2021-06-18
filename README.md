@@ -24,7 +24,7 @@ mySQL server start
 rails db:create
 rails s
 
-Here are the commands that will have to be entered in your terminal where modifications are made in the database:
+Here are the commands that will have to be entered in your terminal when modifications are made in the database:
 - Ctrl + C (to stop the server)
 - rails db:migrate reset
 - rails db:seed
