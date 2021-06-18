@@ -114,25 +114,6 @@ loop do
   date = Faker::Date.between(from: '2018-06-20', to: '2021-06-20')
   i += 1
   lead = Lead.create(
-<<<<<<< HEAD
-    
-    
-      full_name: Faker::Name.name,
-      company_name: Faker::Company.name,
-      email: Faker::Internet.email,
-      phone: Faker::PhoneNumber.phone_number,
-      project_name: Faker::Lorem.word,
-      project_description: Faker::Lorem.paragraph,
-      dept_in_charge_of_elevators: Faker::Job.field, 
-      message: Faker::Lorem.paragraph,
-      attached_file: Faker::File.mime_type,
-      date_of_contact_request: date,
-      created_at: date,
-      updated_at: Faker::Date.between(from: date, to: '2021-06-20'),
-
-   
-     
-=======
     full_name: Faker::Name.name,
     company_name: Faker::Company.name,
     email: Faker::Internet.email,
@@ -145,7 +126,6 @@ loop do
     date_of_contact_request: date,
     created_at: date,
     updated_at: Faker::Date.between(from: date, to: '2021-06-20'),   
->>>>>>> be3a5489452cb261bb6acdbaaf074597b849c47b
   )
   
   if i == 10
