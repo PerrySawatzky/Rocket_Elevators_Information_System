@@ -36,7 +36,7 @@ By clicking on “Login”, users will be redirected to a page and be asked to p
 	Example: 
 
 	Email: nicolas.genest@codeboxx.biz
-	Password: C************!
+	Password: password
 
 Forms are accessible to all users (with or without accounts). Once a “Contact Us” or quote form is filled and submitted, data is generated in the back-end.
 
