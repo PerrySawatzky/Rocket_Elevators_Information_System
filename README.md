@@ -20,9 +20,9 @@ Usage
 We previously created a static website with a residential, commercial, and quote page. We will now be using a server to run the website. 
 
 Here are the commands that will have to be entered in your terminal to start the server:
-mySQL server start
-rails db:create
-rails s
+- mySQL server start
+- rails db:create
+- rails s
 
 Here are the commands that will have to be entered in your terminal when modifications are made in the database:
 - Ctrl + C (to stop the server)
