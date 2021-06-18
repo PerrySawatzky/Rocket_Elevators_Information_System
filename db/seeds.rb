@@ -78,6 +78,7 @@ users_list.each do |email, password, superadmin_role|
   User.create( email: email, password: password, superadmin_role: superadmin_role)
 end
 
+
 employees_list.each do |user_id, last_name, first_name, title|
   Employee.create( user_id: user_id, last_name: last_name,  first_name: first_name, title: title)
 end
@@ -97,8 +98,6 @@ data_hash['addresses'].each do |address|
   
 
   lead = Lead.create(
-    
-    
       full_name: Faker::Name.name,
       company_name: Faker::Company.name,
       email: Faker::Internet.email,
