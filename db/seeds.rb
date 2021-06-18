@@ -15,11 +15,7 @@ data_hash = JSON.parse(file)
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-<<<<<<< HEAD
 require "faker"
-=======
- require "faker"
->>>>>>> a7780d6b32c2edc44bec3d9944de3edbc8810fa6
 
 
 employees_list = [
@@ -87,7 +83,7 @@ address_status = ["Active", "Inactive"]
 adress_entity = ["Building", "Customer"]
 i = 0
 data_hash['addresses'].each do |address|  
-  Address.create(type_of_address: address_type[rand(4)], status: address_status[rand(2)],entity: adress_entity[rand(2)], number_and_street: address['address1'], suite_or_apartment: address['address2'], city: address['city'], postal_code: address['postalCode'], country: address["state"], notes: Faker::Lorem.paragraph  )
+  Address.create(address_type: address_type[rand(4)], status: address_status[rand(2)],entity: adress_entity[rand(2)], number_and_street: address['address1'], suite_or_apartment: address['address2'], city: address['city'], postal_code: address['postalCode'], country: address["state"], notes: Faker::Lorem.paragraph  )
   
 
   Lead.create(
