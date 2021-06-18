@@ -94,6 +94,12 @@ elevatorModel = ["Standard", "Premium", "Excelium"]
 data_hash['addresses'].each do |address|  
   statusBattery = ["online", "offline"]
   date = Faker::Date.between(from: '2018-06-20', to: '2021-06-20')
+
+  user = User.create( 
+    email: Faker::Internet.email,
+    password: Faker::Lorem.characters(number: 10),
+    superadmin_role: false
+  )
   
   
 
@@ -109,14 +115,11 @@ data_hash['addresses'].each do |address|
       attached_file: Faker::File.mime_type,
       date_of_contact_request: date,
       created_at: date,
-      updated_at: Faker::Date.between(from: date, to: '2021-06-20'),
-
-   
-     
+      updated_at: Faker::Date.between(from: date, to: '2021-06-20'),   
   )
   
   customer = Customer.create(
-    user_id: lead.id,
+    user_id: user.id,
     customer_creation_date: Faker::Date.backward(days: 14),
     company_name: Faker::Company.name,
     headquarters_address: address['address1'],
@@ -156,7 +159,6 @@ data_hash['addresses'].each do |address|
     notes: Faker::Lorem.paragraph,
     created_at: building.created_at, 
     updated_at: building.updated_at, 
-    building_id: building.id, 
   )
  
 

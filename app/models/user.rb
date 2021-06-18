@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :employee
   belongs_to :customer, optional: true
+ 
 end
