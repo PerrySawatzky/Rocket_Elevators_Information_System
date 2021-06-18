@@ -92,3 +92,6 @@ gem 'faker'
 
 gem 'json'
 
+gem "chartkick"
+gem "groupdate"
+
