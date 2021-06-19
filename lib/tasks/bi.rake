@@ -1,4 +1,4 @@
-require("bi/sync")
+require('lib/BI/sync')
 
 namespace :bi do
   desc "TODO"
