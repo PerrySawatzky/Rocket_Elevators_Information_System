@@ -19,6 +19,7 @@ module BI
             end
             
         def inject_factquotes
+            puts "STARTED"
             Quote.all.each do |quote|
                 quote_id = quote.id
                 creation = quote.created_at
@@ -37,8 +38,10 @@ module BI
                 '#{email}', 
                 '#{num_of_elevators}')")
             end
+            puts "FINISHED"
         end
         def inject_factcontact
+            puts "STARTED"
             Lead.all.each do |lead|
                 contact_id = lead.id
                 creation = lead.created_at
@@ -57,8 +60,10 @@ module BI
                 '#{email}', 
                 '#{project_name.gsub("'", "")}')")
             end
+            puts "FINISHED"
         end
         def inject_factelevator
+            puts "STARTED"
             Elevator.all.each do |elevator|
                 date_of_commissioning = elevator.date_of_commissioning
                 building_id = elevator.column.battery.building_id
@@ -77,9 +82,12 @@ module BI
                 '#{building_city.gsub("'", "")}', 
                 '#{serial_number}')")
             end
+            puts "FINISHED"
         end
         def inject_dimcustomers
+            puts "STARTED"
             Customer.all.each do |customer|
+                
                 creation =  customer.created_at
                 company_name = customer.company_name
                 full_name_company_contact = customer.company_contact_full_name
@@ -105,6 +113,7 @@ module BI
                 '#{num_of_elevators}', 
                 '#{customer_city.gsub("'", "")}')")
             end
+            puts "FINISHED"
         end
         def empty_factquotes
             self.conn.exec("TRUNCATE TABLE factquotes")
